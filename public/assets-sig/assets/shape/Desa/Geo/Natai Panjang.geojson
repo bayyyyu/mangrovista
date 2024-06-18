@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Natai Panjang",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-15,
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 44069.0, "KDPPUM": "61", "NAMOBJ": "Natai Panjang", "REMARK": null, "KDPBPS": null, "FCODE": "BA03070040", "LUASWH": null, "UUPP": "Hasil Delineasi Batas Desa 2018", "SRS_ID": "SRGI 2013", "METADATA": "TASWIL1000020200326DATA_BATAS_DESA_KELURAHAN", "KDEBPS": "6106050007", "KDEPUM": "61.04.13.2002", "KDCBPS": "050", "KDCPUM": "61.04.13", "KDBBPS": "06", "WADMKD": "Natai Panjang", "WIADKD": null, "WADMKC": "Tumbang Titi", "WIADKC": "Tumbang Titi", "WADMKK": "Ketapang", "WIADKK": "Ketapang", "WADMPR": "Kalimantan Barat", "WIADPR": "Kalimantan Barat", "TIPADM": 1.0, "KDPKAB": "61.04", "SHAPE_Leng": 0.11372282107345801, "SHAPE_Area": 0.00054801509508700002 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 110.666693999000074, -1.822833, 0.0 ], [ 110.638738170000067, -1.822636827999929, 0.0 ], [ 110.635033637000049, -1.816329112999938, 0.0 ], [ 110.638687870000069, -1.804165325999975, 0.0 ], [ 110.641543223000042, -1.796027568999932, 0.0 ], [ 110.649416999000039, -1.787777998999957, 0.0 ], [ 110.654361, -1.79725, 0.0 ], [ 110.655639, -1.802361, 0.0 ], [ 110.653083, -1.807444, 0.0 ], [ 110.653111, -1.812389, 0.0 ], [ 110.654139, -1.815444, 0.0 ], [ 110.659306, -1.816361, 0.0 ], [ 110.665306, -1.819694, 0.0 ], [ 110.664944, -1.8205, 0.0 ], [ 110.666693999000074, -1.822833, 0.0 ] ] ] ] } }
+]
+}

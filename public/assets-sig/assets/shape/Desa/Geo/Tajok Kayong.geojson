@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Tajok Kayong",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-15,
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 44941.0, "KDPPUM": "61", "NAMOBJ": "Tajok Kayong", "REMARK": null, "KDPBPS": null, "FCODE": "BA03070040", "LUASWH": null, "UUPP": "Hasil Delineasi Batas Desa 2018", "SRS_ID": "SRGI 2013", "METADATA": "TASWIL1000020200326DATA_BATAS_DESA_KELURAHAN", "KDEBPS": "6106090013", "KDEPUM": "61.04.11.2013", "KDCBPS": "090", "KDCPUM": "61.04.11", "KDBBPS": "06", "WADMKD": "Tajok Kayong", "WIADKD": null, "WADMKC": "Nanga Tayap", "WIADKC": "Nanga Tayap", "WADMKK": "Ketapang", "WIADKK": "Ketapang", "WADMPR": "Kalimantan Barat", "WIADPR": "Kalimantan Barat", "TIPADM": 1.0, "KDPKAB": "61.04", "SHAPE_Leng": 0.18097893763029099, "SHAPE_Area": 0.00178004778142 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 110.619328543000051, -1.59759943499995, 0.0 ], [ 110.612754273000064, -1.612808299999926, 0.0 ], [ 110.600667864000059, -1.615412190999962, 0.0 ], [ 110.579086632000042, -1.611932829999944, 0.0 ], [ 110.571306238000034, -1.615227612999945, 0.0 ], [ 110.569591157000048, -1.609324601999958, 0.0 ], [ 110.569594780000045, -1.591949725999939, 0.0 ], [ 110.565281712000058, -1.576311433999933, 0.0 ], [ 110.560926232000043, -1.569490046999931, 0.0 ], [ 110.586932648000072, -1.565958744999932, 0.0 ], [ 110.598085450000042, -1.577186810999933, 0.0 ], [ 110.608349717000067, -1.594980501999942, 0.0 ], [ 110.619328543000051, -1.59759943499995, 0.0 ] ] ] ] } }
+]
+}
