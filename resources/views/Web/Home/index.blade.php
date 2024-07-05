@@ -15,7 +15,7 @@
                                             alt="Customer">
                                     </div>
                                     <div class="lab-content">
-                                        <h3><span>{{ $tanaman }}</span></h3>
+                                        <h3><span>{{ $total_pohon_tertanam }}</span></h3>
                                         <p style="color:grey;">Pohon tertanam</p>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                             alt="Customer">
                                     </div>
                                     <div class="lab-content">
-                                        <h3><span>{{ $jumlah_pohon_hidup }}</span></h3>
+                                        <h3><span>{{ $total_pohon_hidup }}</span></h3>
                                         <p style="color:grey;">Pohon yang tumbuh</p>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
     </section>
 
     <section class="nilai-utama">
-        <div class="shop-page" style="margin-bottom:150px">
+        <div class="shop-page" style="margin-bottom:100px">
             <div class="container">
                 <div class="section-wrapper">
                     <div class="row justify-content-center">
@@ -239,16 +239,9 @@
                                 <div class="card-body">
                                     <div id="map-container" class="position-relative">
                                         <div id="map" class="banner-style-2"></div>
-                                        <div id="map-overlay">
-                                            <p class="overlay-text">Gunakan Ctrl + scroll untuk memperbesar dan
-                                                memperkecil peta</p>
-                                        </div>
                                     </div>
                                     <div class="mt-2" style="text-align: center; margin-bottom:-15px">
-                                        <button onclick="resetMap()" class="btn btn-sm"
-                                            style="background-color: #064635; color: white;"><i
-                                                class="icofont-loop"></i> Reset Marker</button>
-                                        <a href="{{ url('GIS') }}" class="btn btn-sm"
+                                        <a href="{{ url('Peta') }}" class="btn btn-sm"
                                             style="background-color: #064635; color: white;"><i
                                                 class="icofont-search-map"></i> Jelajahi Peta</a>
                                     </div>
@@ -266,7 +259,7 @@
         }
 
         #map {
-            height: 60vh;
+            height: 65vh;
             width: 100%;
             margin-left: auto;
             margin-right: auto;
@@ -607,6 +600,10 @@
             href="{{ url('/') }}/assets-web2/assets/css/leaflet.defaultextent.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
         <!-- leaflet end -->
+        <!-- Marker Cluster -->
+        <link rel="stylesheet" href="{{ url('/') }}/assets-sig/assets/css/MarkerCluster.Default.css" />
+        <link rel="stylesheet" href="{{ url('/') }}/assets-sig/assets/css/MarkerCluster.css" />
+        
     @endpush
     @push('script')
         <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
@@ -617,6 +614,9 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        {{-- marker cluster --}}
+        <script src="{{ url('/') }}/assets-sig/assets/js/leaflet.markercluster.js"></script>
+        <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
     @endpush
 </x-web.app-web>
 <script>
@@ -643,265 +643,339 @@
     });
 
     var map;
-    var eventMarkers = [];
-    var tanamanMarkers = [];
-    var removedEventMarkers = [];
+    var markers = L.markerClusterGroup();
 
+    var LokasiMarkersData = [];
+    @foreach ($list_lokasi as $lokasi)
+        LokasiMarkersData.push({
+            lokasi_id: "{{ $lokasi->id }}",
+            lat: {{ $lokasi->lat }},
+            lng: {{ $lokasi->lng }},
+            title: "{{ $lokasi->nama_lokasi }}",
+            alamat: "{{ $lokasi->alamat_lokasi }}",
+            foto: "{{ $lokasi->foto_lokasi }}",
+            jumlahEvent: "{{ $lokasi->events()->count() }}",
+            jumlahPohon: "{{ $lokasi->total_pohon_ditanam }}",
+        });
+    @endforeach
 
-    // Mendapatkan data marker event dan tanaman dari database
-    var eventMarkersData = [];
-    <?php foreach ($list_event as $event): ?>
-    eventMarkersData.push({
-        event_id: <?php echo $event->id; ?>,
-        lat: <?php echo $event->lat; ?>,
-        lng: <?php echo $event->lng; ?>,
-        title: "<?php echo $event->nama_event; ?>",
-    });
-    <?php endforeach; ?>
+    var EventMarkersData = [];
+    @foreach ($list_event as $event)
+        @php
+            // Hitung status acara
+            $now = \Carbon\Carbon::now();
+            $tanggal_event = \Carbon\Carbon::parse($event->tanggal_event);
+            $tanggal_selesai = \Carbon\Carbon::parse($event->tanggal_selesai);
+            $status = '';
+            $statusClass = '';
 
+            if ($now->gt($tanggal_selesai)) {
+                $status = 'Selesai';
+                $statusClass = 'text-danger';
+            } elseif ($now->between($tanggal_event, $tanggal_selesai)) {
+                $status = 'Berlangsung';
+                $statusClass = 'text-primary';
+            } else {
+                $status = 'Aktif';
+                $statusClass = 'text-success';
+            }
+        @endphp
+        EventMarkersData.push({
+            event_id: "{{ $event->id }}",
+            lat: {{ $event->lat }},
+            lng: {{ $event->lng }},
+            foto: "{{ $event->foto }}",
+            title: "{{ $event->nama_event }}",
+            lokasi_id: "{{ $event->lokasi_id }}",
+            lokasi: "{{ $event->lokasi->nama_lokasi }}",
+            pohonDitanam: "{{ $event->tanaman_event->jumlah_pohon }}",
+            status: "{{ $status }}",
+            statusClass: "{{ $statusClass }}"
+        });
+    @endforeach
 
-    var tanamanMarkersData = [];
-    <?php foreach ($list_tanaman as $tanaman): ?>
-    tanamanMarkersData.push({
-        id: <?php echo $tanaman->id; ?>,
-        event_id: <?php echo isset($tanaman->eventPenanaman) ? $tanaman->eventPenanaman->id : 'null'; ?>,
-        eventPenanaman: "<?php echo $tanaman->eventPenanaman ? $tanaman->eventPenanaman->nama_event : ''; ?>",
-        lat: <?php echo $tanaman->lat; ?>,
-        lng: <?php echo $tanaman->lng; ?>,
-        lokasi: "<?php echo $tanaman->lokasi; ?>",
-        sample: "<?php echo $tanaman->sample; ?>",
-        tanggal_penanaman: "<?php echo date('d M Y', strtotime($tanaman->tanggal_penanaman)); ?>",
-        jenis_mangrove: "<?php echo $tanaman->jenis_mangrove; ?>",
-        jenis_tanah: "<?php echo $tanaman->jenis_tanah; ?>",
-        masa_tumbuh: "<?php echo $tanaman->masa_tumbuh; ?>",
-        umur_tanaman: "<?php echo $tanaman->umur_tanaman; ?>",
-        foto: "<?php echo $tanaman->foto; ?>",
-        deskripsi: "<?php echo $tanaman->deskripsi; ?>",
-        status_penanaman: "<?php echo $tanaman->status_penanaman; ?>"
-    });
-    <?php endforeach; ?>
-
-    // Custom icon untuk event
+    // Custom icon untuk lokasi
     var greenIcon = L.icon({
-        iconUrl: '{{ url('/') }}/assets-web2/assets/images/icon/calendar.png',
-        iconSize: [32, 35], 
-        iconAnchor: [16, 32] 
+        iconUrl: '{{ url('/') }}/assets-sig/assets/icon/lokasi.png',
+        iconSize: [32, 35],
+        iconAnchor: [16, 32],
+        className: 'marker-custom'
     });
-
     // Custom icon untuk penanaman
     var redIcon = L.icon({
-        iconUrl: '{{ url('/') }}/assets-web2/assets/images/icon/tree.png',
+        iconUrl: '{{ url('/') }}/assets-sig/assets/icon/event.png',
         iconSize: [32, 35],
         iconAnchor: [16, 32]
     });
 
-
     function initMap() {
         // Membuat peta
-        map = L.map('map').setView([-1.790597, 110.410990], 8);
-        // Menonaktifkan zoom menggunakan scroll mouse
-        map.scrollWheelZoom.disable();
-        // Menambahkan event listener untuk mengatur zoom dengan Ctrl + scroll
-        document.getElementById('map').addEventListener('wheel', function(event) {
-            if (event.ctrlKey) {
-                event.preventDefault();
-                event.stopPropagation();
-                var zoomStep = 1;
-                var zoom = map.getZoom();
-                if (event.deltaY < 0) {
-                    map.setZoom(zoom + zoomStep);
-                } else {
-                    map.setZoom(zoom - zoomStep);
-                }
+        map = new L.Map('map', {
+            fullscreenControl: true,
+            fullscreenControlOptions: {
+                position: 'topright'
             }
         });
+
         // Menambahkan tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>  contributors | Bayu Pratama'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Bayu Pratama'
         }).addTo(map);
 
-        // Menambahkan marker event ke peta
-        eventMarkersData.forEach(function(markerData) {
+        // Tentukan koordinat pusat peta untuk desktop
+        var desktopCenter = [-1.790597, 110.410990];
+        // Tentukan koordinat pusat peta untuk mobile
+        var mobileCenter = [-1.790597, 110.410990]; // Sesuaikan dengan koordinat yang sesuai untuk mobile
+
+        // Tentukan zoom level untuk desktop dan mobile
+        var desktopZoom = 9;
+        var mobileZoom = 8; // Sesuaikan dengan zoom level yang sesuai untuk mobile
+
+        // Tentukan tinggi elemen mobile-header
+        var mobileHeaderHeight = $('.mobile-header').outerHeight() || 0;
+
+        // Tentukan apakah perangkat saat ini adalah mobile
+        var isMobile = $(window).width() <= 768;
+
+        // Tentukan koordinat pusat dan zoom level berdasarkan ukuran layar
+        var center = isMobile ? mobileCenter : desktopCenter;
+        var zoomLevel = isMobile ? mobileZoom : desktopZoom;
+
+        // Set view pada peta
+        map.setView(center, zoomLevel);
+
+
+        LokasiMarkersData.forEach(function(markerData) {
             var marker = L.marker([markerData.lat, markerData.lng], {
-                icon: greenIcon
-            }).addTo(map);
-            marker.bindTooltip(markerData.title, {
-                permanent: false,
-                direction: 'top',
-                offset: [0, -25]
-
-            });
-            // Menyimpan event_id sebagai properti pada marker
-            marker.event_id = markerData.event_id;
-
-            // Menambahkan event listener pada marker event
-            marker.on('click', function() {
-
-                // Menyembunyikan semua marker event yang lain
-                eventMarkers.forEach(function(eventMarker) {
-                    if (eventMarker !== this) {
-                        eventMarker.setOpacity(0);
-                    }
-                }, this);
-
-                // Menghapus marker event yang saat ini ditekan
-                var currentEventMarkerIndex = eventMarkers.indexOf(this);
-                if (currentEventMarkerIndex > -1) {
-                    var removedMarker = eventMarkers.splice(currentEventMarkerIndex, 1)[0];
-                    removedEventMarkers.push(removedMarker);
-                    removedMarker.removeFrom(map);
-                }
-
-                // Menyembunyikan marker tanaman yang tidak sesuai dengan event_id
-                clearTanamanMarkers();
-                tanamanMarkersData.forEach(function(tanamanMarkerData) {
-                    if (tanamanMarkerData.event_id === this.event_id) {
-                        var tanamanMarker = L.marker([tanamanMarkerData.lat, tanamanMarkerData
-                            .lng
-                        ], {
-                            icon: redIcon
-                        }).addTo(map);
-                        // Mengatur offset vertikal untuk popup
-                        var popupOffset = L.point(0, -tanamanMarker.options.icon.options
-                            .iconSize[1] / 2);
-                        tanamanMarker.bindPopup(`
-                            <div class="popup-content" style="max-height: 200px; overflow-y: auto; width: 250px;">
-                                <label style="color:black; font-weight:bolder; display: flex; align-items: center; justify-content: center;">
-                                    Detail Penanaman
-                                </label>
-                                <table class="table table-sm mt-2">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width:145px">Lokasi</td>
-                                            <td>${tanamanMarkerData.lokasi}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:145px">Event Penanaman</td>
-                                            <td>${tanamanMarkerData.eventPenanaman}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:145px">Sample Penanaman</td>
-                                            <td>${tanamanMarkerData.sample}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:145px">Tanggal Penanaman</td>
-                                            <td>${tanamanMarkerData.tanggal_penanaman}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:145px">Jenis Mangrove</td>
-                                            <td>${tanamanMarkerData.jenis_mangrove}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:145px">Masa Pembibitan</td>
-                                            <td>${tanamanMarkerData.masa_tumbuh}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:145px">Umur Tanaman Saat Ditanam</td>
-                                            <td>${tanamanMarkerData.umur_tanaman}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width:145px">Foto</td>
-                                            <td><img src="${tanamanMarkerData.foto}" loading="lazy" class="img-fluid"></td>
-                                        </tr>
-                                    </tbody>                   
-                                </table>
-                                <hr>
-                                <label style="color:black; font-weight:bolder; display: flex; align-items: center; justify-content: center;">
-                                    Deskripsi Penanaman
-                                </label>
-                                <div>
-                                    <p style="text-align: justify; color:black; font-size:12px; margin-right:15px">${tanamanMarkerData.deskripsi}</p>
-                                </div>
-                                <hr>
-                            </div>
-                        `, {
-                            offset: popupOffset
-                        });
-                        tanamanMarkers.push(tanamanMarker);
-                    }
-                }, this);
-
-                // Mengarahkan peta ke marker tanaman dengan animasi zoom
-                if (tanamanMarkers.length > 0) {
-                    var selectedTanamanMarker = tanamanMarkers[0];
-                    map.flyTo(selectedTanamanMarker.getLatLng(), 10, {
-                        duration: 2, //detik
-                        easeLinearity: 0.5
-                    });
-                }
+                icon: greenIcon,
+                tags: [markerData.tags]
             });
 
-            eventMarkers.push(marker);
+            marker.bindPopup(`
+                <div class="popup-content" style="max-height: 200px; overflow-y: auto; width: 250px; padding-right:10px">
+                    <label style="color: black; font-weight: bolder; display: flex; align-items: center; justify-content: center;">Detail Lokasi</label>
+                    <div class="modal-content">
+                        <img src="${markerData.foto}" style="width: 100%; height: auto; border-radius: 5px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px solid #00947c;" class="image" loading="lazy" />
+                    </div>
+                    <table class="table table-bordered table-sm mt-2">
+                        <tbody>
+                            <tr>
+                                <td>Lokasi</td>
+                                <td style="text-align: justify">${markerData.title}</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td style="text-align: justify">${markerData.alamat}</td>
+                            </tr>
+                            <tr>
+                                <td>Jumlah Event</td>
+                                <td style="text-align: justify">${markerData.jumlahEvent}</td>
+                            </tr>
+                            <tr>
+                                <td>Pohon Ditanam</td>
+                                <td style="text-align: justify">${markerData.jumlahPohon}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="{{ url('Lokasi-Penanaman') }}/${markerData.lokasi_id}/${markerData.title}" class="btn btn-green btn-sm float-right" style="color:white">Detail Lokasi</a>
+                </div>
+            `, {
+                offset: [0, -25] // Atur offset horizontal dan vertikal
+            });
+
+            markers.addLayer(marker); // Tambahkan marker ke dalam marker cluster
         });
 
-        // Menambahkan tombol "Reset Marker"
-        var resetButton = L.control({
-            position: 'bottomright'
+        EventMarkersData.forEach(function(markerData) {
+            var marker = L.marker([markerData.lat, markerData.lng], {
+                icon: redIcon,
+                tags: [markerData.tags]
+            });
+
+            marker.bindPopup(`
+                <div class="popup-content" style="max-height: 200px; overflow-y: auto; width: 250px; padding-right:10px">
+                    <label style="color: black; font-weight: bolder; display: flex; align-items: center; justify-content: center;">Detail Event</label>
+                    <div class="modal-content">
+                        <img src="${markerData.foto}" style="width: 100%; height: auto; border-radius: 5px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px solid #00947c;" class="image" loading="lazy" />
+                    </div>
+                    <table class="table table-bordered table-sm mt-2">
+                        <tbody>
+                            <tr>
+                                <td>Nama Event</td>
+                                <td style="text-align: justify">${markerData.title}</td>
+                            </tr>
+                            <tr>
+                                <td>Lokasi</td>
+                                <td style="text-align: justify">${markerData.lokasi}</td>
+                            </tr>
+                            <tr>
+                                <td>Pohon Ditanam</td>
+                                <td style="text-align: justify">${markerData.pohonDitanam}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td style="text-align: justify" class="${markerData.statusClass}">${markerData.status}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="{{ url('Event') }}/${markerData.event_id}" class="btn btn-green btn-sm float-right" style="color:white">Detail Event</a>
+                </div>
+            `, {
+                offset: [0, -25] // Atur offset horizontal dan vertikal
+            });
+
+            markers.addLayer(marker); // Tambahkan marker ke dalam marker cluster
+
+            // Menambahkan garis penghubung dari marker event ke marker lokasi terkait
+            var latlngs = [
+                [markerData.lat, markerData.lng],
+                [LokasiMarkersData.find(l => l.lokasi_id === markerData.lokasi_id).lat, LokasiMarkersData
+                    .find(l => l.lokasi_id === markerData.lokasi_id).lng
+                ]
+            ];
+
+            // var polyline = L.polyline(latlngs, {
+            //     color: 'blue',
+            //     weight: 1.5
+            // }).addTo(map);
         });
 
-        resetButton.onAdd = function(map) {
-            var div = L.DomUtil.create('div', 'reset-button');
-            div.innerHTML = '';
-            return div;
-        };
+        map.addLayer(markers); // Tambahkan marker cluster ke dalam peta
+        // map.fitBounds(markers.getBounds());
 
-        resetButton.addTo(map);
+        //shape awalan seluruh ketapang
+        $.getJSON('{{ url('/') }}/assets-sig/assets/Ketapang.geojson', function(json) {
+            geoLayer = L.geoJson(json, {
+                style: function(feature) {
+                    return {
+                        fillOpacity: 0.6,
+                        weight: 1,
+                        opacity: 1,
+                        color: '#44A688'
+                    };
+                },
+                onEachFeature: function(fetaure, layer) {
+                    layer.addTo(map);
+                }
+            });
+        });
 
+        L.control.resetView({
+            position: "topright",
+            title: "Reset view",
+            latlng: L.latLng([-1.790597, 110.410990]),
+            zoom: zoomLevel,
+        }).addTo(map);
 
+        // Legend
+        L.control.Legend({
+            className: "legend-custom",
+            position: "bottomright",
+            legends: [{
+                    label: ": Lokasi",
+                    type: "image",
+                    url: "{{ url('/') }}/assets-sig/assets/icon/lokasi.png",
+                },
+                {
+                    label: ": Event",
+                    type: "image",
+                    url: "{{ url('/') }}/assets-sig/assets/icon/event.png",
+                },
+            ]
+        }).addTo(map);
     }
 
-    function clearTanamanMarkers() {
-        tanamanMarkers.forEach(function(tanamanMarker) {
-            map.removeLayer(tanamanMarker);
-        });
-        tanamanMarkers = [];
-    }
-    function resetMap() {
-        // Menghapus semua marker event yang telah dihapus sebelumnya
-        removedEventMarkers.forEach(function(removedMarker) {
-            removedMarker.addTo(map);
-            eventMarkers.push(removedMarker);
-
-        });
-        removedEventMarkers = [];
-
-        // Menampilkan kembali semua marker event
-        eventMarkers.forEach(function(eventMarker) {
-            eventMarker.setOpacity(1);
-
+    // Fungsi untuk menambahkan marker dengan SVG ke peta dan menghapusnya setelah 5 detik
+    function addTemporaryMarker(map, lat, lng) {
+        // Definisikan SVG dan buat ikon menggunakan L.divIcon
+        var svg =
+            '<svg pointer-events="none" class="leaflet-marker-icon bounce-marker" width="24" height="24" viewBox="0 0 24 24" fill="#000000" style="z-index-1"><circle cx="12" cy="12" r="10" stroke="#e03" stroke-width="3" fill="none"></circle></svg>';
+        var icon = L.divIcon({
+            className: 'custom-marker',
+            html: svg,
+            iconAnchor: [12, 10]
         });
 
-        // Menghapus semua marker tanaman
-        clearTanamanMarkers();
+        // Tambahkan marker ke peta
+        var marker = L.marker([lat, lng], {
+            icon: icon
+        }).addTo(map);
 
-        // Mengembalikan tampilan peta seperti semula dengan animasi zoom in
-        map.setView([-1.790597, 110.410990], 8, {
-            animate: true,
-            duration: 2,
-        });
-
-        // Reset checked status for checkboxes
-        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(function(checkbox) {
-            checkbox.checked = false;
-        });
+        // Gunakan setTimeout untuk menghapus marker setelah 5 detik (5000 ms)
+        setTimeout(function() {
+            map.removeLayer(marker);
+        }, 8000);
     }
 
-    // Event listener untuk mengubah tampilan marker berdasarkan pilihan event
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener("change", function() {
-            if (checkbox.checked) {
-                // Menyembunyikan semua marker event yang lain
-                eventMarkers.forEach(function(eventMarker) {
-                    if (eventMarker !== this) {
-                        eventMarker.setOpacity(0);
-                    }
-                }, this);
+    // Panggil fungsi addTemporaryMarker ketika peta diinisialisasi atau saat Anda memerlukannya
+    window.onload = function() {
+        initMap();
+
+        // Contoh penggunaan: tambahkan marker sementara di posisi tertentu
+        addTemporaryMarker(map, -1.790597, 110.410990);
+    };
+
+    window.onload = function() {
+        initMap();
+        var marker;
+
+        $('#lokasi-select').change(function() {
+            // Hapus marker sebelumnya jika ada
+            if (marker) {
+                map.removeLayer(marker);
             }
-            filterMarkers();
-        });
-    });
 
-    window.onload = initMap;
+            // Dapatkan nilai lat dan lng dari opsi yang dipilih
+            var selectedOption = $(this).find('option:selected');
+            var lat = parseFloat(selectedOption.data('lat'));
+            var lng = parseFloat(selectedOption.data('lng'));
+
+            // Panggil fungsi addTemporaryMarker dengan koordinat yang dipilih
+            addTemporaryMarker(map, lat, lng);
+            // Gunakan metode flyTo untuk mengarahkan peta ke lokasi marker yang sesuai
+            map.flyTo([lat, lng], 20, {
+                animate: true,
+                duration: 5,
+                easeLinearity: 1,
+                noMoveStart: true
+            });
+
+            // var svg =
+            //     '<svg pointer-events="none" class="leaflet-marker-icon bounce-marker" width="24" height="24" viewBox="0 0 24 24" fill="#000000" style="z-index-1"><circle cx="12" cy="12" r="10" stroke="#e03" stroke-width="3" fill="none"></circle></svg>';
+            // var icon = L.divIcon({
+            //     className: 'custom-marker',
+            //     html: svg,
+            //     iconAnchor: [12, 10]
+            // });
+
+            marker = L.marker([lat, lng], {
+                icon: icon
+            }).addTo(map);
+
+
+            marker.bringToBack();
+        });
+    };
+
+    $(document).ready(function() {
+        // Inisialisasi select2 pada elemen select
+        $('.select2').select2();
+
+        // Panggil fungsi resizeMap saat halaman dimuat dan setiap kali jendela diubah ukurannya
+        resizeMap();
+        $(window).resize(resizeMap);
+
+        // Fungsi untuk mengubah ukuran peta sesuai dengan tinggi viewport
+        function resizeMap() {
+            var headerHeight = $('header').outerHeight() || 0;
+            var mobileHeaderHeight = $('.mobile-header').outerHeight() || 0;
+            var viewportHeight = $(window).height();
+            var isMobile = $(window).width() <= 768;
+
+            // Jika di mobile, sesuaikan tinggi dengan mobile-header, selain itu sesuaikan dengan header
+            var mapHeight = isMobile ? viewportHeight - mobileHeaderHeight : viewportHeight - headerHeight;
+
+            $('#map').css('height', mapHeight + 'px');
+        }
+    });
 </script>
