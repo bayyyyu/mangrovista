@@ -54,13 +54,15 @@
     <link href="{{ url('/') }}/assets-admin/dastone/plugins/select2/select2.min.css" rel="stylesheet"
         type="text/css" />
 
+    <!-- ResetView -->
+    <link rel="stylesheet" href="{{ url('/') }}/assets-sig/dist/L.Control.ResetView.min.css" />
 </head>
 
 <body>
     <!-- Banner Section Start Here -->
     <x-web.layout.header />
     <!-- Banner Section Ending Here -->
-    <div id="map" class="sidebar-map fluid">
+    <div id="map">
         <div class="custom-select">
             <select class="select2 form-control mb-3" id="lokasi-select">
                 <option>---Pilih Lokasi---</option>
@@ -106,30 +108,14 @@
 
     <!-- Marker Cluster -->
     <script src="{{ url('/') }}/assets-sig/assets/js/leaflet.markercluster.js"></script>
-
     <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
 
-
-    <!-- jQuery admin  -->
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/js/jquery.min.js"></script> --}}
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/js/bootstrap.bundle.min.js"></script> --}}
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/js/metismenu.min.js"></script> --}}
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/js/waves.js"></script> --}}
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/js/feather.min.js"></script> --}}
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/js/simplebar.min.js"></script> --}}
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/js/moment.js"></script> --}}
-    {{-- <script src="{{ url('/') }}/assets-admin/dastone/plugins/daterangepicker/daterangepicker.js"></script> --}}
-
-    <!-- Plugins js -->
-
+    <!-- select lokasi -->
     <script src="{{ url('/') }}/assets-admin/dastone/plugins/select2/select2.min.js"></script>
 
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/pages/jquery.forms-advanced.js"></script> --}}
+    <!-- ResetView -->
+    <script src="{{ url('/') }}/assets-sig/dist/L.Control.ResetView.min.js"></script>
 
-
-
-    <!-- App js -->
-    {{-- <script src="{{ url('/') }}/assets-admin/assets/js/app.js"></script> --}}
 </body>
 <style>
     body,
@@ -322,6 +308,13 @@
     .custom-marker {
         z-index: -999 !important
     }
+
+    @media (max-width: 768px) {
+        #map {
+            margin-top: 70px;
+            height: 100vh;
+        }
+    }
 </style>
 
 </html>
@@ -399,12 +392,35 @@
             fullscreenControlOptions: {
                 position: 'topright'
             }
-        }).setView([-1.790597, 110.410990], 10);
+        });
 
         // Menambahkan tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Bayu Pratama'
         }).addTo(map);
+
+        // Tentukan koordinat pusat peta untuk desktop
+        var desktopCenter = [-1.790597, 110.410990];
+        // Tentukan koordinat pusat peta untuk mobile
+        var mobileCenter = [-1.790597, 110.410990]; // Sesuaikan dengan koordinat yang sesuai untuk mobile
+
+        // Tentukan zoom level untuk desktop dan mobile
+        var desktopZoom = 10;
+        var mobileZoom = 8; // Sesuaikan dengan zoom level yang sesuai untuk mobile
+
+        // Tentukan tinggi elemen mobile-header
+        var mobileHeaderHeight = $('.mobile-header').outerHeight() || 0;
+
+        // Tentukan apakah perangkat saat ini adalah mobile
+        var isMobile = $(window).width() <= 768;
+
+        // Tentukan koordinat pusat dan zoom level berdasarkan ukuran layar
+        var center = isMobile ? mobileCenter : desktopCenter;
+        var zoomLevel = isMobile ? mobileZoom : desktopZoom;
+
+        // Set view pada peta
+        map.setView(center, zoomLevel);
+
 
         LokasiMarkersData.forEach(function(markerData) {
             var marker = L.marker([markerData.lat, markerData.lng], {
@@ -481,7 +497,7 @@
                     </table>
                     <a href="{{ url('Event') }}/${markerData.event_id}" class="btn btn-green btn-sm float-right" style="color:white">Detail Event</a>
                 </div>
-            `,{
+            `, {
                 offset: [0, -25] // Atur offset horizontal dan vertikal
             });
 
@@ -521,6 +537,13 @@
             });
         });
 
+        L.control.resetView({
+            position: "topright",
+            title: "Reset view",
+            latlng: L.latLng([-1.790597, 110.410990]),
+            zoom: zoomLevel,
+        }).addTo(map);
+
         // Legend
         L.control.Legend({
             className: "legend-custom",
@@ -539,6 +562,36 @@
         }).addTo(map);
     }
 
+    // Fungsi untuk menambahkan marker dengan SVG ke peta dan menghapusnya setelah 5 detik
+    function addTemporaryMarker(map, lat, lng) {
+        // Definisikan SVG dan buat ikon menggunakan L.divIcon
+        var svg =
+            '<svg pointer-events="none" class="leaflet-marker-icon bounce-marker" width="24" height="24" viewBox="0 0 24 24" fill="#000000" style="z-index-1"><circle cx="12" cy="12" r="10" stroke="#e03" stroke-width="3" fill="none"></circle></svg>';
+        var icon = L.divIcon({
+            className: 'custom-marker',
+            html: svg,
+            iconAnchor: [12, 10]
+        });
+
+        // Tambahkan marker ke peta
+        var marker = L.marker([lat, lng], {
+            icon: icon
+        }).addTo(map);
+
+        // Gunakan setTimeout untuk menghapus marker setelah 5 detik (5000 ms)
+        setTimeout(function() {
+            map.removeLayer(marker);
+        }, 8000);
+    }
+
+    // Panggil fungsi addTemporaryMarker ketika peta diinisialisasi atau saat Anda memerlukannya
+    window.onload = function() {
+        initMap();
+
+        // Contoh penggunaan: tambahkan marker sementara di posisi tertentu
+        addTemporaryMarker(map, -1.790597, 110.410990);
+    };
+
     window.onload = function() {
         initMap();
         var marker;
@@ -554,7 +607,8 @@
             var lat = parseFloat(selectedOption.data('lat'));
             var lng = parseFloat(selectedOption.data('lng'));
 
-
+            // Panggil fungsi addTemporaryMarker dengan koordinat yang dipilih
+            addTemporaryMarker(map, lat, lng);
             // Gunakan metode flyTo untuk mengarahkan peta ke lokasi marker yang sesuai
             map.flyTo([lat, lng], 20, {
                 animate: true,
@@ -563,13 +617,13 @@
                 noMoveStart: true
             });
 
-            var svg =
-                '<svg pointer-events="none" class="leaflet-marker-icon bounce-marker" width="24" height="24" viewBox="0 0 24 24" fill="#000000" style="z-index-1"><circle cx="12" cy="12" r="10" stroke="#e03" stroke-width="3" fill="none"></circle></svg>';
-            var icon = L.divIcon({
-                className: 'custom-marker',
-                html: svg,
-                iconAnchor: [12, 10]
-            });
+            // var svg =
+            //     '<svg pointer-events="none" class="leaflet-marker-icon bounce-marker" width="24" height="24" viewBox="0 0 24 24" fill="#000000" style="z-index-1"><circle cx="12" cy="12" r="10" stroke="#e03" stroke-width="3" fill="none"></circle></svg>';
+            // var icon = L.divIcon({
+            //     className: 'custom-marker',
+            //     html: svg,
+            //     iconAnchor: [12, 10]
+            // });
 
             marker = L.marker([lat, lng], {
                 icon: icon
@@ -584,14 +638,21 @@
         // Inisialisasi select2 pada elemen select
         $('.select2').select2();
 
-        // Menyesuaikan tinggi peta saat halaman dimuat
+        // Panggil fungsi resizeMap saat halaman dimuat dan setiap kali jendela diubah ukurannya
         resizeMap();
+        $(window).resize(resizeMap);
+
         // Fungsi untuk mengubah ukuran peta sesuai dengan tinggi viewport
         function resizeMap() {
             var headerHeight = $('header').outerHeight() || 0;
-            $('#map').css('height', 'calc(100vh - ' + headerHeight + 'px)');
+            var mobileHeaderHeight = $('.mobile-header').outerHeight() || 0;
+            var viewportHeight = $(window).height();
+            var isMobile = $(window).width() <= 768;
+
+            // Jika di mobile, sesuaikan tinggi dengan mobile-header, selain itu sesuaikan dengan header
+            var mapHeight = isMobile ? viewportHeight - mobileHeaderHeight : viewportHeight - headerHeight;
+
+            $('#map').css('height', mapHeight + 'px');
         }
-        // Panggil fungsi resizeMap ketika jendela diubah ukurannya
-        $(window).resize(resizeMap);
     });
 </script>

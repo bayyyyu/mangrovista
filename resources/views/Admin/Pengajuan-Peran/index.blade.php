@@ -29,12 +29,12 @@
                     <div class="card-body">
                         <table id="datatable" class="table table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            <thead>
-                                <th>No</th>
-                                <th>Aksi</th>
-                                <th>Nama Pemohon</th>
-                                <th>Tanggal Pengajuan</th>
-                                <th>status</th>
+                            <thead class="bg-primary">
+                                <th class="text-white">No</th>
+                                <th class="text-white">Aksi</th>
+                                <th class="text-white">Nama Pemohon</th>
+                                <th class="text-white">Tanggal Pengajuan</th>
+                                <th class="text-white">status</th>
                             </thead>
                             <tbody>
                                 @foreach ($list_menunggu_konfirmasi->where('status_request', 'Menunggu Konfirmasi') as $menunggu_konfirmasi)
@@ -42,7 +42,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <a href="{{ url('Admin/Pengajuan-Peran', $menunggu_konfirmasi->id) }}"
-                                                class="btn btn-primary btn-sm"><i class="fa fa-info"></i>
+                                                class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i>
                                             </a>
                                             <x-button.delete id="{{ $menunggu_konfirmasi->id }}" />
                                         </td>
@@ -87,12 +87,12 @@
                     <div class="card-body">
                         <table id="datatable2" class="table table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            <thead>
-                                <th width="10px">No</th>
-                                <th width="150px">Aksi</th>
-                                <th>Nama Pemohon</th>
-                                <th>Tanggal Pengajuan</th>
-                                <th>status</th>
+                            <thead class="bg-primary">
+                                <th class="text-white">No</th>
+                                <th class="text-white">Aksi</th>
+                                <th class="text-white">Nama Pemohon</th>
+                                <th class="text-white">Tanggal Pengajuan</th>
+                                <th class="text-white">status</th>
                             </thead>
                             <tbody>
                                 @foreach ($list_diterima->where('status_request', 'Diterima') as $diterima)
@@ -100,7 +100,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <a href="{{ url('Admin/Pengajuan-Peran', $diterima->id) }}"
-                                                class="btn btn-primary btn-sm"><i class="fa fa-info"></i>
+                                                class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i>
                                             </a>
                                             <x-button.delete id="{{ $diterima->id }}" />
                                         </td>
@@ -145,12 +145,12 @@
                     <div class="card-body">
                         <table id="datatable_berlangsung" class="table table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            <thead>
-                                <th width="10px">No</th>
-                                <th width="150px">Aksi</th>
-                                <th>Nama Pemohon</th>
-                                <th>Tanggal Pengajuan</th>
-                                <th>status</th>
+                            <thead class="bg-primary">
+                                <th class="text-white">No</th>
+                                <th class="text-white">Aksi</th>
+                                <th class="text-white">Nama Pemohon</th>
+                                <th class="text-white">Tanggal Pengajuan</th>
+                                <th class="text-white">status</th>
                             </thead>
                             <tbody>
                                 @foreach ($list_ditolak->where('status_request', 'Ditolak') as $ditolak)
@@ -158,7 +158,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <a href="{{ url('Admin/Pengajuan-Peran', $ditolak->id) }}"
-                                                class="btn btn-primary btn-sm"><i class="fa fa-info"></i>
+                                                class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i>
                                             </a>
                                             <x-button.delete id="{{ $ditolak->id }}" />
                                         </td>

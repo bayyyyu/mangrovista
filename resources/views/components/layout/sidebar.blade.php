@@ -26,9 +26,12 @@
             <li class="{{ request()->is('Admin/Event*') ? 'active' : '' }}">
                 <a href="{{url('Admin/Event')}}"><i class="fa fa-calendar align-self-center menu-icon" ></i><span class="menu-icon">Event</span></a>
             </li>
-            <li class="{{ request()->is('Admin/Tanaman*') ? 'active' : '' }}">
-                <a href="{{url('Admin/Tanaman')}}"><i class="fa fa-leaf align-self-center menu-icon" ></i><span class="menu-icon">Penanaman</span></a>
+            <li class="{{ request()->is('Admin/Lokasi*') ? 'active' : '' }}">
+                <a href="{{url('Admin/Lokasi')}}"><i class="fa fa-map align-self-center menu-icon" ></i><span class="menu-icon">Lokasi</span></a>
             </li>
+            {{-- <li class="{{ request()->is('Admin/Tanaman*') ? 'active' : '' }}">
+                <a href="{{url('Admin/Tanaman')}}"><i class="fa fa-leaf align-self-center menu-icon" ></i><span class="menu-icon">Penanaman</span></a>
+            </li> --}}
             <li class="{{ request()->is('Admin/User*') ? 'active' : '' }}">
                 <a href="{{url('Admin/User')}}"><i class="fa fa-user align-self-center menu-icon" ></i><span class="menu-icon">User</span></a>
             </li>

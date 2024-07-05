@@ -41,12 +41,12 @@
                         <div class="card-body">
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                <thead>
-                                    <th>No</th>
-                                    <th>Aksi</th>
-                                    <th>Nama Event</th>
-                                    <th>Jumlah Penanaman</th>
-                                    <th>Status</th>
+                                <thead class="bg-primary">
+                                    <th class="text-white">No</th>
+                                    <th class="text-white">Aksi</th>
+                                    <th class="text-white">Nama Event</th>
+                                    <th class="text-white">Pohon Yang Hidup</th>
+                                    {{-- <th>Jumlah Penanaman</th> --}}
                                 </thead>
                                 <tbody>
                                     @foreach ($list_event_telah_selesai->where('tanggal_event', '<', now()) as $event)
@@ -55,44 +55,16 @@
                                             <td>
                                                 <div class="btn-group ml-2">
                                                     <a href="{{ url('Admin/Event', $event->id) }}"
-                                                        class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
-                                                    {{-- <a href="{{ url('Admin/Event', $event->id) }}/edit"
-                                                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a> --}}
+                                                        class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i></a>
+                                                    <a href="{{ url('Admin/Event', $event->id) }}/edit"
+                                                        class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                     <x-button.delete id="{{ $event->id }}" />
-                                                    {{-- <a href="{{ url('Admin/Event', $event->id) }}/dokumentasi"
-                                                        class="btn btn-dark btn-sm" style="margin-left: 5px">
-                                                        <i class="fa fa-camera"></i>
-                                                    </a> --}}
                                                 </div>
                                             </td>
-                                            <td>{{ $event->nama_event }}</td>
-                                            <td>{{ $jumlah_penanaman[$event->id] }}</td>
-                                            <td width="20px">
-                                                @php
-                                                    $status = $event->status;
-                                                    $background_color = '';
-
-                                                    switch ($status) {
-                                                        case 'Menunggu Konfirmasi':
-                                                            $background_color = '#1452D7';
-                                                            break;
-                                                        case 'Diterima':
-                                                            $background_color = '#06A44B';
-                                                            break;
-                                                        case 'Ditolak':
-                                                            $background_color = '#f5325c';
-                                                            break;
-                                                        default:
-                                                            $background_color = 'transparent';
-                                                            break;
-                                                    }
-                                                @endphp
-
-                                                <div
-                                                    style="background-color: {{ $background_color }}; padding: 5px; border-radius: 5px;">
-                                                    <span style="color: white;">{{ $status }}</span>
-                                                </div>
-                                            </td>
+                                            <td style="white-space:normal">{{ $event->nama_event }}</td>
+                                             <td>{{ $jumlah_pohon_hidup[$event->id] }} pohon</td>
+                                            {{-- <td>{{ $jumlah_penanaman[$event->id] }}</td> --}}
+                                        
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -108,8 +80,8 @@
                                     <th>No</th>
                                     <th width="100px">Aksi</th>
                                     <th>Nama Event</th>
-                                    <th>Pohon Yang Hidup</th>
-                                    <th>Jumlah Penanaman</th>
+                                    {{-- <th>Pohon Yang Hidup</th>
+                                    <th>Jumlah Penanaman</th> --}}
                                 </thead>
                                 <tbody>
                                     @foreach ($list_event_belum_selesai->where('tanggal_event', '>', now()) as $event)
@@ -118,15 +90,15 @@
                                             <td>
                                                 <div class="btn-group ml-2">
                                                     <a href="{{ url('Admin/Event', $event->id) }}"
-                                                        class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
+                                                        class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i></a>
                                                     <a href="{{ url('Admin/Event', $event->id) }}/edit"
-                                                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                     <x-button.delete id="{{ $event->id }}" />
                                                 </div>
                                             </td>
                                             <td>{{ $event->nama_event }}</td>
-                                            <td>{{ $jumlah_pohon_hidup[$event->id] }} pohon</td>
-                                            <td>{{ $jumlah_penanaman[$event->id] }}</td>
+                                            {{-- <td>{{ $jumlah_pohon_hidup[$event->id] }} pohon</td>
+                                            <td>{{ $jumlah_penanaman[$event->id] }}</td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -142,7 +114,7 @@
                                     <th>No</th>
                                     <th>Aksi</th>
                                     <th>Nama Event</th>
-                                    <th>Jumlah Penanaman</th>
+                                    {{-- <th>Jumlah Penanaman</th> --}}
                                 </thead>
                                 <tbody>
                                     @foreach ($list_event_berlangsung as $event)
@@ -151,14 +123,14 @@
                                             <td>
                                                 <div class="btn-group ml-2">
                                                     <a href="{{ url('Admin/Event', $event->id) }}"
-                                                        class="btn btn-primary btn-sm"><i class="fa fa-info"></i></a>
+                                                        class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i></a>
                                                     <a href="{{ url('Admin/Event', $event->id) }}/edit"
-                                                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-outrline-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                     <x-button.delete id="{{ $event->id }}" />
                                                 </div>
                                             </td>
                                             <td>{{ $event->nama_event }}</td>
-                                            <td>{{ $jumlah_penanaman[$event->id] }}</td>
+                                            {{-- <td>{{ $jumlah_penanaman[$event->id] }}</td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

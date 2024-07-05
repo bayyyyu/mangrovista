@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 18, 2024 at 04:33 PM
+-- Generation Time: Jul 05, 2024 at 08:40 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -104,7 +104,7 @@ CREATE TABLE `event` (
 
 INSERT INTO `event` (`id`, `user_id`, `lokasi_id`, `nama_event`, `tanggal_event`, `tanggal_selesai`, `jam`, `foto`, `deskripsi`, `lat`, `lng`, `target_peserta`, `batas_pendaftaran`, `created_at`, `updated_at`) VALUES
 (11, 41, 5, 'Mangrove Sejuta Hidup hahaha ahah haha hahay hay hahay haha hyah ', '2024-08-01', '2024-08-15', '23:38:00', 'images/Event/11-1717479796-gQeYX.jpg', 'Mangrove Sejuta Hidup adalah sebuah acara yang diadakan dengan tujuan utama untuk meningkatkan kesadaran dan kepedulian masyarakat terhadap pentingnya penanaman mangrove sebagai upaya pelestarian ekosistem pesisir. Acara ini merupakan ajang kolaborasi antara komunitas, lembaga lingkungan, dan masyarakat setempat dalam upaya menjaga keberlanjutan dan kelestarian mangrove.\r\n\r\nDalam acara ini, peserta akan diajak untuk secara aktif terlibat dalam kegiatan penanaman mangrove di kawasan pesisir yang membutuhkan restorasi ekosistem. Para peserta akan mendapatkan penjelasan mengenai pentingnya mangrove sebagai benteng alam, penyangga kehidupan laut, dan penyerap karbon dioksida. Mereka juga akan diberikan pengetahuan dan panduan praktis mengenai teknik penanaman mangrove yang benar.\r\n\r\nSelain kegiatan penanaman mangrove, acara ini juga menyediakan berbagai kegiatan pendukung seperti pameran, seminar, dan lokakarya yang bertujuan untuk meningkatkan pemahaman peserta mengenai pentingnya keberadaan mangrove dan dampak positifnya terhadap lingkungan dan masyarakat sekitar.\r\n\r\nMelalui Mangrove Sejuta Hidup, kami berharap dapat menginspirasi dan mendorong partisipasi aktif masyarakat dalam pelestarian mangrove. Dengan bersama-sama menanam dan menjaga mangrove, kita dapat menciptakan lingkungan yang sehat, berkelanjutan, dan melindungi kehidupan pesisir yang beragam. Ayo bergabung dan menjadi bagian dari gerakan pelestarian mangrove untuk masa depan yang lebih baik!', '-1.7435535380787952', '109.98052462908753', 5, '2024-06-07', '2024-06-14 06:08:32', '2024-06-14 06:08:32'),
-(39, 41, 5, 'test editan event3', '2024-06-20', '2024-06-22', '15:54:00', 'images/Event/39-1717861594-PxMBi.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus magna metus. In hac habitasse platea dictumst. Suspendisse tincidunt lacinia dui, nec vulputate ante convallis sed. Phasellus rutrum posuere mi, a scelerisque augue mattis quis. Suspendisse egestas tellus vitae sapien convallis, in molestie diam feugiat. Etiam sed congue eros, et rutrum risus. Nullam neque felis, blandit non justo vel, ornare placerat justo. Integer dictum tempus risus, vitae hendrerit augue pellentesque nec. Nulla nec dui sagittis, porttitor mauris et, viverra turpis. Vestibulum felis metus, dignissim vel posuere eu, scelerisque at odio. Nam eget faucibus magna. Quisque quis sagittis dui, malesuada auctor turpis.\r\n\r\nMorbi luctus dignissim hendrerit. Praesent accumsan, dui nec dictum auctor, est odio convallis mauris, nec interdum ante arcu a nisl. Quisque sollicitudin dolor vitae quam ullamcorper auctor. Duis sed eleifend eros. Sed vel tortor lacinia, rutrum ligula porttitor, sollicitudin nisi. Nam sagittis dolor sed lectus ullamcorper ultricies. Donec rutrum laoreet tortor sed sollicitudin. Vivamus vestibulum lorem odio, a tristique quam semper ut. Mauris non aliquam purus. Nunc pharetra, enim ac porttitor fermentum, magna lorem pellentesque dui, non ullamcorper orci libero non orci. Integer lectus massa, elementum et tortor eget, accumsan bibendum turpis. Sed porta molestie nisi non lacinia. Praesent iaculis euismod sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin imperdiet pharetra magna, id malesuada sem laoreet vel.\r\n\r\nProin iaculis ante a mauris eleifend, eget convallis ante vestibulum. In accumsan sagittis massa vitae suscipit. Nunc pretium leo in dui vehicula tincidunt. Curabitur tincidunt non ex vitae lobortis. Nulla facilisi. Vestibulum dictum vehicula odio, in interdum tellus. Maecenas vitae arcu lectus. Praesent pharetra metus orci, ac aliquet est maximus luctus. Maecenas sed dapibus turpis. Suspendisse malesuada tempus magna, sed condimentum metus. Aenean sagittis tempor libero at aliquet.', '-1.7439687626101164', '109.98078033129218', 500, '2024-06-10', '2024-06-12 14:39:37', '2024-06-12 14:39:37'),
+(39, 41, 5, 'test editan event3', '2024-09-20', '2024-10-22', '15:54:00', 'images/Event/39-1717861594-PxMBi.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus magna metus. In hac habitasse platea dictumst. Suspendisse tincidunt lacinia dui, nec vulputate ante convallis sed. Phasellus rutrum posuere mi, a scelerisque augue mattis quis. Suspendisse egestas tellus vitae sapien convallis, in molestie diam feugiat. Etiam sed congue eros, et rutrum risus. Nullam neque felis, blandit non justo vel, ornare placerat justo. Integer dictum tempus risus, vitae hendrerit augue pellentesque nec. Nulla nec dui sagittis, porttitor mauris et, viverra turpis. Vestibulum felis metus, dignissim vel posuere eu, scelerisque at odio. Nam eget faucibus magna. Quisque quis sagittis dui, malesuada auctor turpis.\r\n\r\nMorbi luctus dignissim hendrerit. Praesent accumsan, dui nec dictum auctor, est odio convallis mauris, nec interdum ante arcu a nisl. Quisque sollicitudin dolor vitae quam ullamcorper auctor. Duis sed eleifend eros. Sed vel tortor lacinia, rutrum ligula porttitor, sollicitudin nisi. Nam sagittis dolor sed lectus ullamcorper ultricies. Donec rutrum laoreet tortor sed sollicitudin. Vivamus vestibulum lorem odio, a tristique quam semper ut. Mauris non aliquam purus. Nunc pharetra, enim ac porttitor fermentum, magna lorem pellentesque dui, non ullamcorper orci libero non orci. Integer lectus massa, elementum et tortor eget, accumsan bibendum turpis. Sed porta molestie nisi non lacinia. Praesent iaculis euismod sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin imperdiet pharetra magna, id malesuada sem laoreet vel.\r\n\r\nProin iaculis ante a mauris eleifend, eget convallis ante vestibulum. In accumsan sagittis massa vitae suscipit. Nunc pretium leo in dui vehicula tincidunt. Curabitur tincidunt non ex vitae lobortis. Nulla facilisi. Vestibulum dictum vehicula odio, in interdum tellus. Maecenas vitae arcu lectus. Praesent pharetra metus orci, ac aliquet est maximus luctus. Maecenas sed dapibus turpis. Suspendisse malesuada tempus magna, sed condimentum metus. Aenean sagittis tempor libero at aliquet.', '-1.7439687626101164', '109.98078033129218', 500, '2024-06-10', '2024-07-04 19:07:22', '2024-07-04 19:07:22'),
 (40, 41, 6, 'Bersama Menanam, Bersama Melindungi: Kampanye Nasional Penanaman Mangrove untuk Masa Depan Pantai yang Tangguh dan Berkelanjutan!', '2024-06-01', '2024-06-07', '17:49:00', 'images/Event/40-1717863015-pFzKB.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus magna metus. In hac habitasse platea dictumst. Suspendisse tincidunt lacinia dui, nec vulputate ante convallis sed. Phasellus rutrum posuere mi, a scelerisque augue mattis quis. Suspendisse egestas tellus vitae sapien convallis, in molestie diam feugiat. Etiam sed congue eros, et rutrum risus. Nullam neque felis, blandit non justo vel, ornare placerat justo. Integer dictum tempus risus, vitae hendrerit augue pellentesque nec. Nulla nec dui sagittis, porttitor mauris et, viverra turpis. Vestibulum felis metus, dignissim vel posuere eu, scelerisque at odio. Nam eget faucibus magna. Quisque quis sagittis dui, malesuada auctor turpis.\r\n\r\nMorbi luctus dignissim hendrerit. Praesent accumsan, dui nec dictum auctor, est odio convallis mauris, nec interdum ante arcu a nisl. Quisque sollicitudin dolor vitae quam ullamcorper auctor. Duis sed eleifend eros. Sed vel tortor lacinia, rutrum ligula porttitor, sollicitudin nisi. Nam sagittis dolor sed lectus ullamcorper ultricies. Donec rutrum laoreet tortor sed sollicitudin. Vivamus vestibulum lorem odio, a tristique quam semper ut. Mauris non aliquam purus. Nunc pharetra, enim ac porttitor fermentum, magna lorem pellentesque dui, non ullamcorper orci libero non orci. Integer lectus massa, elementum et tortor eget, accumsan bibendum turpis. Sed porta molestie nisi non lacinia. Praesent iaculis euismod sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin imperdiet pharetra magna, id malesuada sem laoreet vel.\r\n\r\nProin iaculis ante a mauris eleifend, eget convallis ante vestibulum. In accumsan sagittis massa vitae suscipit. Nunc pretium leo in dui vehicula tincidunt. Curabitur tincidunt non ex vitae lobortis. Nulla facilisi. Vestibulum dictum vehicula odio, in interdum tellus. Maecenas vitae arcu lectus. Praesent pharetra metus orci, ac aliquet est maximus luctus. Maecenas sed dapibus turpis. Suspendisse malesuada tempus magna, sed condimentum metus. Aenean sagittis tempor libero at aliquet. www wwwww wwww wwww wwww wwww wwww wwww wwww wwww ww www www wwww wwww wwwwwwww wwwwwwww ww www wwww www wwww www wwwwwww www wwwwwwwww wwww hagsahsgha hasgasdu jsadisd0s jdsaosadk jsadhsajha ujasduasdfha jsjhduasua jhasudhasu jasua jasuasid jdsiasduas jsdijdh jsdnfjisdh jksdhfijsd jihsadijfhs jsdhfsjidnbs kjdshfjdks kjsdfskdfjn kjdshfksdhfakdj kdjgfhsdjakfhad jdasfhlasdj sadjkfadf gl SFHUIALISDU iodsfhg ijsdfh kjsdhf kjsdhfs kjsdhfskujh ueb iesduhfs', '-1.8674735746438225', '109.9491827357085', 200, '2024-05-20', '2024-06-14 06:09:39', '2024-06-14 06:09:39'),
 (41, 41, 5, 'test lokasi spesifik', '2024-06-12', '2024-06-15', '01:33:00', 'images/Event/-1718217281-RHWSx.png', 'test', '-1.7442261124263347', '109.98020678758624', 10, '2024-06-10', '2024-06-12 18:45:03', '2024-06-12 18:45:03'),
 (42, 41, 5, 'event apa ya', '2024-06-20', '2024-06-21', '14:08:00', 'images/Event/-1718348934-pUeiH.jpg', 'w', '-1.7430918120206496', '109.9810516834259', 5, '2024-06-14', '2024-06-14 00:08:54', '2024-06-14 00:08:54');
@@ -234,7 +234,8 @@ CREATE TABLE `pendaftaran_event` (
 INSERT INTO `pendaftaran_event` (`id`, `event_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (2, 11, 43, '2024-05-30 00:30:02', '2024-06-13 11:41:03'),
 (3, 11, 27, '2024-06-04 18:19:34', '2024-06-05 10:53:02'),
-(4, 11, 36, '2024-06-04 18:19:34', '2024-06-05 10:53:05');
+(4, 11, 36, '2024-06-04 18:19:34', '2024-06-05 10:53:05'),
+(5, 39, 43, '2024-07-04 12:07:54', '2024-07-04 12:07:54');
 
 -- --------------------------------------------------------
 
@@ -325,7 +326,7 @@ CREATE TABLE `tanaman_event` (
 
 INSERT INTO `tanaman_event` (`id`, `event_id`, `jenis_pohon`, `umur_bibit`, `jumlah_pohon`, `created_at`, `updated_at`) VALUES
 (1, 39, 'Api-Api', 100, 200, '2024-06-08 01:55:18', '2024-06-08 09:07:57'),
-(2, 40, 'Pepada', 2, 500, '2024-06-08 03:50:15', '2024-06-12 18:41:28'),
+(2, 40, 'Mangrove Pepada', 2, 500, '2024-06-08 03:50:15', '2024-07-04 20:05:05'),
 (3, 11, 'Bakau', 3, 1000, '2024-06-09 16:05:49', '2024-06-12 18:41:38'),
 (4, 41, 'Api-Api', 2, 200, '2024-06-12 11:34:42', '2024-06-12 18:41:43'),
 (5, 42, 'Bakau', 2, 1000, '2024-06-14 00:08:54', '2024-06-14 00:08:54');
@@ -360,9 +361,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `role`, `nama_lengkap`, `username`, `email`, `email_verified_at`, `password`, `jenis_kelamin`, `foto_profil`, `bio`, `tgl_lahir`, `no_telpon`, `remember_token`, `created_at`, `updated_at`) VALUES
 (27, 'admin', 'Admin', 'admin', 'admin@gmail.com', '2024-06-05 16:20:27', '$2y$10$/GsgC.VGUJ2Llo3dNOlsp.XWmoGgq7m7KERX4sF/ngWOE32MVocDi', 'Laki-laki', 'images/User/27-1685021268-o67CV.jpg', NULL, NULL, NULL, NULL, '2023-05-04 20:32:12', '2024-05-11 12:56:34'),
-(36, 'admin', 'Bayu Pratama', 'bayu', 'bayu@gmail.com', '2024-06-05 16:20:27', '$2y$10$uX1tniAjAgyehjYzOUOB4ustAarEHtTIFZ6/tzzPrOQWC6VyqBoBi', 'Laki-laki', 'images/User/36-1707053268-EvWsT.jpg', ' Saya selalu melihat sisi positif dalam setiap situasi dan percaya bahwa setiap tantangan adalah peluang untuk tumbuh dan berkembang.', NULL, NULL, 'WSZaiNekt1yIRkdruc6CRLAlHFHZG007p3D1FbrmC2pnB6aNxbtDiOtt6r2e', '2023-05-25 06:20:30', '2024-06-08 10:46:29'),
+(36, 'admin', 'Bayu Pratama', 'bayu', 'bayu@gmail.com', '2024-06-05 16:20:27', '$2y$10$uX1tniAjAgyehjYzOUOB4ustAarEHtTIFZ6/tzzPrOQWC6VyqBoBi', 'Laki-laki', 'images/User/36-1707053268-EvWsT.jpg', ' Saya selalu melihat sisi positif dalam setiap situasi dan percaya bahwa setiap tantangan adalah peluang untuk tumbuh dan berkembang.', NULL, NULL, 'j9ODa6ipScJnetjoaNMU95rZJpk47dGnKwxq9Mx7t1iNPs7s5luZAm0ojOUa', '2023-05-25 06:20:30', '2024-07-04 19:40:50'),
 (41, 'penyelenggara', 'Anwar Zaim', 'zaim', 'zaim@gmail.com', '2024-06-05 16:20:27', '$2y$10$YsmFDWHIoaPCtdLK/VoYjuG3L4WgBonaPGn8cOoEW5i1kCblnXubm', 'Laki-laki', 'images/User/41-1717001062-q7UcM.png', NULL, '2014-02-06', 81234567890, '8SFVmglDFgRBJjgngxTb1qW5Hkr1QOLsYY8UeRdZcD3yDjAkHS2AcMUztMfr', '2024-02-02 12:11:21', '2024-06-12 07:44:02'),
-(43, 'pengguna', 'Guntur Pamungkas', 'guntur', 'guntur123@gmail.com', '2024-06-05 16:20:27', '$2y$10$jE8xi1w7keGY.u.r3ycPue3YP3YtDUZ58pIP3YM3Xm0U646ruPCVW', 'Laki-laki', 'images/User/43-1714207436-gNiNC.jpg', NULL, NULL, NULL, '00Rkxt48SH2n5fpQzfLWIqGrToEKMsfVpF5SEK5OMbx5YDs2QwKoVmwEkI55', '2024-02-11 09:20:59', '2024-06-13 10:03:29'),
+(43, 'pengguna', 'Guntur Pamungkas', 'guntur', 'guntur123@gmail.com', '2024-06-05 16:20:27', '$2y$10$jE8xi1w7keGY.u.r3ycPue3YP3YtDUZ58pIP3YM3Xm0U646ruPCVW', 'Laki-laki', 'images/User/43-1714207436-gNiNC.jpg', NULL, NULL, 81234567891, '00Rkxt48SH2n5fpQzfLWIqGrToEKMsfVpF5SEK5OMbx5YDs2QwKoVmwEkI55', '2024-02-11 09:20:59', '2024-07-04 12:07:45'),
 (46, 'pengguna', 'user', 'usertyz', 'user@gmail.com', '2024-06-05 16:20:27', '$2y$10$BdFtK6hItADRMDBfmWB4dea8Jk3tT0GH5MvgvIveDgLN4AfPXnEjK', 'Perempuan', NULL, NULL, NULL, NULL, NULL, '2024-05-05 04:52:44', '2024-05-12 07:24:02'),
 (47, 'pengguna', 'orang asing', 'yeahhh', 'orangasing@gmail.com', '2024-06-05 17:49:52', '$2y$10$DfoloG8wX2Fg70Hj9kUPdOcOXHE1yc9ogwWrRsmVeTY6mdzy1ChiG', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-05 10:49:52', '2024-06-05 10:49:52');
 
@@ -374,19 +375,23 @@ INSERT INTO `user` (`id`, `role`, `nama_lengkap`, `username`, `email`, `email_ve
 -- Indexes for table `data_tambahan_event`
 --
 ALTER TABLE `data_tambahan_event`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- Indexes for table `dokumentasi_event`
 --
 ALTER TABLE `dokumentasi_event`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`,`lokasi_id`),
+  ADD KEY `lokasi_id` (`lokasi_id`);
 
 --
 -- Indexes for table `katalog_pohon`
@@ -410,31 +415,37 @@ ALTER TABLE `migrations`
 -- Indexes for table `monitoring_event`
 --
 ALTER TABLE `monitoring_event`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- Indexes for table `pendaftaran_event`
 --
 ALTER TABLE `pendaftaran_event`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `event_id` (`event_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `role_request`
 --
 ALTER TABLE `role_request`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `tanaman`
 --
 ALTER TABLE `tanaman`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tanaman_event`
 --
 ALTER TABLE `tanaman_event`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- Indexes for table `user`
@@ -492,7 +503,7 @@ ALTER TABLE `monitoring_event`
 -- AUTO_INCREMENT for table `pendaftaran_event`
 --
 ALTER TABLE `pendaftaran_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `role_request`
@@ -517,6 +528,54 @@ ALTER TABLE `tanaman_event`
 --
 ALTER TABLE `user`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `dokumentasi_event`
+--
+ALTER TABLE `dokumentasi_event`
+  ADD CONSTRAINT `dokumentasi_event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`);
+
+--
+-- Constraints for table `event`
+--
+ALTER TABLE `event`
+  ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`lokasi_id`) REFERENCES `lokasi` (`id`),
+  ADD CONSTRAINT `event_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `monitoring_event`
+--
+ALTER TABLE `monitoring_event`
+  ADD CONSTRAINT `monitoring_event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`);
+
+--
+-- Constraints for table `pendaftaran_event`
+--
+ALTER TABLE `pendaftaran_event`
+  ADD CONSTRAINT `pendaftaran_event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
+  ADD CONSTRAINT `pendaftaran_event_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `role_request`
+--
+ALTER TABLE `role_request`
+  ADD CONSTRAINT `role_request_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `tanaman`
+--
+ALTER TABLE `tanaman`
+  ADD CONSTRAINT `tanaman_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `tanaman_event`
+--
+ALTER TABLE `tanaman_event`
+  ADD CONSTRAINT `tanaman_event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -15,7 +15,7 @@
                             @if (pathinfo($dokumentasi->file, PATHINFO_EXTENSION) === 'jpg' ||
                                     pathinfo($dokumentasi->file, PATHINFO_EXTENSION) === 'png')
                                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                    <img src="{{ asset($dokumentasi->file) }}" width="500" height="300">
+                                    <img src="{{ asset($dokumentasi->file) }}" style="width: 500px; height:250px; object-fit:contain;">
                                 </div>
                             @elseif (pathinfo($dokumentasi->file, PATHINFO_EXTENSION) === 'mp4')
                                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">

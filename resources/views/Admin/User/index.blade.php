@@ -34,12 +34,12 @@
                     <div class="card-block">
                         <div class=" dt-responsive table-responsive">
                             <table id="dom-jqry" class="table table-striped table-bordered nowrap">
-                                <thead>
-                                    <th width="10px">No</th>
-                                    <th width="150px">Aksi</th>
-                                    <th>Role</th>
-                                    <th>Nama</th>
-                                    <th>Email</th>
+                                <thead class="bg-primary">
+                                    <th width="10px" class="text-white">No</th>
+                                    <th width="150px" class="text-white">Aksi</th>
+                                    <th class="text-white">Role</th>
+                                    <th class="text-white">Nama</th>
+                                    <th class="text-white">Email</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($list_user as $user)
@@ -48,9 +48,9 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="{{ url('Admin/User', $user->id) }}"
-                                                        class="btn btn-dark btn-sm"><i class="fa fa-info"></i></a>
+                                                        class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i></a>
                                                     <a href="{{ url('Admin/User', $user->id) }}/edit"
-                                                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                     <x-button.delete id="{{ $user->id }}" />
                                                 </div>
                                             </td>

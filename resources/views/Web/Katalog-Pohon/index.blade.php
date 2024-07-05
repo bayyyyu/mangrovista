@@ -305,7 +305,7 @@
             if (detailPohon.length > 0) {
                 detailPohon[0].scrollIntoView({
                     behavior: 'smooth',
-                    block: 'start',
+                    block: 'center',
                     inline: 'nearest'
                 });
             }

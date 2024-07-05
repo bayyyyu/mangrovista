@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-     use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'user';
     protected $fillable = [
         'nama_lengkap',
@@ -24,7 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'foto_profil',
         'no_telpon'
     ];
-   
+
 
     function handleUploadFoto()
     {
@@ -67,5 +67,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function events()
     {
         return $this->hasMany(Event::class);
+    }
+    public function pendaftaranEvents()
+    {
+        return $this->hasMany(PendaftaranEvent::class, 'user_id');
     }
 }

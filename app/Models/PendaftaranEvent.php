@@ -12,9 +12,10 @@ class PendaftaranEvent extends Model
     {
         return $this->belongsTo(Event::class, 'event_id');
     }
+
+    // Relasi ke pengguna
     public function user()
     {
-        return $this->belongsTo(Event::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
-    
 }

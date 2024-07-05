@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-top relative padding-tb bg-ash relative">
+    <div class="footer-top relative padding-tb  relative">
         <div class="shape-images">
             <img src="{{ url('/') }}/assets-web2/assets/images/shape-img/01.png" alt="shape-images">
         </div>
@@ -50,37 +50,7 @@
                         </ul>
                     </div>
                 </div>
-                {{-- <div class="col-xl-3 col-md-6">
-					<div class="post-item">
-						<div class="post-title">
-									<h5>Penanaman</h5>
-						</div>
-						<div class="lab-ul footer-post">
-							<div class="media mb-3">
-								<div class="fp-thumb mr-3">
-									<img src="" alt="recent-post">
-								</div>
-								<div class="media-body">
-									<a href="#">
-										<h6 class="mt-0">Light Brown Eggs</h6>
-									</a>
-									<span class="price">$25.99</span>
-								</div>
-							</div>
-							<div class="media mb-3">
-								<div class="fp-thumb mr-3">
-									<img src="" alt="recent-post">
-								</div>
-								<div class="media-body">
-									<a href="#">
-										<h6 class="mt-0">Little Chicken Broiler</h6>
-									</a>
-									<span class="price">$25.99</span>
-								</div>
-							</div>
-						</div>		
-					</div>
-				</div>		 --}}
+                
                 <div class="col-xl-3 col-md-6">
                     <div class="post-item">
                         <div class="post-title">
@@ -123,7 +93,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bottom bg-ash">
         <div class="container">
             <div class="section-wrapper" >
                 <p class="text-center" style="color:#064635">Copyright &copy; <span class="default-color">Bayu Pratama 2024
@@ -134,3 +104,20 @@
         </div>
     </div>
 </footer>
+
+{{-- <footer>
+    <!-- Copyright -->
+    <div class="text-center p-3 footer-bottom padding-tb bg-ash" >
+        <p class="text-center" style="color:#064635">Copyright &copy; <span class="default-color">Bayu Pratama 2024
+                @if (date('Y') > '2024')
+                    - {{ date('Y') }}
+                @endif.
+            </span>All rights reserved</p>
+    </div>
+    <!-- Copyright -->
+</footer>
+<style>
+    footer{
+        background-color: #ffffff;
+    }
+</style> --}}

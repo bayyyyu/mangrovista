@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminControllers\TanamanController;
 use App\Http\Controllers\AdminControllers\UserController;
 use App\Http\Controllers\AdminControllers\AdminEventController;
 use App\Http\Controllers\AdminControllers\AdminKatalogPohonController;
+use App\Http\Controllers\AdminControllers\AdminLokasiController;
 use App\Http\Controllers\AdminControllers\NotifikasiController;
 use App\Http\Controllers\AdminControllers\PengajuanPeranController;
 use App\Http\Controllers\PenyelenggaraControllers\DokumentasiController;
@@ -95,6 +96,8 @@ Route::delete('Admin/Event/{event}', [AdminEventController::class, 'destroy'])->
 Route::put('Admin/Event/{event}/reject', [AdminEventController::class, 'reject'])->middleware('isError');
 Route::put('Admin/Event/{event}/confirm', [AdminEventController::class, 'konfirm'])->middleware('isError');
 
+//Lokasi
+Route::get('Admin/Lokasi', [AdminLokasiController::class, 'index'])->middleware('isError');
 
 // User
 Route::get('Admin/User', [UserController::class, 'index'])->middleware('isError');
@@ -155,6 +158,7 @@ Route::get('/geojson-files', [GeoJsonController::class, 'index']);
 Route::get('Profil', [ProfilController::class, 'index']);
 Route::put('Profil/{user}', [ProfilController::class, 'updatePengaturanAkun']);
 Route::get('Event/{event}/Upload', [UploadDataPenanamanController::class, 'index']);
+Route::get('generate-qr/{id}', [ProfilController::class, 'generateQr'])->name('generate.qr');
 
 //Web/Ambil Peran
 Route::middleware(['auth'])->group(function () {

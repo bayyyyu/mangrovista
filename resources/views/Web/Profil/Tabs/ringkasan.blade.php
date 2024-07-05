@@ -38,7 +38,7 @@
                         <div class="st-content mt-2">
                             <a href="#">
                                 <h6 style="font-size: 15px">Partisipasi Event: </h6>
-                                <h6>0</h6>
+                                <h6>{{ $totalPartisipasi }}</h6>
                             </a>
                         </div>
                     </div>
