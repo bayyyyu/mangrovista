@@ -92,50 +92,6 @@ class AdminKatalogPohonController extends Controller
             $katalogPohons[$index] = $katalogPohon;
         }
 
-        // $spreadsheet = IOFactory::load($file);
-        // $sheet = $spreadsheet->getActiveSheet();
-
-        // foreach ($sheet->getDrawingCollection() as $drawing) {
-        //     $rowIndex = $drawing->getCoordinates()[1] - 2; // Menyesuaikan index untuk menghubungkan gambar dengan data pohon
-        //     $katalogPohon = $katalogPohons[$rowIndex] ?? null;
-
-        //     if ($katalogPohon) {
-        //         if ($drawing instanceof MemoryDrawing) {
-        //             ob_start();
-        //             call_user_func(
-        //                 $drawing->getRenderingFunction(),
-        //                 $drawing->getImageResource()
-        //             );
-        //             $imageContents = ob_get_contents();
-        //             ob_end_clean();
-        //             switch ($drawing->getMimeType()) {
-        //                 case MemoryDrawing::MIMETYPE_PNG:
-        //                     $extension = 'png';
-        //                     break;
-        //                 case MemoryDrawing::MIMETYPE_GIF:
-        //                     $extension = 'gif';
-        //                     break;
-        //                 case MemoryDrawing::MIMETYPE_JPEG:
-        //                     $extension = 'jpg';
-        //                     break;
-        //             }
-        //         } else {
-        //             $zipReader = fopen($drawing->getPath(), 'r');
-        //             $imageContents = '';
-        //             while (!feof($zipReader)) {
-        //                 $imageContents .= fread($zipReader, 1024);
-        //             }
-        //             fclose($zipReader);
-        //             $extension = $drawing->getExtension();
-        //         }
-
-        //         $filename = $katalogPohon->id . "-" . time() . "-" . Str::random(5) . '.' . $extension;
-        //         $destination = 'images/Katalog-Pohon/' . $filename;
-        //         file_put_contents(public_path($destination), $imageContents);
-
-        //         $katalogPohon->update(['foto' => $destination]);
-        //     }
-        // }
 
         return redirect('Admin/Katalog-Pohon')->with('success', 'Data Berhasil Diimpor');
     }

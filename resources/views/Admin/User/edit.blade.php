@@ -12,39 +12,76 @@
                         <form action="{{ url('Admin/User', $user->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+                            <!-- Tampilkan semua pesan error -->
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="form-group">
                                 <label for="role" class="control-label">Role</label>
                                 <select class="form-control" name="role" id="role">
                                     <option value="" {{ $user->role === '' ? 'selected' : '' }}>Pilih</option>
-                                    <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
-                                    <option value="pengguna" {{ $user->role === 'pengguna' ? 'selected' : '' }}>Pengguna</option>
-                                    <option value="penyelenggara" {{ $user->role === 'penyelenggara' ? 'selected' : '' }}>Penyelenggara</option>
+                                    <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin
+                                    </option>
+                                    <option value="pengguna" {{ $user->role === 'pengguna' ? 'selected' : '' }}>Pengguna
+                                    </option>
+                                    <option value="penyelenggara"
+                                        {{ $user->role === 'penyelenggara' ? 'selected' : '' }}>Penyelenggara</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="control-label">Nama</label>
-                                <input type="text" class="form-control" name="nama_lengkap"
-                                    value="{{ $user->nama_lengkap }}">
+                                @error('role')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
-                                <label for="" class="control-label">Username</label>
+                                <label for="nama_lengkap" class="control-label">Nama</label>
+                                <input type="text" class="form-control" name="nama_lengkap"
+                                    value="{{ old('nama_lengkap', $user->nama_lengkap) }}">
+                                @error('nama_lengkap')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="username" class="control-label">Username</label>
                                 <input type="text" class="form-control" name="username"
-                                    value="{{ $user->username }}">
+                                    value="{{ old('username', $user->username) }}">
+                                @error('username')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
-                                <label for="" class="control-label">Email</label>
-                                <input type="text" class="form-control" name="email" value="{{ $user->email }}">
+                                <label for="email" class="control-label">Email</label>
+                                <input type="text" class="form-control" name="email"
+                                    value="{{ old('email', $user->email) }}">
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
-                                <label for="" class="control-label">Password</label>
+                                <label for="password" class="control-label">Password (Opsional)</label>
                                 <input type="password" class="form-control" name="password">
+                                @error('password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
-                                <label for="" class="control-label">Foto Profil</label>
+                                <label for="foto_profil" class="control-label">Foto Profil</label>
                                 <input type="file" class="form-control" name="foto_profil" accept="image/*"
-                                    value="{{ $user->foto_profil }}" id="foto_profil" onchange="previewImage(event)">
+                                    id="foto_profil" onchange="previewImage(event)">
                                 <img id="preview" src="{{ $user->foto_profil ? asset($user->foto_profil) : '#' }}">
+                                @error('foto_profil')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <style>
@@ -74,13 +111,14 @@
                                     }
                                 }
                             </script>
+
+                            <div class="btn-group mb-2">
+                                <button class="btn btn-dark float-right mr-3"><i class="fa fa-save"></i> Simpan</button>
+                                <a href="{{ url('Admin/User') }}" class="btn btn-danger float-right"> Batal </a>
+                            </div>
+                        </form>
+
                     </div>
-                    <br>
-                    <div class="btn-group mb-2">
-                        <button class="btn btn-dark float-right mr-3"><i class="fa fa-save "></i> Simpan</button>
-                        <a href="{{ url('Admin/User') }}" class="btn btn-danger float-right "> Batal </a>
-                    </div>
-                    </form>
                 </div>
             </div>
         </div>

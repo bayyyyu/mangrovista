@@ -88,7 +88,7 @@
         <!-- Page Content-->
         <div class="page-content">
             <div class="container-fluid">
-                <x-utils.notif />
+                <x-utils.Admin.notif/>
                 <!-- Page-Title -->
                 {!! $slot !!}
 

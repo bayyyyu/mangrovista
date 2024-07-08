@@ -45,19 +45,19 @@ class RoleRequestController extends Controller
 
         $roleRequest->save();
 
-        $this->sendNotificationToAdmin($roleRequest);
+        // $this->sendNotificationToAdmin($roleRequest);
 
         return redirect('Profil')->with('success', 'Permintaan peran berhasil dikirim.');
     }
 
-    private function sendNotificationToAdmin(RoleRequest $roleRequest)
-    {
-            $notifikasi = new Notifikasi();
-            $notifikasi->user_id = $roleRequest->id_user;
-            $notifikasi->judul = 'Pengajuan peran baru';
-            $notifikasi->isi = 'Dari ' . $roleRequest->nama_lengkap;
-            $notifikasi->save();
-    }
+    // private function sendNotificationToAdmin(RoleRequest $roleRequest)
+    // {
+    //         $notifikasi = new Notifikasi();
+    //         $notifikasi->user_id = $roleRequest->id_user;
+    //         $notifikasi->judul = 'Pengajuan peran baru';
+    //         $notifikasi->isi = 'Dari ' . $roleRequest->nama_lengkap;
+    //         $notifikasi->save();
+    // }
 
     function edit(RoleRequest $role_request)
     {

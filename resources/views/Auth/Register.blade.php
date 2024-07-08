@@ -1,4 +1,4 @@
-<x-web.app-webNoSlider>
+<x-web.app-login>
     <x-auth.app-login>
         <div class="content-halaman">
 
@@ -135,4 +135,4 @@
             });
         </script>
     </x-auth.app-login>
-</x-web.app-webNoSlider>
+</x-web.app-login>

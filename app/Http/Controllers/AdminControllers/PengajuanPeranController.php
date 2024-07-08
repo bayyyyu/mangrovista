@@ -69,4 +69,11 @@ class PengajuanPeranController extends Controller
     {
         return redirect('Admin/Pengajuan-Peran')->with('success', 'Operasi berhasil dilakukan.');
     }
+
+    function destroy(RoleRequest $role_request)
+    {
+        $role_request->delete();
+
+        return redirect('Admin/Pengajuan-Peran')->with('danger', 'Data Berhasil Dihapus');
+    }
 }

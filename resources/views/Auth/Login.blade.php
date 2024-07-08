@@ -1,4 +1,4 @@
-<x-web.app-webNoSlider>
+<x-web.app-login>
     <x-auth.app-login>
         <div class="content-halaman">
             <section class="container-1">
@@ -53,4 +53,4 @@
             </section>
         </div>
     </x-auth.app-login>
-</x-web.app-webNoSlider>
+</x-web.app-login>

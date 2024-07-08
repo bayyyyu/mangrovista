@@ -113,6 +113,7 @@ Route::get('Admin/Pengajuan-Peran', [PengajuanPeranController::class, 'index'])-
 Route::get('Admin/Pengajuan-Peran/{role_request}', [PengajuanPeranController::class, 'show'])->middleware('isError');
 Route::put('Admin/Pengajuan-Peran/{role_request}/reject', [PengajuanPeranController::class, 'reject'])->middleware('isError');
 Route::put('Admin/Pengajuan-Peran/{role_request}/confirm', [PengajuanPeranController::class, 'konfirm'])->middleware('isError');
+Route::delete('Admin/Pengajuan-Peran/{role_request}', [PengajuanPeranController::class, 'destroy'])->middleware('isError');
 
 
 

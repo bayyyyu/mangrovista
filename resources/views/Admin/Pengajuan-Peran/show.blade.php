@@ -1,12 +1,14 @@
 <x-App>
     <div class="row mt-3">
         <div class="col-lg-12 mx-auto">
-            <a href="{{ url('Admin/Pengajuan-Peran') }}" class="btn btn-primary mb-2">
-                <i class="fa fa-arrow-left ">
-                </i>
-                Kembali
-            </a>
             <div class="card">
+                <div class="col-md-2 py-2 px-2 d-print-none">
+                    <a href="{{ url('Admin/Pengajuan-Peran') }}" class="btn btn-sm btn-outline-primary mb-2">
+                        <i class="fa fa-arrow-left ">
+                        </i>
+                        Kembali
+                    </a>
+                </div>
                 <div class="card-body invoice-head">
                     <div class="row">
                         <div class="col-md-10 align-self-center">
@@ -123,14 +125,17 @@
                         </div><!--end col-->
                         <div class="col-lg-12 col-xl-4">
                             <div class="float-end d-print-none">
-                                <form action="{{ url('Admin/Pengajuan-Peran/' . $role_request->id . '/confirm')}}" method="post"
-                                    enctype="multipart/form-data">
+                                <form id="form-konfirmasi"
+                                    action="{{ url('Admin/Pengajuan-Peran/' . $role_request->id . '/confirm') }}"
+                                    method="post" enctype="multipart/form-data">
                                     @csrf
-                                    @method('PUT')  
+                                    @method('PUT')
                                     <input type="hidden" name="_method" value="PUT">
                                     <a href="javascript:window.print()" class="btn btn-soft-info btn-sm">Print</a>
-                                    {{-- <a href="#" class="btn btn-soft-success btn-sm">Konfirmasi</a> --}}
-                                    <button type="submit" class="btn btn-soft-success btn-sm">Konfirmasi</button>
+
+                                    <button type="button" class="btn btn-soft-success btn-sm"
+                                        id="btn-konfirmasi">Konfirmasi</button>
+                                    {{-- <button type="submit" class="btn btn-soft-success btn-sm">Konfirmasi</button> --}}
                                     <button type="button" class="btn btn-soft-danger btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#exampleModalLarge">
                                         Tolak
@@ -168,5 +173,23 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('btn-konfirmasi').addEventListener('click', function() {
+            Swal.fire({
+                title: "Apakah Anda yakin?",
+                text: "Anda akan mengkonfirmasi permintaan ini.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya, konfirmasi!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Lakukan request konfirmasi dengan AJAX atau langsung submit form
+                    document.getElementById('form-konfirmasi').submit();
+                }
+            });
+        });
+    </script>
 
 </x-App>

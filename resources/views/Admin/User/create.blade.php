@@ -11,31 +11,72 @@
                     <div class="card-body">
                         <form action="{{ url('Admin/User') }}" method="post" enctype="multipart/form-data">
                             @csrf
+
+                            <!-- Tampilkan semua pesan error -->
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <div class="form-group">
+                                <label for="role" class="control-label">Role</label>
+                                <select class="form-control" name="role" id="role">
+                                    <option value="">--Pilih Role--</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="pengguna">Pengguna</option>
+                                    <option value="penyelenggara">Penyelenggara</option>
+                                </select>
+                                @error('role')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="form-group">
                                 <label for="" class="control-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" name="nama_lengkap">
+                                <input type="text" class="form-control" name="nama_lengkap"
+                                    value="{{ old('nama_lengkap') }}">
+                                @error('nama_lengkap')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="" class="control-label">Username</label>
-                                <input type="text" class="form-control" name="username">
+                                <input type="text" class="form-control" name="username"
+                                    value="{{ old('username') }}">
+                                @error('username')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="" class="control-label">Email</label>
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="" class="control-label">Password</label>
                                 <input type="password" class="form-control" name="password">
+                                @error('password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="" class="control-label">Foto Profil</label>
-                                    <input type="file" class="form-control" name="foto_profil" onchange="previewImage()"
-                                        id="fileInput" accept="image/*">
-
+                                    <input type="file" class="form-control" name="foto_profil"
+                                        onchange="previewImage()" id="fileInput" accept="image/*">
                                     <img id="preview" src="#">
                                 </div>
-
                                 <style>
                                     #preview {
                                         display: block;
@@ -49,9 +90,11 @@
                                     }
                                 </style>
                             </div>
+
                             <br>
-                            <button class="btn btn-dark float-right"><i class="fa fa-save "></i> Simpan</button>
+                            <button class="btn btn-dark float-right"><i class="fa fa-save"></i> Simpan</button>
                         </form>
+
                     </div>
                 </div>
             </div>
