@@ -13,14 +13,14 @@ class KatalogPohon extends Model
     [
         'id', 'nama_pohon', 'nama_lain_pohon', 'deskripsi', 'foto',
     ];
-    protected static function boot()
-    {
-        parent::boot();
+    // protected static function boot()
+    // {
+    //     parent::boot();
 
-        static::deleting(function ($katalogPohon) {
-            $katalogPohon->handleDelete();
-        });
-    }
+    //     static::deleting(function ($katalogPohon) {
+    //         $katalogPohon->handleDelete();
+    //     });
+    // }
     function handleUploadFoto()
     {
 

@@ -177,10 +177,22 @@ h1 {
     text-decoration: none;
 }
 
+
 .register-link:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.register-text {
+    display: block;
+    text-align: end;
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: normal;
+}
+
 .login-text {
     text-align: center;
 }

@@ -70,7 +70,8 @@
     <link href="{{ url('/') }}/assets-admin/dastone/plugins/lightpick/lightpick.css" rel="stylesheet" />
     <link href="{{ url('/') }}/assets-admin/dastone/plugins/lightbox/magnific-popup.css" rel="stylesheet"
         type="text/css" />
-    
+
+    <link href="{{ url('/') }}/assets-admin/dastone/plugins/dropify/css/dropify.min.css" rel="stylesheet">
     @stack('style')
 </head>
 
@@ -88,7 +89,7 @@
         <!-- Page Content-->
         <div class="page-content">
             <div class="container-fluid">
-                <x-utils.Admin.notif/>
+                <x-utils.Admin.notif />
                 <!-- Page-Title -->
                 {!! $slot !!}
 
@@ -114,7 +115,8 @@
     <script src="{{ url('/') }}/assets-admin/assets/js/simplebar.min.js"></script>
     <script src="{{ url('/') }}/assets-admin/assets/js/moment.js"></script>
     <script src="{{ url('/') }}/assets-admin/dastone/plugins/daterangepicker/daterangepicker.js"></script>
-
+    <script src="{{ url('/') }}/assets-admin/dastone/plugins/dropify/js/dropify.min.js"></script>
+    <script src="{{ url('/') }}/assets-admin/assets/pages/jquery.form-upload.init.js"></script>
     <script src="{{ url('/') }}/assets-admin/dastone/plugins/apex-charts/apexcharts.min.js"></script>
     <script src="{{ url('/') }}/assets-admin/dastone/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="{{ url('/') }}/assets-admin/dastone/plugins/jvectormap/jquery-jvectormap-us-aea-en.js"></script>

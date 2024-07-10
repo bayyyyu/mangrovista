@@ -15,12 +15,11 @@
                             <div data-repeater-item="" style="padding: 10px">
                                 <div class="form-group row  d-flex align-items-end">
                                     <div class="col-md-6">
-                                        <label class="text-dark">Pilih foto terbaik yang dilakukan saat
-                                            monitoring<span style="color: red">*</span></label>
+                                        <label class="text-dark">Foto / Video Dokumentasi<span style="color: red">*</span></label>
                                         <div class="card">
                                             <div class="card-body">
-                                                <input type="file" class="dropify" name="foto_monitoring" required
-                                                    accept="image/*" />
+                                                <input type="file" class="dropify" name="file" required
+                                                   accept="image/*,video/*"/>
                                             </div>
                                         </div>
                                     </div><!--end col-->

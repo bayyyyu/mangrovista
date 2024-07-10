@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminControllers;
 use App\Http\Controllers\Controller;
 use App\Models\KatalogPohon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AdminKatalogPohonController extends Controller
@@ -21,6 +22,28 @@ class AdminKatalogPohonController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'nama_pohon.required' => 'Nama pohon wajib diisi.',
+            'nama_lain_pohon.required' => 'Nama lain pohon wajib diisi.',
+            'deskripsi.required' => 'Deskripsi wajib diisi.',
+            'foto.required' => 'foto wajib diisi.',
+            'foto.image' => 'File foto harus berupa gambar.',
+            'foto.max' => 'Ukuran foto maksimal 2MB.',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'nama_pohon' => 'required|string|max:255',
+            'nama_lain_pohon' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'foto' => 'required|image|max:2048',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $katalog_pohon = new KatalogPohon();
         $katalog_pohon->nama_pohon = $request->input('nama_pohon');
         $katalog_pohon->nama_lain_pohon = $request->input('nama_lain_pohon');
@@ -31,6 +54,7 @@ class AdminKatalogPohonController extends Controller
 
         return redirect('Admin/Katalog-Pohon')->with('success', 'Data berhasil ditambahkan.');
     }
+
     function show(KatalogPohon $katalog_pohon)
     {
         $data['katalog_pohon'] = $katalog_pohon;
@@ -41,15 +65,42 @@ class AdminKatalogPohonController extends Controller
         $data['katalog_pohon'] = $katalog_pohon;
         return view('Admin.Katalog-Pohon.edit', $data);
     }
-    function update(KatalogPohon $katalog_pohon)
+    public function update(Request $request, KatalogPohon $katalog_pohon)
     {
-        $katalog_pohon->nama_pohon = request('nama_pohon');
-        $katalog_pohon->nama_lain_pohon = request('nama_lain_pohon');
-        $katalog_pohon->deskripsi = request('deskripsi');
-        if (request('foto')) $katalog_pohon->handleUploadFoto();
+        $messages = [
+            'nama_pohon.required' => 'Nama pohon wajib diisi.',
+            'nama_lain_pohon.required' => 'Nama lain pohon wajib diisi.',
+            'deskripsi.required' => 'Deskripsi wajib diisi.',
+            'foto.image' => 'File foto harus berupa gambar.',
+            'foto.max' => 'Ukuran foto maksimal 2MB.',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'nama_pohon' => 'required|string|max:255',
+            'nama_lain_pohon' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'foto' => 'nullable|image|max:2048',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $katalog_pohon->nama_pohon = $request->input('nama_pohon');
+        $katalog_pohon->nama_lain_pohon = $request->input('nama_lain_pohon');
+        $katalog_pohon->deskripsi = $request->input('deskripsi');
+
+        if ($request->hasFile('foto')) {
+            $katalog_pohon->handleUploadFoto();
+        }
+
         $katalog_pohon->save();
+
         return redirect('Admin/Katalog-Pohon')->with('success', 'Data Berhasil Diedit');
     }
+    
     function destroy(KatalogPohon $katalog_pohon)
     {
         $katalog_pohon->delete();

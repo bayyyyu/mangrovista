@@ -5,10 +5,10 @@
                 <div class="page-title-box">
                     <div class="row">
                         <div class="col">
-                            <h4 class="page-title">Input Data Event</h4>
+                            <h4 class="page-title">Data Event</h4>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0);">MangroVista</a></li>
-                                <li class="breadcrumb-item active">Input Data Event</li>
+                                <li class="breadcrumb-item active">Data Event</li>
                             </ol>
                         </div><!--end col-->
                         <div class="col-auto align-self-center tab">
@@ -23,11 +23,11 @@
                             <button class="tablink btn btn-sm btn-outline-primary"
                                 onclick="openTab(event, 'berlangsung')"
                                 style="margin-right:10px; border-radius:5px; ">Berlangsung</button>
-                            <span style="margin-right: 5px;"> | </span>
+                            {{-- <span style="margin-right: 5px;"> | </span>
                             <a href="{{ url('Admin/Event/create') }}" class="btn btn-sm btn-outline-primary">
                                 <i data-feather="plus" class="align-self-center icon-xs"></i>
                                 Tambah Event
-                            </a>
+                            </a> --}}
                         </div>
                         <!--end col-->
                     </div><!--end row-->
@@ -45,8 +45,7 @@
                                     <th class="text-white">No</th>
                                     <th class="text-white">Aksi</th>
                                     <th class="text-white">Nama Event</th>
-                                    <th class="text-white">Pohon Yang Hidup</th>
-                                    {{-- <th>Jumlah Penanaman</th> --}}
+                                    <th class="text-white">Jumlah Penanaman</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($list_event_telah_selesai->where('tanggal_event', '<', now()) as $event)
@@ -60,11 +59,11 @@
                                                         class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                     <x-button.delete id="{{ $event->id }}" />
                                                 </div>
+                                                <a href="{{ url('Admin/Event', $event->id) }}/Dokumentasi" class="btn btn-sm btn-outline-dark"><i class="fa fa-image" aria-hidden="true"></i></a>
+                                                <a href="{{ url('Admin/Event', $event->id) }}/Monitoring" class="btn btn-sm btn-outline-dark"><i class="fa fa-file" aria-hidden="true"></i></a>
                                             </td>
                                             <td style="white-space:normal">{{ $event->nama_event }}</td>
-                                             <td>{{ $jumlah_pohon_hidup[$event->id] }} pohon</td>
-                                            {{-- <td>{{ $jumlah_penanaman[$event->id] }}</td> --}}
-                                        
+                                            <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }} Pohon</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -76,12 +75,12 @@
                         <div class="card-body">
                             <table id="datatable2" class="table dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                <thead>
-                                    <th>No</th>
-                                    <th width="100px">Aksi</th>
-                                    <th>Nama Event</th>
-                                    {{-- <th>Pohon Yang Hidup</th>
-                                    <th>Jumlah Penanaman</th> --}}
+                                <thead class="bg-primary">
+                                    <th  class="text-white">No</th>
+                                    <th  class="text-white" width="100px">Aksi</th>
+                                    <th  class="text-white">Nama Event</th>
+                                    
+                                    <th class="text-white">Jumlah Penanaman</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($list_event_belum_selesai->where('tanggal_event', '>', now()) as $event)
@@ -97,8 +96,7 @@
                                                 </div>
                                             </td>
                                             <td>{{ $event->nama_event }}</td>
-                                            {{-- <td>{{ $jumlah_pohon_hidup[$event->id] }} pohon</td>
-                                            <td>{{ $jumlah_penanaman[$event->id] }}</td> --}}
+                                             <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }} Pohon</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -110,11 +108,11 @@
                         <div class="card-body">
                             <table id="datatable_berlangsung" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                <thead>
-                                    <th>No</th>
-                                    <th>Aksi</th>
-                                    <th>Nama Event</th>
-                                    {{-- <th>Jumlah Penanaman</th> --}}
+                                <thead class="bg-primary">
+                                    <th  class="text-white">No</th>
+                                    <th  class="text-white">Aksi</th>
+                                    <th  class="text-white">Nama Event</th>
+                                    <th class="text-white">Jumlah Penanaman</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($list_event_berlangsung as $event)
@@ -130,7 +128,7 @@
                                                 </div>
                                             </td>
                                             <td>{{ $event->nama_event }}</td>
-                                            {{-- <td>{{ $jumlah_penanaman[$event->id] }}</td> --}}
+                                            <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }} Pohon</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

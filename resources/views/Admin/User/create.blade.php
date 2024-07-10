@@ -11,18 +11,6 @@
                     <div class="card-body">
                         <form action="{{ url('Admin/User') }}" method="post" enctype="multipart/form-data">
                             @csrf
-
-                            <!-- Tampilkan semua pesan error -->
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-
                             <div class="form-group">
                                 <label for="role" class="control-label">Role</label>
                                 <select class="form-control" name="role" id="role">

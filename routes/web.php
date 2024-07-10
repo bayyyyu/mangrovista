@@ -70,8 +70,8 @@ Route::get('Admin/Katalog-Pohon/{katalog_pohon}', [AdminKatalogPohonController::
 Route::get('Admin/Katalog-Pohon/{katalog_pohon}/edit', [AdminKatalogPohonController::class, 'edit'])->middleware('isError');
 Route::put('Admin/Katalog-Pohon/{katalog_pohon}', [AdminKatalogPohonController::class, 'update'])->middleware('isError');
 Route::delete('Admin/Katalog-Pohon/{katalog_pohon}', [AdminKatalogPohonController::class, 'destroy'])->middleware('isError');
-Route::get('Admin/Katalog-Pohon/import', [AdminKatalogPohonController::class, 'import'])->middleware('isError');
-Route::post('Admin/Katalog-Pohon', [AdminKatalogPohonController::class, 'import_process'])->middleware('isError');
+// Route::get('Admin/Katalog-Pohon/import', [AdminKatalogPohonController::class, 'import'])->middleware('isError');
+// Route::post('Admin/Katalog-Pohon', [AdminKatalogPohonController::class, 'import_process'])->middleware('isError');
 
 // Tanaman
 Route::get('Admin/Tanaman', [TanamanController::class, 'index'])->middleware('isError');
@@ -90,7 +90,7 @@ Route::get('Admin/Event/create', [AdminEventController::class, 'create'])->middl
 Route::post('Admin/Event', [AdminEventController::class, 'store'])->middleware('isError');
 Route::get('Admin/Event/{event}', [AdminEventController::class, 'show'])->middleware('isError');
 Route::get('Admin/Event/{event}/edit', [AdminEventController::class, 'edit'])->middleware('isError');
-Route::get('Admin/Event/{event}/dokumentasi', [AdminEventController::class, 'dokumentasi'])->middleware('isError');
+Route::get('Admin/Event/{event}/Dokumentasi', [AdminEventController::class, 'dokumentasi'])->middleware('isError');
 Route::put('Admin/Event/{event}', [AdminEventController::class, 'update'])->middleware('isError');
 Route::delete('Admin/Event/{event}', [AdminEventController::class, 'destroy'])->middleware('isError');
 Route::put('Admin/Event/{event}/reject', [AdminEventController::class, 'reject'])->middleware('isError');

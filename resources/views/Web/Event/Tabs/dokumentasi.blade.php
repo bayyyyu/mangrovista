@@ -46,9 +46,6 @@
                 @endforeach
             </div>
         </div>
-        <style>
-
-        </style>
     @else
         <div
             style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding-block:50px">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dokumentasi;
 use App\Models\Event;
 use App\Models\Tanaman;
 use Illuminate\Http\Request;
@@ -69,8 +70,9 @@ class AdminEventController extends Controller
 
     function dokumentasi(Event $event)
     {
+        $list_dokumentasi = Dokumentasi::where('event_id', $event->id)->get();
         $data['event'] = $event;
-        return view('Admin.Event.dokumentasi', $data);
+        return view('Admin.Event.dokumentasi', $data, compact('list_dokumentasi'));
     }
     function update(Event $event)
     {

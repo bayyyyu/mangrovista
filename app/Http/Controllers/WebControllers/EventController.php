@@ -41,7 +41,7 @@ class EventController extends Controller
         $lokasi = $event->lokasi;
         $data['event'] = $event;
         $data['total_pengajuan_event'] = $totalPengajuanEvent;
-        $data['list_dokumentasi'] = Dokumentasi::get();
+        $data['list_dokumentasi'] = Dokumentasi::where('event_id', $event->id)->get();
         return view('Web.Event.show', $data, compact('user', 'lokasi'));
     }
 }

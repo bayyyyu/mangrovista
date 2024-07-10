@@ -1,12 +1,12 @@
 <x-app>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mt-5">
-                <a href="{{ url('Admin/Katalog-Pohon') }}" class="btn btn-dark btn-mat mb-1"><i
-                        class="feather icon-arrow-left"></i>
+            <div class="col-md-12 mt-3">
+                <a href="{{ url('Admin/Katalog-Pohon') }}" class="btn btn-primary btn-sm mb-1"><i
+                        class="fa fa-arrow-left"></i>
                     Kembali</a>
                 <div class="card">
-                    <div class="card-header bg-dark">
+                    <div class="card-header bg-primary">
                         <p style="color:white"> Edit Data Pohon </p>
                         <div class="card-tools">
                             </a>
@@ -19,77 +19,73 @@
                                 <div class="row">
                                     <div class="col-md-12 mt-5">
                                         <div class="card-body">
-                                            <form action="{{ url('Admin/Katalog-Pohon', $katalog_pohon->id) }}" method="post"
-                                                enctype="multipart/form-data">
+                                            <form action="{{ url('Admin/Katalog-Pohon', $katalog_pohon->id) }}"
+                                                method="post" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="" class="control-label"> Nama Pohon</label>
-                                                            <input type="text" class="form-control" name="nama_pohon"
-                                                                 value="{{ $katalog_pohon->nama_pohon }}">
-                                                            @if ($errors->has('nama_pohon'))
-                                                                <ul class="text-danger">
-                                                                    @foreach ($errors->get('nama_pohon') as $error)
-                                                                        <li>{{ $error }}</li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            @endif
+                                                            <label for="nama_pohon" class="control-label">Nama
+                                                                Pohon</label>
+                                                            <input type="text"
+                                                                class="form-control @error('nama_pohon') is-invalid @enderror"
+                                                                name="nama_pohon"
+                                                                value="{{ old('nama_pohon', $katalog_pohon->nama_pohon) }}">
+                                                            @error('nama_pohon')
+                                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="" class="control-label"> Nama Lain / Nama Latin Pohon</label>
-                                                            <input type="text" class="form-control" name="nama_lain_pohon"
-                                                                 value="{{ $katalog_pohon->nama_lain_pohon }}">
-                                                            @if ($errors->has('nama_lain_pohon'))
-                                                                <ul class="text-danger">
-                                                                    @foreach ($errors->get('nama_lain_pohon') as $error)
-                                                                        <li>{{ $error }}</li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            @endif
+                                                            <label for="nama_lain_pohon" class="control-label">Nama Lain
+                                                                / Nama Latin Pohon</label>
+                                                            <input type="text"
+                                                                class="form-control @error('nama_lain_pohon') is-invalid @enderror"
+                                                                name="nama_lain_pohon"
+                                                                value="{{ old('nama_lain_pohon', $katalog_pohon->nama_lain_pohon) }}">
+                                                            @error('nama_lain_pohon')
+                                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="" class="control-label">Deskripsi</label>
-                                                    <textarea name="deskripsi" id="deskripsi" class="form-control">{{ value($katalog_pohon->deskripsi) }}</textarea>
+                                                    <label for="deskripsi" class="control-label">Deskripsi</label>
+                                                    <textarea name="deskripsi" id="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror">{{ old('deskripsi', $katalog_pohon->deskripsi) }}</textarea>
+                                                    @error('deskripsi')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="" class="control-label">Foto</label>
-                                                            <input type="file" class="form-control" name="foto"
-                                                                onchange="previewImage()" id="fileInput" accept="image/*" >
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h4 class="card-title">Foto</h4>
+                                                            </div><!--end card-header-->
+                                                            <div class="card-body">
+                                                                <input type="file" id="input-file-now"
+                                                                    class="dropify @error('foto') is-invalid @enderror"
+                                                                    name="foto"
+                                                                    data-default-file="{{ $katalog_pohon->foto ? asset('images/Katalog-Pohon/' . $katalog_pohon->foto) : '' }}" />
+                                                                @error('foto')
+                                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                                @enderror
+                                                            </div><!--end card-body-->
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-
-                                                        <img id="preview" src="#">
-
-                                                        <style>
-                                                            #preview {
-                                                                display: block;
-                                                                margin: 20px auto;
-                                                                width: 100%;
-                                                                height: 300px;
-                                                                object-fit: contain;
-                                                                object-position: center;
-                                                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-                                                            }
-                                                        </style>
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="button-group pull-right">
-                                                    <button class="btn btn-success float-right"><i
-                                                            class="fa fa-save "></i> Simpan</button>
+                                                <div class="col-md-12">
+                                                    <button class="btn btn-success float-end" type="submit"><i
+                                                            class="fa fa-save"></i> Simpan</button>
+                                                    {{-- <a href="{{ url('Admin/Katalog-Pohon') }}"
+                                                        class="btn btn-danger float-end" style="margin-right:10px"><i
+                                                            class="fa fa-trash "></i>Batal</a> --}}
                                                 </div>
                                             </form>
-                                            <a href="{{ url('Admin/Katalog-Pohon') }}" class="btn btn-danger float-right"
-                                                style="margin-right:10px"><i class="fa fa-trash "></i>Batal</a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +116,6 @@
     @endpush
 
     @push('script')
-
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         <script>
             $(document).ready(function() {
@@ -132,8 +127,8 @@
                         ['para', ['ul', 'ol', 'paragraph']],
                         ['table', ['table']],
                         ['insert', ['link']],
-                        ]
-                 });
+                    ]
+                });
             });
         </script>
     @endpush

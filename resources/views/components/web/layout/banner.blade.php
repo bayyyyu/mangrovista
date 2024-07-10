@@ -12,13 +12,13 @@
                                 <div class="banner-content"
                                     style="color:black; text-align:left; margin-left:30px; margin-top:-100px;">
                                     <h3 class="banner-title">
-                                        Mulai Langkah Pertama Menghijaukan
+                                        Ayo mulai langkah pertama 
                                     </h3>
                                     <h3 class="banner-title">
-                                        Bumi Dengan Berpartisipasi Di Event
+                                        menghijaukan bumi dengan
                                     </h3>
                                     <h3 class="banner-title">
-                                        Penanaman
+                                        bergabung di Event Penanaman kami!
                                     </h3>
                                     <a href="{{ url('Event') }}"
                                         class="lab-btn float-left"><span>PARTISIPASI</span></a>

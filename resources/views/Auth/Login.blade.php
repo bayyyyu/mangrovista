@@ -32,13 +32,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <a href="" class="forgot-password-link" style="color: white"><span>Lupa
                                                 Password?</span></a>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a href="{{ url('Register') }}" class="register-link"
-                                            style="color: white"><span>Daftar</span></a>
+                                    </div> --}}
+                                    <div class="col-md-12">
+                                        <div class="row" style="gap: 5px">
+                                                <span class="register-text">Belum Punya Akun?</span>
+                                                <a href="{{ url('Register') }}" class="register-link"
+                                                    style="color: white"><span>Daftar disini</span></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
