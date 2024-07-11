@@ -91,6 +91,8 @@ Route::post('Admin/Event', [AdminEventController::class, 'store'])->middleware('
 Route::get('Admin/Event/{event}', [AdminEventController::class, 'show'])->middleware('isError');
 Route::get('Admin/Event/{event}/edit', [AdminEventController::class, 'edit'])->middleware('isError');
 Route::get('Admin/Event/{event}/Dokumentasi', [AdminEventController::class, 'dokumentasi'])->middleware('isError');
+Route::get('/Admin/Event/{event}/Monitoring/Data', [AdminEventController::class, 'getMonitoringData'])->middleware('isError');
+
 Route::put('Admin/Event/{event}', [AdminEventController::class, 'update'])->middleware('isError');
 Route::delete('Admin/Event/{event}', [AdminEventController::class, 'destroy'])->middleware('isError');
 Route::put('Admin/Event/{event}/reject', [AdminEventController::class, 'reject'])->middleware('isError');
@@ -98,6 +100,7 @@ Route::put('Admin/Event/{event}/confirm', [AdminEventController::class, 'konfirm
 
 //Lokasi
 Route::get('Admin/Lokasi', [AdminLokasiController::class, 'index'])->middleware('isError');
+Route::get('Admin/Lokasi/{lokasi}', [AdminLokasiController::class, 'show'])->middleware('isError');
 
 // User
 Route::get('Admin/User', [UserController::class, 'index'])->middleware('isError');

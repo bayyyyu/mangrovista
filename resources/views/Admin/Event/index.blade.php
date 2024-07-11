@@ -54,16 +54,27 @@
                                             <td>
                                                 <div class="btn-group ml-2">
                                                     <a href="{{ url('Admin/Event', $event->id) }}"
-                                                        class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i></a>
+                                                        class="btn btn-outline-primary btn-sm"><i
+                                                            class="fa fa-info"></i></a>
                                                     <a href="{{ url('Admin/Event', $event->id) }}/edit"
-                                                        class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-outline-warning btn-sm"><i
+                                                            class="fa fa-edit"></i></a>
                                                     <x-button.delete id="{{ $event->id }}" />
                                                 </div>
-                                                <a href="{{ url('Admin/Event', $event->id) }}/Dokumentasi" class="btn btn-sm btn-outline-dark"><i class="fa fa-image" aria-hidden="true"></i></a>
-                                                <a href="{{ url('Admin/Event', $event->id) }}/Monitoring" class="btn btn-sm btn-outline-dark"><i class="fa fa-file" aria-hidden="true"></i></a>
+                                                <a href="{{ url('Admin/Event', $event->id) }}/Dokumentasi"
+                                                    class="btn btn-sm btn-outline-dark"><i class="fa fa-image"
+                                                        aria-hidden="true"></i></a>
+                                                <a href="javascript:void(0);"
+                                                    onclick="loadMonitoringData({{ $event->id }})"
+                                                    class="btn btn-sm btn-outline-dark" data-bs-toggle="offcanvas"
+                                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                                </a>
+
                                             </td>
                                             <td style="white-space:normal">{{ $event->nama_event }}</td>
-                                            <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }} Pohon</td>
+                                            <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }}
+                                                Pohon</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -71,15 +82,19 @@
                         </div>
                     </div>
 
+                    {{-- Right Offcanvas start --}}
+                    @include('Admin.Event.Offcanvas-Monitoring.index')
+                    {{-- Right Offcanvas End --}}
+
                     <div id="belumSelesai" class="tabcontent" style="display: none;">
                         <div class="card-body">
                             <table id="datatable2" class="table dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="bg-primary">
-                                    <th  class="text-white">No</th>
-                                    <th  class="text-white" width="100px">Aksi</th>
-                                    <th  class="text-white">Nama Event</th>
-                                    
+                                    <th class="text-white">No</th>
+                                    <th class="text-white" width="100px">Aksi</th>
+                                    <th class="text-white">Nama Event</th>
+
                                     <th class="text-white">Jumlah Penanaman</th>
                                 </thead>
                                 <tbody>
@@ -89,14 +104,17 @@
                                             <td>
                                                 <div class="btn-group ml-2">
                                                     <a href="{{ url('Admin/Event', $event->id) }}"
-                                                        class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i></a>
+                                                        class="btn btn-outline-primary btn-sm"><i
+                                                            class="fa fa-info"></i></a>
                                                     <a href="{{ url('Admin/Event', $event->id) }}/edit"
-                                                        class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-outline-warning btn-sm"><i
+                                                            class="fa fa-edit"></i></a>
                                                     <x-button.delete id="{{ $event->id }}" />
                                                 </div>
                                             </td>
                                             <td>{{ $event->nama_event }}</td>
-                                             <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }} Pohon</td>
+                                            <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }}
+                                                Pohon</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -109,9 +127,9 @@
                             <table id="datatable_berlangsung" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead class="bg-primary">
-                                    <th  class="text-white">No</th>
-                                    <th  class="text-white">Aksi</th>
-                                    <th  class="text-white">Nama Event</th>
+                                    <th class="text-white">No</th>
+                                    <th class="text-white">Aksi</th>
+                                    <th class="text-white">Nama Event</th>
                                     <th class="text-white">Jumlah Penanaman</th>
                                 </thead>
                                 <tbody>
@@ -121,14 +139,17 @@
                                             <td>
                                                 <div class="btn-group ml-2">
                                                     <a href="{{ url('Admin/Event', $event->id) }}"
-                                                        class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i></a>
+                                                        class="btn btn-outline-primary btn-sm"><i
+                                                            class="fa fa-info"></i></a>
                                                     <a href="{{ url('Admin/Event', $event->id) }}/edit"
-                                                        class="btn btn-outrline-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-outrline-warning btn-sm"><i
+                                                            class="fa fa-edit"></i></a>
                                                     <x-button.delete id="{{ $event->id }}" />
                                                 </div>
                                             </td>
                                             <td>{{ $event->nama_event }}</td>
-                                            <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }} Pohon</td>
+                                            <td style="white-space:normal">{{ $event->tanaman_event->jumlah_pohon }}
+                                                Pohon</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

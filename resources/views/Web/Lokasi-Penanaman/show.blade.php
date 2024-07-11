@@ -187,7 +187,6 @@
         </div>
     </div>
 
-
     <style>
         th.nama-event {
             width: 30%;

@@ -14,40 +14,6 @@
                 </div>
                 <!--Timeline item 2 - NOTE: the .right class-->
                 <div class="timeline-item mt-3  p-2">
-                    {{-- <div class="wrapper-detail" style="display:flex;">
-                        <div class="p-2">
-                            <div class="detail-value text-bold">
-                                {{ $monitoring->pohon_hidup }}
-                            </div>
-                            <div class="detail-info">
-                                Pohon Hidup
-                            </div>
-                        </div>
-                        <div class="p-2">
-                            <div class="detail-value text-bold">
-                                {{ $monitoring->pohon_mati }}
-                            </div>
-                            <div class="detail-info">
-                                Pohon Mati
-                            </div>
-                        </div>
-                        <div class="p-2">
-                            <div class="detail-value text-bold">
-                                {{ $monitoring->diameter_pohon }} cm
-                            </div>
-                            <div class="detail-info">
-                                Diameter Pohon
-                            </div>
-                        </div>
-                        <div class="p-2">
-                            <div class="detail-value text-bold">
-                                {{ $monitoring->tinggi_pohon }} cm
-                            </div>
-                            <div class="detail-info">
-                                Tinggi Pohon
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="img-fluid p-3">
@@ -124,7 +90,6 @@
                 </div>
             </div>
         @endforeach
-        <div class="timeline-breaker timeline-breaker-bottom">More........
-        </div>
+
     </div>
 </div>

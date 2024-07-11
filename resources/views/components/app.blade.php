@@ -71,6 +71,7 @@
     <link href="{{ url('/') }}/assets-admin/dastone/plugins/lightbox/magnific-popup.css" rel="stylesheet"
         type="text/css" />
 
+        
     <link href="{{ url('/') }}/assets-admin/dastone/plugins/dropify/css/dropify.min.css" rel="stylesheet">
     @stack('style')
 </head>
