@@ -43,10 +43,11 @@ class ProfilController extends Controller
     {
         if (request('nama_lengkap')) $user->nama_lengkap = (request('nama_lengkap'));
         if (request('username')) $user->username = (request('username'));
-        if (request('email')) $user->email = (request('email'));
+        // if (request('email')) $user->email = (request('email'));
         if (request('role')) $user->role = (request('role'));
         if (request('password')) $user->password = (request('password'));
         if (request('no_telpon')) $user->no_telpon = (request('no_telpon'));
+        if (request('tgl_lahir')) $user->tgl_lahir = (request('tgl_lahir'));
         if (request('foto_profil')) $user->handleUploadFoto();
         $user->save();
         return redirect('Profil')->with('success', 'Data Berhasil Diedit');

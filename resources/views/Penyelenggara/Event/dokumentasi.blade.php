@@ -11,21 +11,21 @@
                 <form action="{{ url('Event', $event->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="repeater-custom-show-hide">
-                        <div data-repeater-list="car">
+                        <div data-repeater-list="dokumentasi">
                             <div data-repeater-item="" style="padding: 10px">
                                 <div class="form-group row  d-flex align-items-end">
                                     <div class="col-md-6">
                                         <label class="text-dark">Foto / Video Dokumentasi<span style="color: red">*</span></label>
                                         <div class="card">
-                                            <div class="card-body">
-                                                <input type="file" class="dropify" name="file" required
+                                            <div class="card-body" style="padding: 0.9rem">
+                                                <input type="file" class="" name="file" required
                                                    accept="image/*,video/*"/>
                                             </div>
                                         </div>
                                     </div><!--end col-->
                                     <div class="col-md-6">
                                         <label class="form-label">Deskripsi</label>
-                                        <textarea name="deskripsi" class="form-control" rows="10"  required></textarea>
+                                        <textarea name="deskripsi" class="form-control" rows="2"  required></textarea>
                                     </div><!--end col-->
                                     <div class="col-md-12 mt-2">
                                         <span data-repeater-delete="" class="btn"

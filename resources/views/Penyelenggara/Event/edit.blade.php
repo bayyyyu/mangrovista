@@ -37,7 +37,7 @@
                                 style="width:100%; height:225px; object-fit:cover; border-radius: 10px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px solid #00947C;"
                                 class="image">
                         </div>
-                        <input type="file" id="input-file-now" name="foto" style="display: none;" />
+                        <input type="file" id="input-file-now" name="foto" style="display: none;" accept="image/jpeg, image/png, image/jpg, image/gif" />
 
                         <!-- Tambahkan label untuk mengganti gambar -->
                         <div class="mt-2">
@@ -49,56 +49,84 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label text-dark">Nama Event:</label>
-                                <input type="text" class="form-control" name="nama_event"
-                                    value="{{ $event->nama_event }}">
+                                <input type="text" class="form-control @error('nama_event') is-invalid @enderror"
+                                    name="nama_event" value="{{ old('nama_event', $event->nama_event) }}">
+                                @error('nama_event')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-
                                 <label for="" class="text-dark">Tanggal Pelaksanaan</label>
                                 <div class="input-group">
-                                    <input type="date" name="tanggal_event" class="form-control mr-2"
-                                        value="{{ $event->tanggal_event }}">
+                                    <input type="date" name="tanggal_event"
+                                        class="form-control @error('tanggal_event') is-invalid @enderror"
+                                        value="{{ old('tanggal_event', $event->tanggal_event) }}">
+                                    @error('tanggal_event')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                     <span class="input-group-text">Hingga</span>
-                                    <input type="date" name="tanggal_selesai" class="form-control ml-2"
-                                        value="{{ $event->tanggal_selesai }}">
+                                    <input type="date" name="tanggal_selesai"
+                                        class="form-control @error('tanggal_selesai') is-invalid @enderror"
+                                        value="{{ old('tanggal_selesai', $event->tanggal_selesai) }}">
+                                    @error('tanggal_selesai')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
+
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="" class="text-dark">Jam</label>
-                                <input type="time" name="jam" value="{{ $event->jam }}" class="form-control">
+                                <input type="time" name="jam" value="{{ old('jam', $event->jam) }}"
+                                    class="form-control @error('jam') is-invalid @enderror">
+                                @error('jam')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="" class="text-dark">Maks. Peserta</label>
-                                <input type="number" name="target_peserta" class="form-control"
-                                    value="{{ $event->target_peserta }}">
+                                <input type="number" name="target_peserta"
+                                    class="form-control @error('target_peserta') is-invalid @enderror"
+                                    value="{{ old('target_peserta', $event->target_peserta) }}">
+                                @error('target_peserta')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="" class="text-dark">Batas Pendaftaran</label>
-                                <input type="date" name="batas_pendaftaran" class="form-control"
-                                    value="{{ $event->batas_pendaftaran }}">
+                                <input type="date" name="batas_pendaftaran"
+                                    class="form-control @error('batas_pendaftaran') is-invalid @enderror"
+                                    value="{{ old('batas_pendaftaran', $event->batas_pendaftaran) }}">
+                                @error('batas_pendaftaran')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label text-dark">Deskripsi:</label>
-                                <textarea class="form-control" id="message-text" name="deskripsi" rows="10" cols="50"
-                                    style="text-align: justify">{{ value($event->deskripsi) }}</textarea>
+                                <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="message-text" name="deskripsi"
+                                    rows="10" cols="50" style="text-align: justify">{{ old('deskripsi', $event->deskripsi) }}</textarea>
+                                @error('deskripsi')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ url('Profil?page=1#pengajuan') }}" class="btn btn-sm btn-outline-green">Kembali</a>
+                        <a href="{{ url('Profil?page=1#pengajuan') }}"
+                            class="btn btn-sm btn-outline-green">Kembali</a>
                         <button class="btn btn-sm btn-green">Simpan</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class PengajuanEventController extends Controller
 {
@@ -104,19 +105,66 @@ class PengajuanEventController extends Controller
         return view('Penyelenggara.Event.edit', $data);
     }
 
-    function update(Event $event)
+    function update(Event $event, Request $request)
     {
-        if (request('nama_event')) $event->nama_event = (request('nama_event'));
-        if (request('tanggal_event')) $event->tanggal_event = (request('tanggal_event'));
-        if (request('tanggal_selesai')) $event->tanggal_selesai = (request('tanggal_selesai'));
-        if (request('deskripsi')) $event->deskripsi = (request('deskripsi'));
-        if (request('jam')) $event->jam = (request('jam'));
-        if (request('target_peserta')) $event->target_peserta = (request('target_peserta'));
-        if (request('batas_pendaftaran')) $event->batas_pendaftaran = (request('batas_pendaftaran'));
-        if (request('foto')) $event->handleUploadFoto();
+        $messages = [
+            'required' => ':attribute wajib diisi.',
+            'nama_event.required' => 'Nama event wajib diisi.',
+            'tanggal_event.required' => 'Tanggal event wajib diisi.',
+            'tanggal_event.date' => 'Format tanggal event tidak valid.',
+            'tanggal_selesai.required' => 'Tanggal selesai wajib diisi.',
+            'tanggal_selesai.date' => 'Format tanggal selesai tidak valid.',
+            'tanggal_selesai.after_or_equal' => 'Tanggal selesai harus setelah atau sama dengan tanggal event.',
+            'deskripsi.required' => 'Deskripsi wajib diisi.',
+            'deskripsi.string' => 'Deskripsi harus berupa teks.',
+            'jam.required' => 'Jam wajib diisi.',
+            'jam.date_format' => 'Format jam tidak valid.',
+            'target_peserta.required' => 'Target peserta wajib diisi.',
+            'target_peserta.integer' => 'Target peserta harus berupa bilangan bulat.',
+            'target_peserta.min' => 'Target peserta minimal 1 orang.',
+            'batas_pendaftaran.required' => 'Batas pendaftaran wajib diisi.',
+            'batas_pendaftaran.date' => 'Format batas pendaftaran tidak valid.',
+            'foto.image' => 'File yang diunggah harus berupa gambar (jpeg, png, jpg, gif).',
+            'foto.mimes' => 'File gambar harus berformat jpeg, png, jpg, atau gif.',
+            'foto.max' => 'Ukuran file gambar maksimal 2048 KB.',
+        ];
 
+        // Aturan validasi
+        $validator = Validator::make($request->all(), [
+            'nama_event' => 'required|string|max:255',
+            'tanggal_event' => 'required|date',
+            'tanggal_selesai' => 'required|date|after_or_equal:tanggal_event',
+            'deskripsi' => 'required|string',
+            'jam' => 'required|date_format:H:i:s', 
+            'target_peserta' => 'required|integer|min:1',
+            'batas_pendaftaran' => 'required|date',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk foto event
+        ], $messages);
+
+        // Jika validasi gagal, kembali ke halaman sebelumnya dengan pesan error
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Update data event
+        $event->nama_event = $request->input('nama_event');
+        $event->tanggal_event = $request->input('tanggal_event');
+        $event->tanggal_selesai = $request->input('tanggal_selesai');
+        $event->deskripsi = $request->input('deskripsi');
+        $event->jam = $request->input('jam');
+        $event->target_peserta = $request->input('target_peserta');
+        $event->batas_pendaftaran = $request->input('batas_pendaftaran');
+
+        // Handle upload foto jika ada file yang diunggah
+        if ($request->hasFile('foto')) {
+            $event->handleUploadFoto();
+        }
+
+        // Simpan perubahan data
         $event->save();
+
         return redirect()->route('event.show', $event->id)->with('success', 'Data Berhasil Diedit');
     }
-    
 }

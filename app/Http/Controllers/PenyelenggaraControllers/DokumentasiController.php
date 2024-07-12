@@ -24,14 +24,14 @@ class DokumentasiController extends Controller
     function store(Request $request, Event $event)
     {
 
-        // Memastikan apakah ada data dalam 'car'
-        if ($request->has('car')) {
-            foreach ($request->car as $index => $data) {
+        // Memastikan apakah ada data dalam 'dokumentasi'
+        if ($request->has('dokumentasi')) {
+            foreach ($request->dokumentasi as $index => $data) {
                 // Membuat instance Dokumentasi baru
                 $dokumentasi_event = new Dokumentasi();
                 $dokumentasi_event->event_id = $event->id;
 
-                // Menyimpan deskripsi dari 'car' array
+                // Menyimpan deskripsi dari 'dokumentasi' array
                 if (isset($data['deskripsi'])) {
                     $dokumentasi_event->deskripsi = $data['deskripsi'];
                 }
@@ -39,7 +39,7 @@ class DokumentasiController extends Controller
                 // Menyimpan data ke database untuk mendapatkan ID
                 $dokumentasi_event->save();
 
-                // Mengambil file dari 'car' array dan menggunakan metode handleUploadFile dari model
+                // Mengambil file dari 'dokumentasi' array dan menggunakan metode handleUploadFile dari model
                 if (isset($data['file'])) {
                     $file = $data['file'];
                     $dokumentasi_event->handleUploadFile($file);

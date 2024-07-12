@@ -14,8 +14,7 @@
                         style="height: 70px; width: 70px; object-fit:cover; border:1px solid #018d58; border-radius:75%">
                 @endif
 
-                <label for="upload-photo" class="btn btn-sm la-btn mt-3 ml-3" style="">Unggah Foto Profil
-                </label>
+                <label for="upload-photo" class="btn btn-sm btn-outline-green mt-3 ml-3" style=""><i class="icofont-camera"></i> Foto Profil</label>
                 <input type="file" id="upload-photo" accept=".jpg, .png, .jpeg" style="display: none;"
                     name="foto_profil">
             </div>
@@ -58,7 +57,7 @@
                                     @endif
                                 </label>
                                 <input type="text" class="form-control" name="email"style="height:30px"
-                                    value="{{ Auth::user()->email ?? '' }}">
+                                    value="{{ Auth::user()->email ?? '' }}" readonly>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -96,7 +95,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="" class="control-label"
@@ -113,8 +112,8 @@
                                     value="{{ Auth::user()->komunitas ?? '' }}">
                             </div>
                         </div>
-                    </div>
-                    <button type="submit" class="la-btn float-right">
+                    </div> --}}
+                    <button type="submit" class="btn btn-sm btn-outline-green float-right">
                         Simpan Perubahan
                     </button>
                 </form>
