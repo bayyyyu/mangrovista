@@ -58,9 +58,9 @@
                             <div class="float-left">
                                 <address class="font-13">
                                     <strong class="font-14">Diajukan Oleh :</strong><br>
-                                    {{ $role_request->nama_lengkap }}<br>
+                                    {{ $role_request->user->nama_lengkap }}<br>
                                     {{ $role_request->alamat }}<br>
-                                    0{{ $role_request->no_telpon }}
+                                    0{{ $role_request->user->no_telpon }}
                                 </address>
                             </div>
                         </div><!--end col-->
@@ -163,7 +163,7 @@
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
-                        <textarea id="rejectionReason" name="alasan_penolakan" class="form-control" rows="4"></textarea>
+                        <textarea id="rejectionReason" name="alasan_penolakan" class="form-control" rows="4" required></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>

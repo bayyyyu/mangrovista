@@ -104,7 +104,7 @@
                                             </a>
                                             <x-button.delete id="{{ $diterima->id }}" />
                                         </td>
-                                        <td>{{ $diterima->nama_lengkap }}</td>
+                                        <td>{{ $diterima->user->nama_lengkap }}</td>
                                         <td>{{ $diterima->created_at->isoFormat('DD MMMM YYYY', 'Do MMMM YYYY') }}
                                             Pukul: {{ $diterima->created_at->isoFormat('HH:mm') }}</td>
                                         <td width="20px">

@@ -55,13 +55,15 @@ class AdminKatalogPohonController extends Controller
         return redirect('Admin/Katalog-Pohon')->with('success', 'Data berhasil ditambahkan.');
     }
 
-    function show(KatalogPohon $katalog_pohon)
+    function show($id)
     {
+        $katalog_pohon = KatalogPohon::find($id);
         $data['katalog_pohon'] = $katalog_pohon;
         return view('Admin.Katalog-Pohon.show', $data);
     }
-    function edit(KatalogPohon $katalog_pohon)
+    function edit($id)
     {
+        $katalog_pohon = KatalogPohon::find($id);
         $data['katalog_pohon'] = $katalog_pohon;
         return view('Admin.Katalog-Pohon.edit', $data);
     }

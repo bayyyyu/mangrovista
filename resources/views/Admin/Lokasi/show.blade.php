@@ -1,6 +1,5 @@
 <x-app>
     <link href="{{ url('/') }}/assets-admin/dastone/plugins/leaflet/leaflet.css" rel="stylesheet">
-
     <div class="row mt-3">
         <div class="col-md-3">
 

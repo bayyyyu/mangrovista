@@ -29,14 +29,16 @@ class AdminEventController extends Controller
 
         return view('Admin.Event.index', compact('list_event_telah_selesai', 'list_event_belum_selesai', 'list_event_berlangsung', 'page_telah_selesai', 'page_belum_selesai', 'page_berlangsung'), $data);
     }
-    public function show(Event $event)
+    public function show($id)
     {
+        $event = Event::find($id);   
         $data['event'] = $event;
         return view('Admin.Event.show', $data);
     }
 
-    function edit(Event $event)
+    function edit($id)
     {
+        $event = Event::find($id); 
         $data['event'] = $event;
         return view('Admin.Event.edit', $data);
     }
@@ -76,8 +78,8 @@ class AdminEventController extends Controller
 
     function dokumentasi(Event $event)
     {
-        $list_dokumentasi = Dokumentasi::where('event_id', $event->id)->get();
         $data['event'] = $event;
+        $list_dokumentasi = Dokumentasi::where('event_id', $event->id)->get();
         return view('Admin.Event.dokumentasi', $data, compact('list_dokumentasi'));
     }
 

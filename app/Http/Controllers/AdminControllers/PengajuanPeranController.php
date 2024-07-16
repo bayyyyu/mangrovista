@@ -25,28 +25,18 @@ class PengajuanPeranController extends Controller
         // Mengembalikan data ke view
         return view('Admin.Pengajuan-Peran.index', compact('page_baru', 'list_menunggu_konfirmasi', 'list_diterima', 'list_ditolak'));
     }
-    function show(RoleRequest $role_request)
+    function show($id)
     {
+        $role_request = RoleRequest::find($id);
         $data['role_request'] = $role_request;
         return view('Admin.Pengajuan-Peran.show', $data);
     }
-    public function reject(Request $request, RoleRequest $role_request)
+    public function reject(RoleRequest $role_request)
     {
-
-        $request->validate([
-            'alasan_penolakan' => 'required|string',
-        ]);
-
         $role_request->status_request = 'Ditolak';
         if (request('alasan_penolakan')) $role_request->alasan_penolakan = (request('alasan_penolakan'));
         $role_request->save();
 
-        $user = $role_request->user;
-
-        if ($user) {
-            $user->role = 'pengguna';
-            $user->save();
-        }
         return $this->redirectToPengajuanPeran();
     }
     public function konfirm(RoleRequest $role_request)

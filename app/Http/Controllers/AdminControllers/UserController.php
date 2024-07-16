@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminControllers;
 use App\Models\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -65,13 +66,23 @@ class UserController extends Controller
         return redirect('Admin/User')->with('success', 'Data Berhasil Ditambahkan');
     }
 
-    function show(User $user)
+    function show($id)
     {
-        $data['user'] = $user;
+        $user = User::find($id);
+        $list_event = Event::where('user_id', $user->id)->get();
+
+        // $data['user'] = $user;
+        $data = [
+            'user' => $user,
+            'list_event' => $list_event,
+
+        ];
         return view('Admin.User.show', $data);
     }
-    function edit(User $user)
+    
+    function edit($id)
     {
+        $user = User::find($id);
         $data['user'] = $user;
         return view('Admin.User.edit', $data);
     }

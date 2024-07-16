@@ -17,9 +17,6 @@ class RoleRequestController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_lengkap' => 'required|string',
-            'email' => 'required|email',
-            'no_telpon' => 'required|string',
             'alamat' => 'required|string',
             'pengalaman' => 'required|string',
             'alasan' => 'required|string',
@@ -31,9 +28,6 @@ class RoleRequestController extends Controller
         $roleRequest = new RoleRequest();
 
         $roleRequest->id_user = $user->id;
-        $roleRequest->nama_lengkap = $request->input('nama_lengkap');
-        $roleRequest->email = $request->input('email');
-        $roleRequest->no_telpon = $request->input('no_telpon');
         $roleRequest->alamat = $request->input('alamat');
         $roleRequest->pengalaman = $request->input('pengalaman');
         $roleRequest->alasan = $request->input('alasan');

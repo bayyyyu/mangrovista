@@ -7,7 +7,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="mt-4">
-                       <form action="{{ url('Ambil-Peran') }}" method="POST" class="comment-form" enctype="multipart/form-data">
+                        <form action="{{ url('Ambil-Peran') }}" method="POST" class="comment-form"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
@@ -15,8 +16,8 @@
                                         <label for="" class="control-label"
                                             style="color:black; font-size:13px">Nama
                                             Lengkap<span style="color: red">*</span></label>
-                                        <input type="text" class="form-control" name="nama_lengkap"
-                                            style="height:30px">
+                                        <input type="text" class="form-control" style="height:30px"
+                                            placeholder="{{ Auth::user()->nama_lengkap ?? '' }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -24,7 +25,8 @@
                                         <label for="" class="control-label"
                                             style="color:black; font-size:13px">Email<span
                                                 style="color: red">*</span></label>
-                                        <input type="email" class="form-control" name="email" style="height:30px">
+                                        <input type="email" class="form-control" style="height:30px"
+                                            placeholder="{{ Auth::user()->email ?? '' }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -32,8 +34,8 @@
                                         <label for="" class="control-label"
                                             style="color:black; font-size:13px">No.Telpon
                                             Aktif/WhatsApp<span style="color: red">*</span></label>
-                                        <input type="tel"  required
-                                            class="form-control" name="no_telpon"style="height:30px">
+                                        <input type="tel" required class="form-control" style="height:30px"
+                                            placeholder="{{ Auth::user()->no_telpon ?? '' }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
