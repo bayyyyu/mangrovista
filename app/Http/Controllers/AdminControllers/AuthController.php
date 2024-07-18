@@ -97,9 +97,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(['nama_lengkap' => request('nama_lengkap'), 'username' => request('username'), 'email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
-            if ($user->role == 'admin') return redirect('Admin/Dashboard')->with('success', 'Login Berhasil');
-            if ($user->role == 'pengguna') return redirect('Home')->with('success', 'Berhasil Mendaftar');
-            // return redirect('Admin/Dashboard')->with('success','Register Berhasil');
+             return redirect('Home')->with('success', 'Berhasil Mendaftar');
         } else {
             return back()->withErrors('danger', 'Silahlan cek lagi! data yang dimasukan tidak valid');
         }

@@ -69,7 +69,7 @@
         </div>
     </section>
 
-    <section class="nilai-utama">
+    {{-- <section class="nilai-utama">
         <div class="shop-page" style="margin-bottom:100px">
             <div class="container">
                 <div class="section-wrapper">
@@ -80,7 +80,7 @@
                         <div class="col-lg-12 col-12">
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
-                                    <!-- Card 1 -->
+                                   
                                     <div class="swiper-slide">
                                         <div class="card card-1">
                                             <div class="content">
@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Card 2 -->
+                                  
                                     <div class="swiper-slide">
                                         <div class="card card-2">
                                             <div class="content">
@@ -114,7 +114,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Card 3 -->
+                                   
                                     <div class="swiper-slide">
                                         <div class="card card-3">
                                             <div class="content">
@@ -131,7 +131,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Card 3 -->
+                                   
                                     <div class="swiper-slide">
                                         <div class="card card-4">
                                             <div class="content">
@@ -148,15 +148,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Tombol navigasi swiper -->
-                                {{-- <div class="swiper-button-next "
-                                    style=" background-image: url('assets-web2/assets/images/swiper/right.png')">
-                                </div>
-                                <div class="swiper-button-prev"
-                                    style=" background-image: url('assets-web2/assets/images/swiper/back-arrow.png')">
-                                </div> --}}
-
                                 <div class="swiper-pagination"></div>
                             </div>
                         </div>
@@ -164,7 +155,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section class="card-informasi">
         <div class="achievement-title" style="width: 400px; margin: 0 auto; text-align: center;">
@@ -209,12 +200,12 @@
                 </div>
                 <div class="col-md-4">
                     <div class="container container-card">
-                        <a class="card1" href="#">
-                            <label>Penanaman</label>
+                        <a class="card1" href="{{url('Lokasi-Penanaman')}}">
+                            <label>Lokasi</label>
                             <p class="small">Jelajahi Keberhasilan Penanaman Mangrove! Temukan keindahan ekosistem
                                 pantai
                                 yang dipulihkan melalui penanaman mangrove.</p>
-                            <div class="go-corner" href="#">
+                            <div class="go-corner" href="{{url('Lokasi-Penanamn')}}">
                                 <div class="go-arrow">
                                     →
                                 </div>

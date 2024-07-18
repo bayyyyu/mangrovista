@@ -18,75 +18,73 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
-                                            style="color:black; font-size:13px">Nama
-                                            Lengkap<span style="color: red">*</span></label>
-                                        <input type="text" class="form-control" name="nama_lengkap"
-                                            style="height:30px" value="{{ $role_request->nama_lengkap }}">
+                                        <label for="nama_lengkap" class="control-label"
+                                            style="color:black; font-size:13px">Nama Lengkap<span
+                                                style="color: red">*</span></label>
+                                        <input type="text" class="form-control"
+                                            style="height:30px" value="{{ Auth::user()->nama_lengkap ?? '' }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
+                                        <label for="email" class="control-label"
                                             style="color:black; font-size:13px">Email<span
                                                 style="color: red">*</span></label>
-                                        <input type="email" class="form-control" name="email" style="height:30px"
-                                            value="{{ $role_request->email }}">
+                                        <input type="email" class="form-control" style="height:30px"
+                                            value="{{ Auth::user()->email ?? '' }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
-                                            style="color:black; font-size:13px">No.Telpon
-                                            Aktif/WhatsApp<span style="color: red">*</span></label>
+                                        <label for="no_telpon" class="control-label"
+                                            style="color:black; font-size:13px">No. Telpon Aktif/WhatsApp<span
+                                                style="color: red">*</span></label>
                                         <input type="tel" required class="form-control"
-                                            name="no_telpon"style="height:30px" value="{{ $role_request->no_telpon }}">
+                                            style="height:30px" value="{{ Auth::user()->no_telpon ?? '' }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
+                                        <label for="alamat" class="control-label"
                                             style="color:black; font-size:13px">Alamat Lengkap<span
                                                 style="color: red">*</span></label>
-                                        <textarea name="alamat" id="alamat" class="form-control">{{ value($role_request->alamat) }}</textarea>
+                                        <textarea name="alamat" id="alamat" class="form-control" required>{{ old('alamat', $role_request->alamat) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
+                                        <label for="pengalaman" class="control-label"
                                             style="color:black; font-size:13px">Pengalaman Terkait<span
                                                 style="color: red">*</span></label>
-                                        <textarea name="pengalaman" id="pengalaman" class="form-control">{{ value($role_request->pengalaman) }}</textarea>
+                                        <textarea name="pengalaman" id="pengalaman" class="form-control" required>{{ old('pengalaman', $role_request->pengalaman) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
-                                            style="color:black; font-size:13px">Alasan
-                                            Mengambil Peran<span style="color: red">*</span></label>
-                                        <textarea name="alasan" id="alasan" class="form-control">{{ value($role_request->alasan) }}</textarea>
+                                        <label for="alasan" class="control-label"
+                                            style="color:black; font-size:13px">Alasan Mengambil Peran<span
+                                                style="color: red">*</span></label>
+                                        <textarea name="alasan" id="alasan" class="form-control" required>{{ old('alasan', $role_request->alasan) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
-                                            style="color:black; font-size:13px">Rencana
-                                            Acara<span style="color: red">*</span></label>
-                                        <textarea name="rencana_acara" id="rencana_acara" class="form-control">{{ value($role_request->rencana_acara) }}</textarea>
+                                        <label for="rencana_acara" class="control-label"
+                                            style="color:black; font-size:13px">Rencana Acara<span
+                                                style="color: red">*</span></label>
+                                        <textarea name="rencana_acara" id="rencana_acara" class="form-control" required>{{ old('rencana_acara', $role_request->rencana_acara) }}</textarea>
                                     </div>
                                 </div>
-
                             </div>
-                            <button type="submit" class="la-btn float-right">
-                                Simpan
-                            </button>
+                            <button type="submit" class="la-btn float-right">Simpan</button>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     <style>
+    <style>
         @media (max-width: 767px) {
             .faq-section {
                 margin-top: 100px !important;

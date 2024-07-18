@@ -26,22 +26,6 @@
                             style="height:250px; width:100%; object-fit:cover; border-radius: 15px"
                             class="img-responsive">
                     </div>
-                    @if (Auth::check() && Auth::user()->role == 'penyelenggara')
-                        <div class="wrapper-button-campaign">
-                            <p>Hijaukan Lokasi disini!</p>
-                            <div>
-                                <a href="{{ url('Pengajuan-Event/create') }}" target="_blank" class="btn-green">Buat
-                                    Event</a>
-                            </div>
-                        </div>
-                    @else
-                        <div class="wrapper-button-campaign">
-                            <p>Hijaukan Lokasi disini!</p>
-                            <div>
-                                <a href="{{ url('Event') }}" target="_blank" class="btn-green">Telususri Event</a>
-                            </div>
-                        </div>
-                    @endif
                 </div>
             </div>
             <div class="col-xs-12 col-lg-7 kolom-utama">

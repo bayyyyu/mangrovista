@@ -21,12 +21,16 @@ class ProfilController extends Controller
     function index()
     {
         $user = request()->user();
+        if (!$user) {
+            // Redirect to login page if the user is not authenticated
+            return redirect('Login')->with('danger', 'Sesi berakhir, silakan masuk lagi.');
+        }
         $totalPengajuanEvent = Event::where('user_id', $user->id)->count();
 
         $list_event = Event::where('user_id', $user->id)->withCount('peserta')->paginate(3);
 
         $partisipasiEvents = PendaftaranEvent::where('user_id', $user->id)->with('event')->get();
-        $totalPartisipasi = $partisipasiEvents->count(); 
+        $totalPartisipasi = $partisipasiEvents->count();
 
         $data = [
             'list_role_request' => $user->role_request,
@@ -36,7 +40,7 @@ class ProfilController extends Controller
             'total_pengajuan_event' => $totalPengajuanEvent,
             'totalPartisipasi' => $totalPartisipasi,
         ];
-        
+
         return view('Web.Profil.index', $data, compact('partisipasiEvents'));
     }
     function updatePengaturanAkun(User $user)

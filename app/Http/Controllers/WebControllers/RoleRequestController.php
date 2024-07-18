@@ -60,9 +60,6 @@ class RoleRequestController extends Controller
     }
     public function update( RoleRequest $role_request)
     {
-        if (request('nama_lengkap')) $role_request->nama_lengkap = (request('nama_lengkap'));
-        if (request('email')) $role_request->email = (request('email'));
-        if (request('no_telpon')) $role_request->no_telpon = (request('no_telpon'));
         if (request('alamat')) $role_request->alamat = (request('alamat'));
         if (request('pengalaman')) $role_request->pengalaman = (request('pengalaman'));
         if (request('alasan')) $role_request->alasan = (request('alasan'));
