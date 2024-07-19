@@ -94,9 +94,6 @@ class PengajuanEventController extends Controller
     }
     function edit(Event $event)
     {
-        Log::info('Auth ID: ' . Auth::id());
-        Log::info('Event User ID: ' . $event->user_id);
-
         // Pastikan pengguna yang sedang login adalah pemilik event
         if ($event->user_id !== Auth::id()) {
             return redirect('403');

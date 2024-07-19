@@ -22,6 +22,7 @@ use App\Http\Controllers\WebControllers\KatalogPohonController;
 use App\Http\Controllers\WebControllers\PenanamanController;
 use App\Http\Controllers\WebControllers\ProfilController;
 use App\Http\Controllers\PenyelenggaraControllers\PengajuanEventController;
+use App\Http\Controllers\WebController\PengaturanAkunController;
 use App\Http\Controllers\WebControllers\GeoJsonController;
 use App\Http\Controllers\WebControllers\LokasiController;
 use App\Http\Controllers\WebControllers\PendaftaranController;
@@ -172,8 +173,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('Ambil-Peran/{role_request}', [RoleRequestController::class, 'update']);
 });
 
-
-
 // Penyelenggara Event
 Route::middleware(['role:penyelenggara'])->group(function () {
     Route::get('Pengajuan-Event/create', [PengajuanEventController::class, 'create']);
@@ -193,3 +192,4 @@ Route::middleware(['role:penyelenggara'])->group(function () {
     Route::get('Event/{event}/dokumentasi', [DokumentasiController::class, 'create']);
     Route::post('Event/{event}', [DokumentasiController::class, 'store']);
 });
+

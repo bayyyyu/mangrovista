@@ -40,42 +40,55 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
+                                        <label for="alamat" class="control-label"
                                             style="color:black; font-size:13px">Alamat<span
                                                 style="color: red">*</span></label>
-                                        <textarea name="alamat" id="alamat" class="form-control"></textarea>
+                                        <textarea name="alamat" id="alamat" class="form-control">{{ old('alamat') }}</textarea>
+                                        @error('alamat')
+                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
+                                        <label for="pengalaman" class="control-label"
                                             style="color:black; font-size:13px">Pengalaman Terkait<span
                                                 style="color: red">*</span></label>
-                                        <textarea name="pengalaman" id="pengalaman" class="form-control"></textarea>
+                                        <textarea name="pengalaman" id="pengalaman" class="form-control">{{ old('pengalaman') }}</textarea>
+                                        @error('pengalaman')
+                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
-                                            style="color:black; font-size:13px">Alasan
-                                            Mengambil Peran<span style="color: red">*</span></label>
-                                        <textarea name="alasan" id="alasam" class="form-control"></textarea>
+                                        <label for="alasan" class="control-label"
+                                            style="color:black; font-size:13px">Alasan Mengambil Peran<span
+                                                style="color: red">*</span></label>
+                                        <textarea name="alasan" id="alasan" class="form-control">{{ old('alasan') }}</textarea>
+                                        @error('alasan')
+                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
-                                            style="color:black; font-size:13px">Rencana
-                                            Acara<span style="color: red">*</span></label>
-                                        <textarea name="rencana_acara" id="rencana_acara" class="form-control"></textarea>
+                                        <label for="rencana_acara" class="control-label"
+                                            style="color:black; font-size:13px">Rencana Acara<span
+                                                style="color: red">*</span></label>
+                                        <textarea name="rencana_acara" id="rencana_acara" class="form-control">{{ old('rencana_acara') }}</textarea>
+                                        @error('rencana_acara')
+                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
-
                             </div>
-                            <button type="submit" class="la-btn float-right">
+                            <button type="submit" class="btn btn-sm btn-outline-green float-right">
                                 Ajukan Pengambilan Peran
                             </button>
                         </form>
+
                     </div>
                 </div>
             </div>

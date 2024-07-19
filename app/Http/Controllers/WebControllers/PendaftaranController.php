@@ -16,7 +16,6 @@ class PendaftaranController extends Controller
     function store(Request $request){
 
         $user = auth()->user();
-
         $pendaftaran_event = new PendaftaranEvent();
 
         $pendaftaran_event->user_id = $user->id;

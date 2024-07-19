@@ -25,7 +25,7 @@ class HomeController extends Controller
 
         $data = [
             'total_pohon_hidup' => $totalPohonHidup,
-            'list_tanaman' => Tanaman::all(),
+            // 'list_tanaman' => Tanaman::all(),
             'list_event' => Event::all(),
             'total_pohon_tertanam' => $totalPohonTertanam,
             'eventBerlalu' => $eventBerlalu,

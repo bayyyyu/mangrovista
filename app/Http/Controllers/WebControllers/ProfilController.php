@@ -22,7 +22,7 @@ class ProfilController extends Controller
     {
         $user = request()->user();
         if (!$user) {
-            // Redirect to login page if the user is not authenticated
+            // Redirect ke halaman login kalau sudah melebihi masa aktif login
             return redirect('Login')->with('danger', 'Sesi berakhir, silakan masuk lagi.');
         }
         $totalPengajuanEvent = Event::where('user_id', $user->id)->count();
@@ -47,7 +47,6 @@ class ProfilController extends Controller
     {
         if (request('nama_lengkap')) $user->nama_lengkap = (request('nama_lengkap'));
         if (request('username')) $user->username = (request('username'));
-        // if (request('email')) $user->email = (request('email'));
         if (request('role')) $user->role = (request('role'));
         if (request('password')) $user->password = (request('password'));
         if (request('no_telpon')) $user->no_telpon = (request('no_telpon'));

@@ -33,7 +33,6 @@ class EventController extends Controller
     function show(Event $event)
     {
         $event = Event::with('monitoring_events')->findOrFail($event->id); 
-        // $user = User::all();
         $event = Event::withCount('peserta')->findOrFail($event->id);
         $user = $event->user;
         $totalPengajuanEvent = Event::where('user_id', $user->id)->count();

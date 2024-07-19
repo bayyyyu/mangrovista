@@ -21,6 +21,7 @@
                             @include('Web.Profil.Tabs.peran')
                             <!-- Konten untuk tab Pengaturan Akun -->
                             @include('Web.Profil.Tabs.pengaturan')
+
                         </div>
                     </div>
                 </div>

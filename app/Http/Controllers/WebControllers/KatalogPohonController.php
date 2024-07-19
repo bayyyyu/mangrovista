@@ -27,8 +27,9 @@ class KatalogPohonController extends Controller
             return response()->json(['error' => 'Pohon tidak ditemukan'], 404);
         }
     }
-    function show(KatalogPohon $katalog_pohon)
+    function show($id)
     {
+        $katalog_pohon = KatalogPohon::find($id);
         $data['katalog_pohon'] = $katalog_pohon;
         return view('Web.Katalog-Pohon.show', $data);
     }
