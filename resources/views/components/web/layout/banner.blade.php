@@ -61,13 +61,13 @@
                             <div class="col-12">
                                 <div class="banner-content" style="color:black; text-align:left; margin-left:50px">
                                     <h3 class="banner-title">
-                                        Jelajahi Hasil Penanaman
+                                        Temukan Lokasi Penanaman
                                     </h3>
                                     <h3 class="banner-title">
-                                        Pohon Mangrove
+                                        Kami
                                     </h3>
-                                    <a href="{{ url('Penanaman') }}" class="lab-btn float-left"><span>LIHAT
-                                            PENANAMAN</span></a>
+                                    <a href="{{ url('Lokasi-Penanaman') }}" class="lab-btn float-left"><span>LIHAT
+                                            LOKASI</span></a>
                                 </div>
                             </div>
                         </div>

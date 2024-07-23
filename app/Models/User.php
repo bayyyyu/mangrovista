@@ -6,12 +6,14 @@ use Illuminate\Support\Str;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    // use SoftDeletes;
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'user';
     protected $fillable = [
@@ -52,24 +54,45 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         return true;
     }
-    function tanaman()
-    {
-        return $this->hasMany(Tanaman::class, 'user_id');
-    }
-    function penanaman()
-    {
-        return $this->hasMany(Tanaman::class, 'user_id');
-    }
+    // function tanaman()
+    // {
+    //     return $this->hasMany(Tanaman::class, 'user_id');
+    // }
+    // function penanaman()
+    // {
+    //     return $this->hasMany(Tanaman::class, 'user_id');
+    // }
+
+    //relasi
+    //1
     function role_request()
     {
         return $this->hasMany(RoleRequest::class, 'id_user');
     }
+    //2
     public function events()
     {
         return $this->hasMany(Event::class);
     }
+    //3
     public function pendaftaranEvents()
     {
         return $this->hasMany(PendaftaranEvent::class, 'user_id');
+    }
+    // Model: Deleting
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {
+            // Hapus semua RoleRequest terkait
+            $user->role_request()->delete();
+
+            // Hapus semua Event terkait
+            $user->events()->delete();
+
+            // Hapus semua PendaftaranEvent terkait
+            $user->pendaftaranEvents()->delete();
+        });
     }
 }

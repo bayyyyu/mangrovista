@@ -72,15 +72,15 @@ class RoleRequestController extends Controller
     {
         // Validasi input dengan pesan error khusus
         $request->validate([
-            'alamat' => 'nullable|string',
-            'pengalaman' => 'nullable|string',
-            'alasan' => 'nullable|string',
-            'rencana_acara' => 'nullable|string',
+            'alamat' => 'required|string',
+            'pengalaman' => 'required|string',
+            'alasan' => 'required|string',
+            'rencana_acara' => 'required|string',
         ], [
-            'alamat.string' => 'Alamat harus berupa teks.',
-            'pengalaman.string' => 'Pengalaman harus berupa teks.',
-            'alasan.string' => 'Alasan harus berupa teks.',
-            'rencana_acara.string' => 'Rencana acara harus berupa teks.',
+            'alamat.required' => 'Alamat harus diisi.',
+            'pengalaman.required' => 'Pengalaman harus diisi.',
+            'alasan.required' => 'Alasan harus diisi.',
+            'rencana_acara.required' => 'Rencana acara harus diisi.',
         ]);
 
         // Update data role_request jika valid

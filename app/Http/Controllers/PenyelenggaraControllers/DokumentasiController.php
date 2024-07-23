@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Log;
 class DokumentasiController extends Controller
 {
     function create(Event $event){
-        // Log::info('Auth ID: ' . Auth::id());
-        // Log::info('Event User ID: ' . $event->user_id);
 
         // Pastikan pengguna yang sedang login adalah pemilik event
         if ($event->user_id !== Auth::id()) {
@@ -23,7 +21,6 @@ class DokumentasiController extends Controller
     }
     function store(Request $request, Event $event)
     {
-
         // Memastikan apakah ada data dalam 'dokumentasi'
         if ($request->has('dokumentasi')) {
             foreach ($request->dokumentasi as $index => $data) {

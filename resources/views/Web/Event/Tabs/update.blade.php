@@ -4,7 +4,8 @@
         style="animation-delay: 0.05s;">
         @foreach ($event->monitoring_events as $monitoring)
             <div class="timeline timeline-left timeline-breaker-bottom mx-lg-10 mb-3">
-                <div class="timeline-breaker">{{ \Carbon\Carbon::parse($event->tanggal_monitoring)->translatedFormat('d F Y') }}</div>
+                <div class="timeline-breaker">
+                    {{ \Carbon\Carbon::parse($event->tanggal_monitoring)->translatedFormat('d F Y') }}</div>
                 <!--Timeline item 1-->
                 <div class="timeline-item mt-3 row text-center p-2">
                     <div class="col font-weight-bold text-md-left">
@@ -16,11 +17,13 @@
                 <div class="timeline-item mt-3  p-2">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="img-fluid p-3">
+                            <div class="img-container"
+                                style="height: 19rem; border-radius: 15px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
                                 <img src="{{ asset($monitoring->foto_monitoring) }}"
-                                    style="height:auto; width:100%; object-fit:cover; border-radius: 15px"
+                                    style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 15px;"
                                     class="img-responsive">
                             </div>
+
                         </div>
                         <div class="col-md-6">
                             <div class="row">

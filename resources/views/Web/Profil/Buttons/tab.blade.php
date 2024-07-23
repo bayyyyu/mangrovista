@@ -5,12 +5,16 @@
     <div class="nav-tab" id="Partisipasi-tab" role="button" onclick="changeTab('Partisipasi')">
         <span class="nav-link"><i class="icofont-under-construction-alt"></i> Riwayat Partisipasi</span>
     </div>
-    <div class="nav-tab" id="pengajuan-tab" role="button" onclick="changeTab('pengajuan')">
-        <span class="nav-link"><i class="icofont-data"></i>Kelola Event</span>
-    </div>
+     @if (Auth::user()->role == 'penyelenggara')
+     <div class="nav-tab" id="pengajuan-tab" role="button" onclick="changeTab('pengajuan')">
+         <span class="nav-link"><i class="icofont-data"></i>Kelola Event</span>
+     </div>
+     @endif
+    @if (Auth::user()->role == 'pengguna')
     <div class="nav-tab" id="peran-tab" role="button" onclick="changeTab('peran')">
         <span class="nav-link"><i class="icofont-contact-add"></i> Ambil Peran</span>
     </div>
+    @endif
     <div class="nav-tab" id="pengaturan-tab" role="button" onclick="changeTab('pengaturan')">
         <span class="nav-link"><i class="icofont-gears"></i> Pengaturan akun</span>
     </div>

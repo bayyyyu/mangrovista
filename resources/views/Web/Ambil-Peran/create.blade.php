@@ -1,4 +1,5 @@
 <x-web.app-webNoSlider>
+    
     <div class="container">
         <div class="faq-section mt-5" style="margin-bottom: 40px; ">
             <h6 style="text-align: center; justify-content:center; color: #064635">Form Pengajuan Pengambilan
@@ -45,7 +46,8 @@
                                                 style="color: red">*</span></label>
                                         <textarea name="alamat" id="alamat" class="form-control">{{ old('alamat') }}</textarea>
                                         @error('alamat')
-                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}</div>
+                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}
+                                            </div>
                                         @enderror
                                     </div>
                                 </div>
@@ -56,7 +58,8 @@
                                                 style="color: red">*</span></label>
                                         <textarea name="pengalaman" id="pengalaman" class="form-control">{{ old('pengalaman') }}</textarea>
                                         @error('pengalaman')
-                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}</div>
+                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}
+                                            </div>
                                         @enderror
                                     </div>
                                 </div>
@@ -67,7 +70,8 @@
                                                 style="color: red">*</span></label>
                                         <textarea name="alasan" id="alasan" class="form-control">{{ old('alasan') }}</textarea>
                                         @error('alasan')
-                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}</div>
+                                            <div class="alert alert-danger" style="font-size:13px">{{ $message }}
+                                            </div>
                                         @enderror
                                     </div>
                                 </div>

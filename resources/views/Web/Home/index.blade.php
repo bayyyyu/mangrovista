@@ -200,12 +200,12 @@
                 </div>
                 <div class="col-md-4">
                     <div class="container container-card">
-                        <a class="card1" href="{{url('Lokasi-Penanaman')}}">
+                        <a class="card1" href="{{ url('Lokasi-Penanaman') }}">
                             <label>Lokasi</label>
                             <p class="small">Jelajahi Keberhasilan Penanaman Mangrove! Temukan keindahan ekosistem
                                 pantai
                                 yang dipulihkan melalui penanaman mangrove.</p>
-                            <div class="go-corner" href="{{url('Lokasi-Penanamn')}}">
+                            <div class="go-corner" href="{{ url('Lokasi-Penanamn') }}">
                                 <div class="go-arrow">
                                     →
                                 </div>
@@ -587,14 +587,12 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
             integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-        <link rel="stylesheet" type="text/css"
-            href="{{ url('/') }}/assets-web2/assets/css/leaflet.defaultextent.css">
+        <link rel="stylesheet" type="text/css" href="{{ url('/') }}/assets-web2/assets/css/leaflet.defaultextent.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
         <!-- leaflet end -->
         <!-- Marker Cluster -->
         <link rel="stylesheet" href="{{ url('/') }}/assets-sig/assets/css/MarkerCluster.Default.css" />
         <link rel="stylesheet" href="{{ url('/') }}/assets-sig/assets/css/MarkerCluster.css" />
-        
     @endpush
     @push('script')
         <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
@@ -677,8 +675,8 @@
             lng: {{ $event->lng }},
             foto: "{{ $event->foto }}",
             title: "{{ $event->nama_event }}",
-            lokasi_id: "{{ $event->lokasi_id }}",
-            lokasi: "{{ $event->lokasi->nama_lokasi }}",
+            lokasi_id: "{{ $event->lokasi_id ? $event->lokasi_id : 'Tidak tersedia' }}",
+            lokasi: "{{ $event->lokasi ? $event->lokasi->nama_lokasi : 'Lokasi tidak tersedia' }}",
             pohonDitanam: "{{ $event->tanaman_event->jumlah_pohon }}",
             status: "{{ $status }}",
             statusClass: "{{ $statusClass }}"
@@ -816,14 +814,6 @@
             });
 
             markers.addLayer(marker); // Tambahkan marker ke dalam marker cluster
-
-            // Menambahkan garis penghubung dari marker event ke marker lokasi terkait
-            var latlngs = [
-                [markerData.lat, markerData.lng],
-                [LokasiMarkersData.find(l => l.lokasi_id === markerData.lokasi_id).lat, LokasiMarkersData
-                    .find(l => l.lokasi_id === markerData.lokasi_id).lng
-                ]
-            ];
 
             // var polyline = L.polyline(latlngs, {
             //     color: 'blue',

@@ -102,6 +102,7 @@ Route::put('Admin/Event/{event}/confirm', [AdminEventController::class, 'konfirm
 //Lokasi
 Route::get('Admin/Lokasi', [AdminLokasiController::class, 'index'])->middleware('isError');
 Route::get('Admin/Lokasi/{lokasi}', [AdminLokasiController::class, 'show'])->middleware('isError');
+Route::delete('Admin/Lokasi/{lokasi}', [AdminLokasiController::class, 'destroy'])->middleware('isError');
 
 // User
 Route::get('Admin/User', [UserController::class, 'index'])->middleware('isError');

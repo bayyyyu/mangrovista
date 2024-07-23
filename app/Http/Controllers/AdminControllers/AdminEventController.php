@@ -45,6 +45,14 @@ class AdminEventController extends Controller
 
     function update(Event $event)
     {
+        $messages = [
+            'nama_event.required' => 'Nama event tidak boleh kosong.',
+            'tanggal_event.required' => 'Field Tidak Boleh Kosong.',
+            'tanggal_selesai.required' => 'Field Tidak Boleh Kosong.',
+            'deskripsi.required' => 'Deskripsi wajib diisi.',
+           
+        ];
+
         $validator = Validator::make(request()->all(), [
             'nama_event' => 'sometimes|required|string|max:255',
             'tanggal_event' => 'sometimes|required|date',
@@ -52,7 +60,13 @@ class AdminEventController extends Controller
             'deskripsi' => 'sometimes|required|string',
             'jam' => 'sometimes|required|string',
             'foto' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();

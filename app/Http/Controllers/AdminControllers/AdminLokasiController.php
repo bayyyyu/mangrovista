@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\KatalogPohon;
 use App\Models\Lokasi;
 use Illuminate\Http\Request;
 
@@ -55,5 +56,9 @@ class AdminLokasiController extends Controller
         $data['totalPohonHidup'] = $totalPohonHidup;
 
         return view('Admin.Lokasi.show', $data, compact('percentage'));
+    }
+    function destroy(Lokasi $lokasi){
+        $lokasi->delete();
+        return redirect('Admin/Lokasi')->with('danger', 'Data Berhasil Dihapus');
     }
 }

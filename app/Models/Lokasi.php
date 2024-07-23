@@ -48,4 +48,13 @@ class Lokasi extends Model
     {
         return $this->hasMany(Event::class, 'lokasi_id');
     }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($lokasi) {
+            // Set lokasi_id menjadi NULL pada Event terkait
+            $lokasi->events()->update(['lokasi_id' => null]);
+        });
+    }
 }

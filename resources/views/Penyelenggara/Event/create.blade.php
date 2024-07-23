@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="f1-buttons">
-                                <button type="button" class="btn btn-primary btn-next">Selanjutnya <i
+                                <button type="button" class="btn btn-next">Selanjutnya <i
                                         class="fa fa-arrow-right"></i></button>
                             </div>
                         </fieldset>
@@ -209,7 +209,8 @@
                                                 <div class="col-md-6">
                                                     <label class="mb-3">Jenis Mangrove yang ditanam</label>
                                                     <select class="select2 mb-3 select2-multiple" style="width: 100%"
-                                                        multiple="multiple" data-placeholder="Choose" name="jenis_pohon">
+                                                        multiple="multiple" data-placeholder="Choose"
+                                                        name="jenis_pohon">
                                                         <option value="Api-Api">Api-Api</option>
                                                         <option value="Mangrove Pepada">Mangrove Pepada</option>
                                                         <option value="Bakau">Bakau</option>
@@ -217,12 +218,7 @@
                                                         <option value="Nipah">Nipah</option>
                                                     </select>
                                                 </div>
-                                                {{-- <div class="col-md-6">
-                                                    <label>Jenis Mangrove yang ditanam</label>
-                                                    <input type="text"
-                                                        placeholder="Api-Api, Pepada, Lacang, Bakau, Nipa"
-                                                        class="form-control" name="jenis_pohon">
-                                                </div> --}}
+                                                
                                                 <div class="col-md-3">
                                                     <label for="">Umur Bibit</label>
                                                     <input type="text" placeholder="Contoh: 2 Bulan/Tahun"
@@ -301,6 +297,7 @@
     </div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Select2 JS -->
     <script src="{{ url('/') }}/assets-admin/dastone/plugins/select2/select2.min.js"></script>
@@ -398,6 +395,38 @@
         .border-error {
             border: 1px solid #f35b3f;
         }
+
+        .my-custom-button {
+             background-color: #338056;
+            color: white;
+        }
+
+        .btn-next {
+            background-color: #338056;
+            color: white;
+        }
+
+        .btn-next:hover {
+            border: 1px solid #338056;
+            color: #338056;
+            background-color: white;
+        }
+
+        div:where(.swal2-container).swal2-center>.swal2-popup {
+            width: 50rem;
+            height: 30rem;
+            font-size: 13px
+        }
+        .btn-previous{
+            background-color: white;
+            color: #338056;
+            border: 1px solid #338056;
+        }
+        .btn-previous:hover{
+            background-color: #338056;
+            color: white;
+        }
+       
     </style>
     <script>
         var map, marker1;
@@ -569,10 +598,20 @@
                     // Jika tidak ada radio button yang dipilih, beri tanda error dan hentikan proses
                     next_step = false;
                     radioGroup.closest('.form-group').addClass('input-error');
-                    alert("Pilih salah satu lokasi atau buat lokasi baru sebelum melanjutkan.");
+                    Swal.fire({
+                        title: "Peringatan!",
+                        text: "Pilih salah satu lokasi atau buat lokasi baru sebelum melanjutkan.",
+                        icon: "warning",
+                        confirmButtonText: "OK",
+                        customClass: {
+                            confirmButton: 'my-custom-button'
+                        }
+                    });
                 } else {
                     radioGroup.closest('.form-group').removeClass('input-error');
                 }
+
+
 
                 if (next_step) {
                     parent_fieldset.fadeOut(400, function() {

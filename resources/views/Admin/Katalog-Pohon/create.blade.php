@@ -53,7 +53,7 @@
                                     <div class="card-body">
                                         <input type="file" id="input-file-now"
                                             class="dropify @error('foto') is-invalid @enderror" name="foto"
-                                            accept="image/*" required />
+                                            accept="image/*" />
                                         @error('foto')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -61,10 +61,7 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="col-md-12">
-                                <button class="btn btn-success float-end" type="submit"><i class="fa fa-save"></i>
-                                    Simpan</button>
-                            </div>
+                            <x-button.save/>
                         </form>
 
 

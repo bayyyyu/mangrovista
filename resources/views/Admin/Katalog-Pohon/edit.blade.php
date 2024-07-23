@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-3">
-                <a href="{{ url('Admin/Katalog-Pohon') }}" class="btn btn-primary btn-sm mb-1"><i
+                <a href="{{ url('Admin/Katalog-Pohon') }}" class="btn btn-soft-primary btn-sm mb-1"><i
                         class="fa fa-arrow-left"></i>
                     Kembali</a>
                 <div class="card">
@@ -77,13 +77,7 @@
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="col-md-12">
-                                                    <button class="btn btn-success float-end" type="submit"><i
-                                                            class="fa fa-save"></i> Simpan</button>
-                                                    {{-- <a href="{{ url('Admin/Katalog-Pohon') }}"
-                                                        class="btn btn-danger float-end" style="margin-right:10px"><i
-                                                            class="fa fa-trash "></i>Batal</a> --}}
-                                                </div>
+                                                 <x-button.save/>
                                             </form>
 
                                         </div>

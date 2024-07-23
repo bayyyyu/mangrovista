@@ -363,8 +363,8 @@
             lng: {{ $event->lng }},
             foto: "{{ $event->foto }}",
             title: "{{ $event->nama_event }}",
-            lokasi_id: "{{ $event->lokasi_id }}",
-            lokasi: "{{ $event->lokasi->nama_lokasi }}",
+            lokasi_id: "{{ $event->lokasi_id ? $event->lokasi_id : 'Tidak tersedia' }}",
+            lokasi: "{{ $event->lokasi ? $event->lokasi->nama_lokasi : 'Lokasi tidak tersedia' }}",
             pohonDitanam: "{{ $event->tanaman_event->jumlah_pohon }}",
             status: "{{ $status }}",
             statusClass: "{{ $statusClass }}"
@@ -504,12 +504,12 @@
             markers.addLayer(marker); // Tambahkan marker ke dalam marker cluster
 
             // Menambahkan garis penghubung dari marker event ke marker lokasi terkait
-            var latlngs = [
-                [markerData.lat, markerData.lng],
-                [LokasiMarkersData.find(l => l.lokasi_id === markerData.lokasi_id).lat, LokasiMarkersData
-                    .find(l => l.lokasi_id === markerData.lokasi_id).lng
-                ]
-            ];
+            // var latlngs = [
+            //     [markerData.lat, markerData.lng],
+            //     [LokasiMarkersData.find(l => l.lokasi_id === markerData.lokasi_id).lat, LokasiMarkersData
+            //         .find(l => l.lokasi_id === markerData.lokasi_id).lng
+            //     ]
+            // ];
 
             // var polyline = L.polyline(latlngs, {
             //     color: 'blue',

@@ -46,7 +46,7 @@
                                             </a>
                                             <x-button.delete id="{{ $menunggu_konfirmasi->id }}" />
                                         </td>
-                                        <td>{{ $menunggu_konfirmasi->nama_lengkap }}</td>
+                                        <td>{{ $menunggu_konfirmasi->user->nama_lengkap }}</td>
                                         <td>{{ $menunggu_konfirmasi->created_at->isoFormat('DD MMMM YYYY', 'Do MMMM YYYY') }}
                                             Pukul: {{ $menunggu_konfirmasi->created_at->isoFormat('HH:mm') }}</td>
                                         <td width="20px">
@@ -162,7 +162,7 @@
                                             </a>
                                             <x-button.delete id="{{ $ditolak->id }}" />
                                         </td>
-                                        <td>{{ $ditolak->nama_lengkap }}</td>
+                                        <td>{{ $ditolak->user->nama_lengkap }}</td>
                                         <td>{{ $ditolak->created_at->isoFormat('DD MMMM YYYY', 'Do MMMM YYYY') }}
                                             Pukul: {{ $ditolak->created_at->isoFormat('HH:mm') }}</td>
                                         <td width="20px">

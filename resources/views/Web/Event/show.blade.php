@@ -50,12 +50,18 @@
                                 <div class="penanaman-info">
                                     <div class="lokasi">
                                         <span>Lokasi: </span>
-                                        <h6>
-                                            <a href="{{ url('Lokasi-Penanaman', $lokasi->id) }}/{{ $lokasi->nama_lokasi }}"
-                                                style="text-decoration: underline">
-                                                {{ $event->lokasi->nama_lokasi }}
-                                            </a>
-                                        </h6>
+                                        @if ($event->lokasi)
+                                            <h6>
+                                                <a href="{{ url('Lokasi-Penanaman', $event->lokasi->id) }}/{{ $event->lokasi->nama_lokasi }}"
+                                                    style="text-decoration: underline">
+                                                    {{ $event->lokasi->nama_lokasi }}
+                                                </a>
+                                            </h6>
+                                        @else
+                                            <h6>
+                                                Lokasi tidak tersedia.
+                                            </h6>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -134,9 +140,14 @@
                                             data-target="#pantauModal">
                                             Pantau
                                         </button>
-                                        <a href="https://maps.google.com/maps?q={{ $event->lokasi->lat }},{{ $event->lokasi->lng }}&hl=en&t=v"
-                                            class="btn btn-green lokasi popup-gmaps" style="color: white">Lihat
-                                            Lokasi</a>
+                                        @if ($event->lokasi)
+                                            <a href="https://maps.google.com/maps?q={{ $event->lokasi->lat }},{{ $event->lokasi->lng }}&hl=en&t=v"
+                                                class="btn btn-green lokasi popup-gmaps" style="color: white">Lihat
+                                                Lokasi</a>
+                                        @else
+                                            <span class="btn btn-disabled" style="color: gray;">Lokasi tidak
+                                                tersedia</span>
+                                        @endif
                                     </div>
                                 </div>
                             @else
@@ -181,7 +192,11 @@
                                             <a href="https://maps.google.com/maps?q={{ $event->lokasi->lat }},{{ $event->lokasi->lng }}&hl=en&t=v"
                                                 class="btn btn-green lokasi popup-gmaps" style="color: white">Lihat
                                                 Lokasi</a>
+                                        @else
+                                            <span class="btn btn-disabled" style="color: gray;">Lokasi tidak
+                                                tersedia</span>
                                         @endif
+
                                     </div>
                                 </div>
 
@@ -204,7 +219,7 @@
                                     aria-selected="false">Dokumentasi</a>
                                 <a class="nav-item nav-link" id="nav-update-tab" data-toggle="tab"
                                     href="#nav-update" role="tab" aria-controls="nav-update"
-                                    aria-selected="false">Update</a>
+                                    aria-selected="false">Monitoring</a>
                             </div>
                             {{-- </nav> --}}
                             <div class="tab-content py-3  px-sm-0" id="nav-tabContent">

@@ -23,7 +23,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-         // Periksa apakah email terdaftar
+         
         $rememberMe = $request->has('remember_token');
         Session::flash('email', $request->email);
 
@@ -50,10 +50,10 @@ class AuthController extends Controller
         return redirect('Home');
     }
 
-    function forgotPassword()
-    {
-        return view('Auth/Login');
-    }
+    // function forgotPassword()
+    // {
+    //     return view('Auth/Login');
+    // }
 
     function register()
     {
@@ -70,7 +70,7 @@ class AuthController extends Controller
             'nama_lengkap' => 'required',
             'username' => 'required|unique:user',
             'email' => 'required|email|unique:user',
-            'password' => 'required|min:6',
+            'password' => 'required|min:8',
         ], [
             'nama_lengkap.required' => 'Nama Wajib Diisi',
             'username.required' => 'Username Wajib Diisi',
@@ -79,7 +79,7 @@ class AuthController extends Controller
             'email.email' => 'Masukkan Email Yang Valid',
             'email.unique' => 'Email Sudah Pernah Digunakan',
             'password.required' => 'Password Wajib Diisi',
-            'password.min' => 'Minimum Password 6 Karakter',
+            'password.min' => 'Minimum Password 8 Karakter',
         ]);
 
 
@@ -97,7 +97,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(['nama_lengkap' => request('nama_lengkap'), 'username' => request('username'), 'email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
-             return redirect('Home')->with('success', 'Berhasil Mendaftar');
+             return redirect('Home')->with('success', 'Berhasil Mendaftar', compact('user'));
         } else {
             return back()->withErrors('danger', 'Silahlan cek lagi! data yang dimasukan tidak valid');
         }

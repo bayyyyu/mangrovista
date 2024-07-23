@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="la-btn float-right">Simpan</button>
+                            <button type="submit" class="btn btn-sm btn-outline-green float-right">Simpan</button>
                         </form>
 
 

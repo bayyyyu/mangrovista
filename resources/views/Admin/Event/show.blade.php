@@ -31,7 +31,7 @@
                         </div><!--end col-->
                         <div class="col-md-6">
                             <div class="float-left">
-                                <h6 class="mb-0"><b>Tanggal Pengajuan :</b>
+                                <h6 class="mb-0"><b>Penyelnggara :</b>
                                     {{ $event->user->nama_lengkap }}
                                 </h6>
                             </div>
@@ -86,36 +86,44 @@
                                             <div class="text-center">
                                                 <h6 style="text-decoration: underline">Data Lokasi Event</h6>
                                             </div>
-                                            <div class="col-md-6">
-                                                <li>
-                                                    <h6 class="">Nama Lokasi</h6>
-                                                    <p class="font-14 text-muted "> {{ $event->lokasi->nama_lokasi }}
-                                                    </p>
-                                                </li>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <li>
-                                                    <h6 class="">Jeni Ekosistem</h6>
-                                                    <p class="font-14 text-muted ">
-                                                        {{ $event->lokasi->jenis_ekosistem }}</p>
-                                                </li>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <li>
-                                                    <h6 class="">Alamat Lokasi</h6>
-                                                    <p class="font-14 text-muted "> {{ $event->lokasi->alamat_lokasi }}
-                                                    </p>
-                                                </li>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <li>
-                                                    <h6 class="">Lokasi</h6>
-                                                    <a class="btn btn-outline-primary popup-gmaps"
-                                                        href="https://maps.google.com/maps?q={{ $event->lokasi->lat }},{{ $event->lokasi->lng }}&hl=en&t=v">Lihat
-                                                        Lokasi</a>
-                                                </li>
-                                            </div>
+
+                                            @if ($event->lokasi)
+                                                <div class="col-md-6">
+                                                    <li>
+                                                        <h6 class="">Nama Lokasi</h6>
+                                                        <p class="font-14 text-muted">{{ $event->lokasi->nama_lokasi }}
+                                                        </p>
+                                                    </li>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <li>
+                                                        <h6 class="">Jenis Ekosistem</h6>
+                                                        <p class="font-14 text-muted">
+                                                            {{ $event->lokasi->jenis_ekosistem }}</p>
+                                                    </li>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <li>
+                                                        <h6 class="">Alamat Lokasi</h6>
+                                                        <p class="font-14 text-muted">
+                                                            {{ $event->lokasi->alamat_lokasi }}</p>
+                                                    </li>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <li>
+                                                        <h6 class="">Lokasi</h6>
+                                                        <a class="btn btn-outline-primary popup-gmaps"
+                                                            href="https://maps.google.com/maps?q={{ $event->lokasi->lat }},{{ $event->lokasi->lng }}&hl=en&t=v">Lihat
+                                                            Lokasi</a>
+                                                    </li>
+                                                </div>
+                                            @else
+                                                <div class="col-md-12">
+                                                    <p class="font-14 text-muted">Lokasi tidak tersedia.</p>
+                                                </div>
+                                            @endif
                                             <hr>
+
 
                                             <div class="row">
                                                 <div class="col-lg-12">

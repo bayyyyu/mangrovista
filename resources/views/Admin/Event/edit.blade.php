@@ -26,7 +26,7 @@
                                                 @error('nama_event')
                                                     <ul class="text-danger">
                                                         @foreach ($errors->get('nama_event') as $error)
-                                                            <li>{{ $error }}</li>
+                                                            {{ $error }}
                                                         @endforeach
                                                     </ul>
                                                 @enderror
@@ -54,14 +54,14 @@
                                                 @error('tanggal_event')
                                                     <ul class="text-danger">
                                                         @foreach ($errors->get('tanggal_event') as $error)
-                                                            <li>{{ $error }}</li>
+                                                            {{ $error }}
                                                         @endforeach
                                                     </ul>
                                                 @enderror
                                                 @error('tanggal_selesai')
                                                     <ul class="text-danger">
                                                         @foreach ($errors->get('tanggal_selesai') as $error)
-                                                            <li>{{ $error }}</li>
+                                                            {{ $error }}
                                                         @endforeach
                                                     </ul>
                                                 @enderror
@@ -76,7 +76,7 @@
                                                 @error('jam')
                                                     <ul class="text-danger">
                                                         @foreach ($errors->get('jam') as $error)
-                                                            <li>{{ $error }}</li>
+                                                            {{ $error }}
                                                         @endforeach
                                                     </ul>
                                                 @enderror
@@ -91,7 +91,7 @@
                                                 @error('foto')
                                                     <ul class="text-danger">
                                                         @foreach ($errors->get('foto') as $error)
-                                                            <li>{{ $error }}</li>
+                                                            {{ $error }}
                                                         @endforeach
                                                     </ul>
                                                 @enderror
@@ -105,7 +105,7 @@
                                                 @error('deskripsi')
                                                     <ul class="text-danger">
                                                         @foreach ($errors->get('deskripsi') as $error)
-                                                            <li>{{ $error }}</li>
+                                                            {{ $error }}
                                                         @endforeach
                                                     </ul>
                                                 @enderror

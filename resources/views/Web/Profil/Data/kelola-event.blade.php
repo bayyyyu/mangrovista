@@ -46,8 +46,16 @@
                     </h3>
                 </a>
                 <span class="text-dark" style="font-size:12px; padding-block:10px;">
-                    Lokasi: <span class="text-bold"
-                        style="text-decoration: underline">{{ $event->lokasi->nama_lokasi }}</span>
+                    Lokasi:
+                    @if ($event->lokasi)
+                        <span class="text-bold" style="text-decoration: underline">
+                            {{ $event->lokasi->nama_lokasi }}
+                        </span>
+                    @else
+                        <span class="text-bold" style="text-decoration: underline">
+                            Tidak ada lokasi
+                        </span>
+                    @endif
                 </span>
 
                 <div class="wrapper-event-info mt-auto">

@@ -19,7 +19,7 @@ class EventController extends Controller
     function index(Request $request)
     {
         $user = User::all();
-        $tanaman = Tanaman::with('eventPenanaman')->get();
+        // $tanaman = Tanaman::with('eventPenanaman')->get();
 
         $list_event_telah_selesai = Event::where('tanggal_event', '<', now())->withCount('peserta')->get();
 
@@ -27,7 +27,7 @@ class EventController extends Controller
 
         $list_event_berlangsung = Event::where('tanggal_event', '<=', now())->where('tanggal_selesai', '>=', now())->withCount('peserta')->get();
 
-        return view('Web.Event.index', compact('user', 'tanaman', 'list_event_telah_selesai', 'list_event_belum_selesai', 'list_event_berlangsung'));
+        return view('Web.Event.index', compact('user',  'list_event_telah_selesai', 'list_event_belum_selesai', 'list_event_berlangsung'));
     }
 
     function show(Event $event)
