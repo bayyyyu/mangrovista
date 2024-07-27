@@ -41,7 +41,7 @@
                             <a href="{{ url('Event') }}">Event</a>
                         </li>
                         <li class="{{ request()->is('Peta*') ? 'active2' : '' }}">
-                            <a href="{{ url('Lokasi-Penanaman') }}">Lokasi Penanaman</a>
+                            <a href="{{ url('Lokasi-Penanaman') }}">Lokasi </a>
                         </li>
                         <li class="{{ request()->is('Profil*') ? 'active2' : '' }}">
                             <a href="{{ url('Profil') }}">Profil</a>
@@ -88,7 +88,7 @@
                                         </li>
                                         <li class="{{ request()->is('Lokasi-Penanaman*') ? 'active2' : '' }}">
                                             <a href="{{ url('Lokasi-Penanaman') }}"
-                                                style="color: #064635; font-size:13px">Lokasi Penanaman</a>
+                                                style="color: #064635; font-size:13px">Lokasi </a>
                                         </li>
                                         <li class="{{ request()->is('Peta*') ? 'active2' : '' }}">
                                             <a href="{{ url('Peta') }}"

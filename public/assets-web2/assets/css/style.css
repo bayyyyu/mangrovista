@@ -58,6 +58,14 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    
+}
+.content-wrapperr{
+    flex: 1;
 }
 
 h1,
@@ -1938,6 +1946,28 @@ img {
 .preloader .preloader-inner .preloader-icon span:last-child {
     animation-delay: -0.8s;
     -webkit-animation-delay: -0.8s;
+}
+.preloader .preloader-inner .preloader-icon img {
+    width: 100%; /* Sesuaikan ukuran icon */
+    height: 100%; /* Sesuaikan ukuran icon */
+    animation: bounce 1.5s infinite;
+    border-radius: 50%;
+    animation: lab_top_up 0.5s linear infinite;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+   
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
 }
 
 @keyframes preloader-fx {

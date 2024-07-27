@@ -198,7 +198,7 @@
                                         class="fa fa-arrow-right"></i></button>
                             </div>
                         </fieldset>
-                        <!-- step 3 -->
+                        
                         <fieldset class="mb-5 mt-5">
                             <hr>
                             <div class="row">
@@ -210,7 +210,7 @@
                                                     <label class="mb-3">Jenis Mangrove yang ditanam</label>
                                                     <select class="select2 mb-3 select2-multiple" style="width: 100%"
                                                         multiple="multiple" data-placeholder="Choose"
-                                                        name="jenis_pohon">
+                                                        name="jenis_pohon[]">
                                                         <option value="Api-Api">Api-Api</option>
                                                         <option value="Mangrove Pepada">Mangrove Pepada</option>
                                                         <option value="Bakau">Bakau</option>
@@ -218,10 +218,10 @@
                                                         <option value="Nipah">Nipah</option>
                                                     </select>
                                                 </div>
-                                                
+
                                                 <div class="col-md-3">
                                                     <label for="">Umur Bibit</label>
-                                                    <input type="text" placeholder="Contoh: 2 Bulan/Tahun"
+                                                    <input type="number" placeholder="Contoh: 2 Bulan/Tahun"
                                                         class="form-control" name="umur_bibit">
                                                 </div>
                                                 <div class="col-md-3">
@@ -397,7 +397,7 @@
         }
 
         .my-custom-button {
-             background-color: #338056;
+            background-color: #338056;
             color: white;
         }
 
@@ -417,16 +417,17 @@
             height: 30rem;
             font-size: 13px
         }
-        .btn-previous{
+
+        .btn-previous {
             background-color: white;
             color: #338056;
             border: 1px solid #338056;
         }
-        .btn-previous:hover{
+
+        .btn-previous:hover {
             background-color: #338056;
             color: white;
         }
-       
     </style>
     <script>
         var map, marker1;
@@ -610,9 +611,6 @@
                 } else {
                     radioGroup.closest('.form-group').removeClass('input-error');
                 }
-
-
-
                 if (next_step) {
                     parent_fieldset.fadeOut(400, function() {
                         // change icons
@@ -653,7 +651,7 @@
 
                 // Validasi input yang tidak opsional
                 $(this).find(
-                    'input[type="text"]:not([name="nama_berkas"]), input[type="password"], textarea:not([name="dokumen_tambahan"])'
+                    'textarea:not([name="nama_berkas"]), textarea:not([name="dokumen_tambahan"])'
                 ).each(function() {
                     if ($(this).val() == "") {
                         form_valid = false;

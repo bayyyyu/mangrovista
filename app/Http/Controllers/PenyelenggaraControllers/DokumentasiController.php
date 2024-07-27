@@ -33,14 +33,15 @@ class DokumentasiController extends Controller
                     $dokumentasi_event->deskripsi = $data['deskripsi'];
                 }
 
-                // Menyimpan data ke database untuk mendapatkan ID
-                $dokumentasi_event->save();
-
                 // Mengambil file dari 'dokumentasi' array dan menggunakan metode handleUploadFile dari model
                 if (isset($data['file'])) {
                     $file = $data['file'];
                     $dokumentasi_event->handleUploadFile($file);
                 }
+                
+                // Menyimpan data ke database untuk mendapatkan ID
+                $dokumentasi_event->save();
+
             }
         }
         return redirect('Event/' . $event->id)->with('success', 'Dokumentasi berhasil diunggah.');

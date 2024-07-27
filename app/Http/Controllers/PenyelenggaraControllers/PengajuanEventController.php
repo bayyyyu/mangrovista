@@ -72,22 +72,28 @@ class PengajuanEventController extends Controller
         $event->save();
 
         // Simpan data tanaman terkait event
-        $tanamanEvent = new TanamanEvent;
-        $tanamanEvent->event_id = $event->id;
-        $tanamanEvent->jenis_pohon = $request->input('jenis_pohon');
-        $tanamanEvent->umur_bibit = $request->input('umur_bibit');
-        $tanamanEvent->jumlah_pohon = $request->input('jumlah_pohon');
-        $tanamanEvent->save();
+        if ($request->has('jenis_pohon')) {
+            foreach ($request->input('jenis_pohon') as $jenisPohon) {
+                $tanamanEvent = new TanamanEvent;
+                $tanamanEvent->event_id = $event->id;
+                $tanamanEvent->jenis_pohon = $jenisPohon;
+                $tanamanEvent->umur_bibit = $request->input('umur_bibit');
+                $tanamanEvent->jumlah_pohon = $request->input('jumlah_pohon');
+                $tanamanEvent->save();
+            }
+        }
 
         // Simpan data tambahan jika ada yang diunggah
         if ($request->has('car')) {
             foreach ($request->car as $data) {
-                $dataTambahan = new DataTambahanEvent;
-                $dataTambahan->event_id = $event->id;
-                $file = $data['dokumen_tambahan']->store('folder_name'); // Folder untuk menyimpan file
-                $dataTambahan->dokumen_tambahan = $file;
-                $dataTambahan->nama_berkas = $data['nama_berkas'];
-                $dataTambahan->save();
+                if (isset($data['dokumen_tambahan']) && !empty($data['dokumen_tambahan']) && isset($data['nama_berkas']) && !empty($data['nama_berkas'])) {
+                    $dataTambahan = new DataTambahanEvent;
+                    $dataTambahan->event_id = $event->id;
+                    $file = $data['dokumen_tambahan']->store('folder_name'); // Folder untuk menyimpan file
+                    $dataTambahan->dokumen_tambahan = $file;
+                    $dataTambahan->nama_berkas = $data['nama_berkas'];
+                    $dataTambahan->save();
+                }
             }
         }
         return redirect('Profil')->with('success', 'Berhasil mengajukan Event');
@@ -132,7 +138,7 @@ class PengajuanEventController extends Controller
             'tanggal_event' => 'required|date',
             'tanggal_selesai' => 'required|date|after_or_equal:tanggal_event',
             'deskripsi' => 'required|string',
-            'jam' => 'required|date_format:H:i:s', 
+            'jam' => 'required|date_format:H:i:s',
             'target_peserta' => 'required|integer|min:1',
             'batas_pendaftaran' => 'required|date',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk foto event

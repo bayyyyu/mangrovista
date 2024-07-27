@@ -6,6 +6,7 @@
         </div>
     @endif
 @endforeach
+
 <style>
     .small-text {
         font-size: 70%;
@@ -13,18 +14,40 @@
 
     .alert {
         padding: 5px 15px;
-
         margin-bottom: 10px;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform 0.5s ease;
+    }
 
+    .alert.active {
+        transform: scaleY(1);
     }
 
     .custom-success-box,
     .custom-warning-box,
     .custom-danger-box {
         padding: 10px;
-
     }
 </style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.alert').each(function () {
+            var $alert = $(this);
+            $alert.addClass('active');
+            setTimeout(function() {
+                $alert.removeClass('active');
+                setTimeout(function() {
+                    $alert.alert('close');
+                }, 500); // Duration of the scaleY animation
+            }, 3000); // Time before auto close in milliseconds
+        });
+    });
+</script>
+
+
 {{-- <section>
     <div class="square_box box_three"></div>
     <div class="square_box box_four"></div>

@@ -34,11 +34,21 @@
 </head>
 
 <body>
-
+    <!-- preloader start here -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- preloader ending here -->
     <x-web.layout.header />
     <x-utils.notif />
-
-    {{ $slot }}
+    <div class="content-wrapperr">
+        {{ $slot }}
+    </div>
 
     <x-web.layout.footer />
 

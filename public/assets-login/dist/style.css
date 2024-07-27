@@ -25,13 +25,18 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: calc(100vh - 68px); 
     padding-bottom: 60px;
     /* margin-bottom: 60px; */
     background-image: url("/assets-web2/assets/images/login/2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+    .container-1{
+        height: 100vh;
+    }
 }
 
 .login-container {

@@ -60,9 +60,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Carousel start -->
-
-                                        <!-- End of carousel -->
                                     </div>
                                 </div>
                             @endforeach

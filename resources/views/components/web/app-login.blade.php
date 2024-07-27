@@ -34,16 +34,9 @@
 </head>
 
 <body>
-
     <x-web.layout.header />
 
     {{ $slot }}
-
-    <x-web.layout.footer />
-
-    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i><span class="pluse_1"></span><span
-            class="pluse_2"></span></a>
-
     <!-- jQuery harus dimuat terlebih dahulu -->
     <script src="{{ url('/') }}/assets-web2/assets/js/jquery.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --> <!-- Dihapus karena duplikasi -->

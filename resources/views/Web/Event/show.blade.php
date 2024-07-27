@@ -41,6 +41,7 @@
                                     <div class="jenis-mangrove">
                                         <span>Jenis Mangrove yang ditanam:</span>
                                         <h6>
+                                            
                                             <a href="{{ url('Katalog-Pohon?jenis_pohon=' . urlencode($event->tanaman_event->jenis_pohon)) }}"
                                                 style="text-decoration: underline">
                                                 {{ $event->tanaman_event->jenis_pohon }}</a>
@@ -223,9 +224,9 @@
                             </div>
                             {{-- </nav> --}}
                             <div class="tab-content py-3  px-sm-0" id="nav-tabContent">
-                                @include('Web.Event.Tabs.deskripsi')
-                                @include('Web.Event.Tabs.dokumentasi')
-                                @include('Web.Event.Tabs.update')
+                                @include('Web.Event.Data-Show.Tabs.deskripsi')
+                                @include('Web.Event.Data-Show.Tabs.dokumentasi')
+                                @include('Web.Event.Data-Show.Tabs.update')
                             </div>
                         </div>
                     </div>
@@ -236,15 +237,15 @@
     </div>
 
     {{-- Modal  --}}
-    @include('Web.Event.Modal.gabung-aksi')
-    @include('Web.Event.Modal-Penyelenggara.dokumentasi')
-    @include('Web.Event.Modal.pantau')
+    @include('Web.Event.Data-Show.Modal.gabung-aksi')
+    @include('Web.Event.Data-Show.Modal-Penyelenggara.dokumentasi')
+    @include('Web.Event.Data-Show.Modal.pantau')
     {{-- Modal End --}}
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    @include('Web.Event.Assets-show.style')
+    @include('Web.Event.Data-Show.Assets-show.style')
 
     <script>
         $(document).ready(function() {

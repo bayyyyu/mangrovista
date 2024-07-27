@@ -51,10 +51,10 @@
                             <div class="form-group">
                                 <label for="" class="control-label" style="color:black; font-size:13px">
                                     Email<span style="color: red">*</span>
-                                    @if(!Auth::user()->email_verified)
+                                    {{-- @if(!Auth::user()->email_verified)
                                     <span style="color: red; font-size: 12px;">Belum diverifikasi</span>
                                      <a href="{{ url('verification/notice') }}" id="verification-link" style="font-size: 12px;">Verifikasi sekarang</a>
-                                    @endif
+                                    @endif --}}
                                 </label>
                                 <input type="text" class="form-control" name="email"style="height:30px"
                                     value="{{ Auth::user()->email ?? '' }}" readonly>
