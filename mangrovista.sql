@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 05, 2024 at 08:40 AM
+-- Generation Time: Jul 29, 2024 at 01:33 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -46,10 +46,8 @@ INSERT INTO `data_tambahan_event` (`id`, `event_id`, `nama_berkas`, `dokumen_tam
 (6, 36, 'Surat Izin dari RT', 'folder_name/pwRyuNlyxL9cGElSK9Xr81zdaMJtmOSnb9wkk4J8.pdf', '2024-05-14 08:26:34', '2024-05-14 08:26:34'),
 (7, 37, 'gambar', 'folder_name/koF28zdCKGqmfg51CHBSKnlNEdjPElISFDm1crjc.jpg', '2024-05-14 08:50:45', '2024-05-14 08:50:45'),
 (8, 38, 'gambar', 'folder_name/WMQbEYLkSanZBkxZHqNhnBqEkuCKtKd4rCsJAM6Y.jpg', '2024-06-07 05:31:07', '2024-06-07 05:31:07'),
-(9, 39, 'gambar', 'folder_name/WmPy3eplI1lVNUTUnlve45Tzh4CFpIc1gjvpTYS3.png', '2024-06-08 01:55:18', '2024-06-08 01:55:18'),
-(10, 40, 'gambar', 'folder_name/ysGWVzdjgeNWyyB2fwPT2mVwuheZh5GfRGZflwM2.jpg', '2024-06-08 03:50:15', '2024-06-08 03:50:15'),
-(11, 41, 'gambar', 'folder_name/pucC5oQVjiifMAfagGlRKAWmmctWBftqX9XmYSj4.jpg', '2024-06-12 11:34:42', '2024-06-12 11:34:42'),
-(12, 42, 'gambar', 'folder_name/26hQb8YJJkQrRqUpNkahqAyWeJWn3J03mi6HIUC4.png', '2024-06-14 00:08:54', '2024-06-14 00:08:54');
+(13, 43, 'gambar', 'folder_name/H6AKghl4WjcHrOAA97ywO3Xp1v0zveW40fR1OmlC.webp', '2024-07-21 09:49:02', '2024-07-21 09:49:02'),
+(18, 55, 'dokumentasi', 'folder_name/4Nx2nzOLCXd4GPYVZqHctB40Dr1ZiODkmKSe9WyE.jpg', '2024-07-29 05:48:09', '2024-07-29 05:48:09');
 
 -- --------------------------------------------------------
 
@@ -71,8 +69,8 @@ CREATE TABLE `dokumentasi_event` (
 --
 
 INSERT INTO `dokumentasi_event` (`id`, `event_id`, `file`, `deskripsi`, `created_at`, `updated_at`) VALUES
-(17, 40, 'file/Dokumentasi Event/17-1717863809-tZ7Mo.jpg', 'Di sebuah kebun kecil di belakang rumah, terdapat seorang pria yang bernama Ahmad, tengah sibuk dengan tugasnya yang paling dicintainya: menanam. Ahmad duduk bersila di tanah yang baru digemburkan, dengan senyum ceria menghiasi wajahnya saat ia bersiap untuk menanam bibit tomat.\r\n\r\nHari itu adalah hari yang cerah di bulan Mei, dan sinar matahari menyinari kebun belakang dengan hangat. Ahmad merasa bahagia bisa menikmati momen ini di tengah cahaya matahari yang menghangatkan.\r\n\r\nDengan telaten, Ahmad mulai menancapkan bibit tomat ke dalam tanah yang sudah disiapkan. Ia meletakkan setiap bibit dengan penuh perhatian, lalu menutupinya dengan lembut agar akar bibit bisa meranggas tanah dengan baik.\r\n\r\nDi sekeliling Ahmad, terlihat berbagai jenis sayuran lainnya: paprika, timun, dan selada. Semua dipersiapkan dengan teliti dan penuh harapan untuk tumbuh subur dan memberikan hasil yang melimpah.\r\n\r\nAhmad tidak sendirian dalam kegiatan ini. Terlihat temannya, Rizal, membantu mempersiapkan alat irigasi tetes yang akan digunakan untuk menyiram tanaman secara teratur. Mereka berdua saling membantu satu sama lain, dengan semangat yang tinggi untuk memberikan perawatan terbaik bagi tanaman mereka.\r\n\r\nSaat mereka bekerja, obrolan dan tawa riang terdengar di antara mereka, menciptakan suasana kebersamaan yang hangat di kebun belakang. Bagi Ahmad dan Rizal, penanaman bukan hanya sekadar kegiatan pertanian, tetapi juga momen berharga untuk membangun ikatan persahabatan yang kokoh.\r\n\r\nSetelah beberapa jam berlalu, penanaman selesai dilakukan. Ahmad dan Rizal duduk di tepi kebun, menatap ke arah tanaman-tanaman yang baru saja mereka tanam dengan harapan besar. Mereka tahu bahwa perjalanan mereka dalam merawat tanaman ini baru saja dimulai, dan mereka siap untuk menantikan hasilnya dengan penuh semangat.', '2024-06-08 09:23:29', '2024-06-08 09:23:29'),
-(18, 40, 'file/Dokumentasi Event/18-1717863809-QIqAQ.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet efficitur ex. Etiam a diam id velit lacinia elementum porttitor nec sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam porttitor tincidunt dolor consectetur semper. Mauris mauris elit, venenatis vitae turpis quis, placerat bibendum arcu. Cras feugiat, velit sed maximus sagittis, arcu purus accumsan neque, id congue est felis nec elit. Sed sed sodales metus, eget molestie arcu. Nam pellentesque mollis nunc, blandit varius odio posuere et. Maecenas sagittis eget erat sit amet volutpat. Phasellus commodo, mi ut lobortis ullamcorper, orci mauris aliquet diam, quis dapibus felis lectus vitae eros. In ac pharetra orci. Proin imperdiet ligula vehicula tellus dictum, a auctor mauris ultrices. Quisque tortor arcu, volutpat a ullamcorper nec, fermentum quis tortor. Maecenas eget risus hendrerit, lobortis dui non, semper nisi.\r\n\r\nPraesent mollis mollis pulvinar. Vestibulum nec congue velit, sed molestie ligula. Sed iaculis luctus arcu. Integer libero eros, tristique sed eros at, feugiat blandit mi. Quisque euismod, leo ut faucibus efficitur, lorem sem facilisis odio, quis luctus augue massa eget arcu. Maecenas volutpat maximus tortor id accumsan. Mauris quam magna, auctor et accumsan a, commodo in leo. Morbi eu est eleifend, aliquam velit vel, mollis ex. Morbi dictum lorem vel elit mattis, at porta lacus vulputate. Vestibulum blandit dignissim mauris, sit amet molestie diam sollicitudin non. Mauris porta maximus eros aliquet lobortis. Praesent a mi enim. Proin consequat cursus pharetra. Proin semper, mi in ullamcorper hendrerit, est tellus semper metus, non scelerisque augue mauris ac orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis urna ut eros posuere malesuada.', '2024-06-08 09:23:29', '2024-06-08 09:23:29');
+(28, 55, 'file/Dokumentasi Event/-1722257638-kNs5J.jpg', 'Jajaran Satuan Polairud Polres Ketapang melaksanakan kegiatan penanaman bibit pohon mangrove di pesisir pantai Desa Tanjung Bawang Kecamatan Delta Pawan Kabupaten Ketapang Kalimantan Barat,  Jumat 24 November 2023 pagi.', '2024-07-29 05:53:58', '2024-07-29 05:53:58'),
+(29, 56, 'file/Dokumentasi Event/-1722258526-wuOEV.jpg', 'Kepala Dinas Perumahan Rakyat, Kawasan Pemukiman dan Lingkungan Hidup Kabupaten Ketapang, Husnan MTP menyerahkan secara langsung piagam penghargaan kepada PT Well Harvest Winning Alumina Refinery atas penyelenggaraan kegiatan penanaman 1000 pohon mangrove dan 1500 pohon buah di Kecamatan Kendawangan, Kabupaten Ketapang, Kalimantan Barat. (Foto: Adi LC)', '2024-07-29 06:08:46', '2024-07-29 06:08:46');
 
 -- --------------------------------------------------------
 
@@ -89,7 +87,7 @@ CREATE TABLE `event` (
   `tanggal_selesai` date DEFAULT NULL,
   `jam` time DEFAULT NULL,
   `foto` varchar(255) DEFAULT NULL,
-  `deskripsi` text,
+  `deskripsi` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `lat` varchar(255) DEFAULT NULL,
   `lng` varchar(255) DEFAULT NULL,
   `target_peserta` bigint DEFAULT NULL,
@@ -103,11 +101,8 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id`, `user_id`, `lokasi_id`, `nama_event`, `tanggal_event`, `tanggal_selesai`, `jam`, `foto`, `deskripsi`, `lat`, `lng`, `target_peserta`, `batas_pendaftaran`, `created_at`, `updated_at`) VALUES
-(11, 41, 5, 'Mangrove Sejuta Hidup hahaha ahah haha hahay hay hahay haha hyah ', '2024-08-01', '2024-08-15', '23:38:00', 'images/Event/11-1717479796-gQeYX.jpg', 'Mangrove Sejuta Hidup adalah sebuah acara yang diadakan dengan tujuan utama untuk meningkatkan kesadaran dan kepedulian masyarakat terhadap pentingnya penanaman mangrove sebagai upaya pelestarian ekosistem pesisir. Acara ini merupakan ajang kolaborasi antara komunitas, lembaga lingkungan, dan masyarakat setempat dalam upaya menjaga keberlanjutan dan kelestarian mangrove.\r\n\r\nDalam acara ini, peserta akan diajak untuk secara aktif terlibat dalam kegiatan penanaman mangrove di kawasan pesisir yang membutuhkan restorasi ekosistem. Para peserta akan mendapatkan penjelasan mengenai pentingnya mangrove sebagai benteng alam, penyangga kehidupan laut, dan penyerap karbon dioksida. Mereka juga akan diberikan pengetahuan dan panduan praktis mengenai teknik penanaman mangrove yang benar.\r\n\r\nSelain kegiatan penanaman mangrove, acara ini juga menyediakan berbagai kegiatan pendukung seperti pameran, seminar, dan lokakarya yang bertujuan untuk meningkatkan pemahaman peserta mengenai pentingnya keberadaan mangrove dan dampak positifnya terhadap lingkungan dan masyarakat sekitar.\r\n\r\nMelalui Mangrove Sejuta Hidup, kami berharap dapat menginspirasi dan mendorong partisipasi aktif masyarakat dalam pelestarian mangrove. Dengan bersama-sama menanam dan menjaga mangrove, kita dapat menciptakan lingkungan yang sehat, berkelanjutan, dan melindungi kehidupan pesisir yang beragam. Ayo bergabung dan menjadi bagian dari gerakan pelestarian mangrove untuk masa depan yang lebih baik!', '-1.7435535380787952', '109.98052462908753', 5, '2024-06-07', '2024-06-14 06:08:32', '2024-06-14 06:08:32'),
-(39, 41, 5, 'test editan event3', '2024-09-20', '2024-10-22', '15:54:00', 'images/Event/39-1717861594-PxMBi.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus magna metus. In hac habitasse platea dictumst. Suspendisse tincidunt lacinia dui, nec vulputate ante convallis sed. Phasellus rutrum posuere mi, a scelerisque augue mattis quis. Suspendisse egestas tellus vitae sapien convallis, in molestie diam feugiat. Etiam sed congue eros, et rutrum risus. Nullam neque felis, blandit non justo vel, ornare placerat justo. Integer dictum tempus risus, vitae hendrerit augue pellentesque nec. Nulla nec dui sagittis, porttitor mauris et, viverra turpis. Vestibulum felis metus, dignissim vel posuere eu, scelerisque at odio. Nam eget faucibus magna. Quisque quis sagittis dui, malesuada auctor turpis.\r\n\r\nMorbi luctus dignissim hendrerit. Praesent accumsan, dui nec dictum auctor, est odio convallis mauris, nec interdum ante arcu a nisl. Quisque sollicitudin dolor vitae quam ullamcorper auctor. Duis sed eleifend eros. Sed vel tortor lacinia, rutrum ligula porttitor, sollicitudin nisi. Nam sagittis dolor sed lectus ullamcorper ultricies. Donec rutrum laoreet tortor sed sollicitudin. Vivamus vestibulum lorem odio, a tristique quam semper ut. Mauris non aliquam purus. Nunc pharetra, enim ac porttitor fermentum, magna lorem pellentesque dui, non ullamcorper orci libero non orci. Integer lectus massa, elementum et tortor eget, accumsan bibendum turpis. Sed porta molestie nisi non lacinia. Praesent iaculis euismod sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin imperdiet pharetra magna, id malesuada sem laoreet vel.\r\n\r\nProin iaculis ante a mauris eleifend, eget convallis ante vestibulum. In accumsan sagittis massa vitae suscipit. Nunc pretium leo in dui vehicula tincidunt. Curabitur tincidunt non ex vitae lobortis. Nulla facilisi. Vestibulum dictum vehicula odio, in interdum tellus. Maecenas vitae arcu lectus. Praesent pharetra metus orci, ac aliquet est maximus luctus. Maecenas sed dapibus turpis. Suspendisse malesuada tempus magna, sed condimentum metus. Aenean sagittis tempor libero at aliquet.', '-1.7439687626101164', '109.98078033129218', 500, '2024-06-10', '2024-07-04 19:07:22', '2024-07-04 19:07:22'),
-(40, 41, 6, 'Bersama Menanam, Bersama Melindungi: Kampanye Nasional Penanaman Mangrove untuk Masa Depan Pantai yang Tangguh dan Berkelanjutan!', '2024-06-01', '2024-06-07', '17:49:00', 'images/Event/40-1717863015-pFzKB.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus magna metus. In hac habitasse platea dictumst. Suspendisse tincidunt lacinia dui, nec vulputate ante convallis sed. Phasellus rutrum posuere mi, a scelerisque augue mattis quis. Suspendisse egestas tellus vitae sapien convallis, in molestie diam feugiat. Etiam sed congue eros, et rutrum risus. Nullam neque felis, blandit non justo vel, ornare placerat justo. Integer dictum tempus risus, vitae hendrerit augue pellentesque nec. Nulla nec dui sagittis, porttitor mauris et, viverra turpis. Vestibulum felis metus, dignissim vel posuere eu, scelerisque at odio. Nam eget faucibus magna. Quisque quis sagittis dui, malesuada auctor turpis.\r\n\r\nMorbi luctus dignissim hendrerit. Praesent accumsan, dui nec dictum auctor, est odio convallis mauris, nec interdum ante arcu a nisl. Quisque sollicitudin dolor vitae quam ullamcorper auctor. Duis sed eleifend eros. Sed vel tortor lacinia, rutrum ligula porttitor, sollicitudin nisi. Nam sagittis dolor sed lectus ullamcorper ultricies. Donec rutrum laoreet tortor sed sollicitudin. Vivamus vestibulum lorem odio, a tristique quam semper ut. Mauris non aliquam purus. Nunc pharetra, enim ac porttitor fermentum, magna lorem pellentesque dui, non ullamcorper orci libero non orci. Integer lectus massa, elementum et tortor eget, accumsan bibendum turpis. Sed porta molestie nisi non lacinia. Praesent iaculis euismod sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin imperdiet pharetra magna, id malesuada sem laoreet vel.\r\n\r\nProin iaculis ante a mauris eleifend, eget convallis ante vestibulum. In accumsan sagittis massa vitae suscipit. Nunc pretium leo in dui vehicula tincidunt. Curabitur tincidunt non ex vitae lobortis. Nulla facilisi. Vestibulum dictum vehicula odio, in interdum tellus. Maecenas vitae arcu lectus. Praesent pharetra metus orci, ac aliquet est maximus luctus. Maecenas sed dapibus turpis. Suspendisse malesuada tempus magna, sed condimentum metus. Aenean sagittis tempor libero at aliquet. www wwwww wwww wwww wwww wwww wwww wwww wwww wwww ww www www wwww wwww wwwwwwww wwwwwwww ww www wwww www wwww www wwwwwww www wwwwwwwww wwww hagsahsgha hasgasdu jsadisd0s jdsaosadk jsadhsajha ujasduasdfha jsjhduasua jhasudhasu jasua jasuasid jdsiasduas jsdijdh jsdnfjisdh jksdhfijsd jihsadijfhs jsdhfsjidnbs kjdshfjdks kjsdfskdfjn kjdshfksdhfakdj kdjgfhsdjakfhad jdasfhlasdj sadjkfadf gl SFHUIALISDU iodsfhg ijsdfh kjsdhf kjsdhfs kjsdhfskujh ueb iesduhfs', '-1.8674735746438225', '109.9491827357085', 200, '2024-05-20', '2024-06-14 06:09:39', '2024-06-14 06:09:39'),
-(41, 41, 5, 'test lokasi spesifik', '2024-06-12', '2024-06-15', '01:33:00', 'images/Event/-1718217281-RHWSx.png', 'test', '-1.7442261124263347', '109.98020678758624', 10, '2024-06-10', '2024-06-12 18:45:03', '2024-06-12 18:45:03'),
-(42, 41, 5, 'event apa ya', '2024-06-20', '2024-06-21', '14:08:00', 'images/Event/-1718348934-pUeiH.jpg', 'w', '-1.7430918120206496', '109.9810516834259', 5, '2024-06-14', '2024-06-14 00:08:54', '2024-06-14 00:08:54');
+(55, 41, 16, 'Penanaman Mangrove dalam Rangka HUT Polairud ke-73 Bersama Satpolairud Polres Ketapang', '2023-11-24', '2023-11-24', '06:00:00', 'images/Event/-1722257289-Gs5mx.png', 'Ini merupakan salah satu rangkaian kegiatan hari jadi Polairud yang ke 73 dimana beberapa waktu lalu kikta menggelar anjangsana, donor darah dan pagi hari ini kita menggelar penanaman bibit pohon mangrove sebagai bagian dari komitmen kita untuk senantiasa mendukung upaya pelestarian alam dan aktif berkontribusi dalam mempertahankan keanakeragaman flora dan fauna di indonesia', '-1.775920631804583', '109.93713584603545', 2000, '2023-11-20', '2024-07-29 05:48:09', '2024-07-29 05:48:09'),
+(56, 41, 18, 'memperingati Hari Habitat Sedunia dan 10 Tahun keberadaan WHW di Indonesia', '2022-10-06', '2022-10-06', '08:00:00', 'images/Event/-1722258445-iBVAP.jpg', 'PT Well Harvest Winning Alumina Refinery (WHW) sebagai perusahaan pertama pemurnian bauksit menjadi alumina di Indonesia selalu menjaga dan melindungi area di sekitar operasional perusahaan, dengan perlindungan dan pelestarian lingkungan yang berkelanjutan.                                                                       Momentum kegiatan hari ini adalah dalam rangka memperingati Hari Habitat Sedunia dan 10 Tahun keberadaan WHW di Indonesia. Sebagai bakti dan kontribusi nyata kami kepada Indonesia, kami hijaukan lingkungan dengan tanam 2.500 bibit pohon.\r\n\r\nSumber: https://kalbaronline.com/2022/10/11/tanam-ribuan-mangrove-dan-pohon-buah-pemkab-ketapang-berikan-piagam-penghargaan-kepada-whw-atas-kontribusi-penghijauan/', '-2.5363293165279703', '110.19439190626146', 0, '2022-10-06', '2024-07-29 06:07:25', '2024-07-29 06:07:25');
 
 -- --------------------------------------------------------
 
@@ -162,7 +157,9 @@ CREATE TABLE `lokasi` (
 
 INSERT INTO `lokasi` (`id`, `nama_lokasi`, `alamat_lokasi`, `jenis_ekosistem`, `foto_lokasi`, `lat`, `lng`, `created_at`, `updated_at`) VALUES
 (5, 'Pantai Air Mata Permai', 'Sungai Awan Kanan, Kec. Muara Pawan, Kabupaten Ketapang, Kalimantan Barat 78813', 'Pantai', 'images/Lokasi/-1717760160-5XHsh.jpg', '-1.744247662598983', '109.9809521175826', '2024-06-07 04:36:00', '2024-06-10 15:26:42'),
-(6, 'Sungai Kinjil', '4XR2+PG, Suka Baru, Kec. Benua Kayong, Kabupaten Ketapang, Kalimantan Barat 78822', 'Pantai', 'images/Lokasi/-1717843745-hiaEo.jpg', '-1.8630481201395526', '109.94743652177527', '2024-06-08 03:49:05', '2024-06-10 15:26:46');
+(6, 'Sungai Kinjil', '4XR2+PG, Suka Baru, Kec. Benua Kayong, Kabupaten Ketapang, Kalimantan Barat 78822', 'Pantai', 'images/Lokasi/-1717843745-hiaEo.jpg', '-1.8630481201395526', '109.94743652177527', '2024-06-08 03:49:05', '2024-06-10 15:26:46'),
+(16, 'Pantai Desa Tanjung Bawang', '6WFP+9R6, Suka Bangun Dalam', 'Pantai', 'images/Lokasi/-1722256932-KTxiq.jpg', '-1.775920631804583', '109.93713584603545', '2024-07-29 05:42:13', '2024-07-29 05:42:13'),
+(18, 'Kendawangan', 'Kecamatan Kendawangan, Kabupaten Ketapang, Kalimantan Barat,', '-', 'images/Lokasi/-1722258166-YiGAU.jpg', '-2.536684504612213', '110.19602018232735', '2024-07-29 06:02:46', '2024-07-29 06:02:46');
 
 -- --------------------------------------------------------
 
@@ -206,13 +203,6 @@ CREATE TABLE `monitoring_event` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `monitoring_event`
---
-
-INSERT INTO `monitoring_event` (`id`, `event_id`, `tanggal_monitoring`, `monitoring_deskripsi`, `pohon_hidup`, `pohon_mati`, `diameter_pohon`, `tinggi_pohon`, `foto_monitoring`, `created_at`, `updated_at`) VALUES
-(3, 40, '2024-06-09', 'pengamatan awal', 10, 0, 5, 50, 'images/Monitoring/-1717921485-RAsQA.png', '2024-06-09 01:24:46', '2024-06-09 01:24:46');
-
 -- --------------------------------------------------------
 
 --
@@ -227,16 +217,6 @@ CREATE TABLE `pendaftaran_event` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `pendaftaran_event`
---
-
-INSERT INTO `pendaftaran_event` (`id`, `event_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(2, 11, 43, '2024-05-30 00:30:02', '2024-06-13 11:41:03'),
-(3, 11, 27, '2024-06-04 18:19:34', '2024-06-05 10:53:02'),
-(4, 11, 36, '2024-06-04 18:19:34', '2024-06-05 10:53:05'),
-(5, 39, 43, '2024-07-04 12:07:54', '2024-07-04 12:07:54');
-
 -- --------------------------------------------------------
 
 --
@@ -246,15 +226,11 @@ INSERT INTO `pendaftaran_event` (`id`, `event_id`, `user_id`, `created_at`, `upd
 CREATE TABLE `role_request` (
   `id` int NOT NULL,
   `id_user` int DEFAULT NULL,
-  `notifikasi_id` int DEFAULT NULL,
   `request_role` enum('penyelenggara') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `nama_lengkap` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `no_telpon` bigint DEFAULT NULL,
-  `alamat` text,
-  `pengalaman` text,
-  `alasan` text,
-  `rencana_acara` text,
+  `alamat` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `pengalaman` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `alasan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `rencana_acara` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `status_request` enum('Diterima','Ditolak','Menunggu Konfirmasi') DEFAULT NULL,
   `alasan_penolakan` longtext,
   `jumlah_edit` int DEFAULT NULL,
@@ -266,9 +242,11 @@ CREATE TABLE `role_request` (
 -- Dumping data for table `role_request`
 --
 
-INSERT INTO `role_request` (`id`, `id_user`, `notifikasi_id`, `request_role`, `nama_lengkap`, `email`, `no_telpon`, `alamat`, `pengalaman`, `alasan`, `rencana_acara`, `status_request`, `alasan_penolakan`, `jumlah_edit`, `created_at`, `updated_at`) VALUES
-(9, 43, 9, 'penyelenggara', 'Guntur Pamungkas', 'guntur123@gmail.com', 81234567890, 'Jl. Letjend S. Parman Kelurahan No.67, Sukaharja, Kec. Delta Pawan, Kabupaten Ketapang, Kalimantan Barat 78811', '-', '-', '-', 'Ditolak', 'blablablabla', 0, '2024-04-27 08:02:48', '2024-05-11 13:39:47'),
-(11, 41, 11, 'penyelenggara', 'Anwar Zaim jr', 'zaim@gmail.com', 81234567890, '-', '-', '-', '-', 'Diterima', 'blablabnlabalala', 1, '2024-05-01 21:43:04', '2024-05-12 07:46:57');
+INSERT INTO `role_request` (`id`, `id_user`, `request_role`, `alamat`, `pengalaman`, `alasan`, `rencana_acara`, `status_request`, `alasan_penolakan`, `jumlah_edit`, `created_at`, `updated_at`) VALUES
+(9, 43, 'penyelenggara', 'Jl. Letjend S. Parman Kelurahan No.67, Sukaharja, Kec. Delta Pawan, Kabupaten Ketapang, Kalimantan Barat 78811', '-', '-', '-', 'Ditolak', 'blablablabla', 0, '2024-04-27 08:02:48', '2024-05-11 13:39:47'),
+(11, 41, 'penyelenggara', '-', '-', '-', '-', 'Diterima', 'blablabnlabalala', 1, '2024-05-01 21:43:04', '2024-05-12 07:46:57'),
+(19, 43, 'penyelenggara', 'test234567', 'test', 'test', 'test', 'Ditolak', NULL, 0, '2024-07-14 06:32:06', '2024-07-19 20:06:41'),
+(20, 43, 'penyelenggara', NULL, 'test lagi', 'test lagi', 'test lagi', 'Menunggu Konfirmasi', 'test penolakan pengajuan peran', 0, '2024-07-19 13:16:38', '2024-07-24 12:23:38');
 
 -- --------------------------------------------------------
 
@@ -296,14 +274,6 @@ CREATE TABLE `tanaman` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `tanaman`
---
-
-INSERT INTO `tanaman` (`id`, `user_id`, `event_id`, `lokasi`, `sample`, `tanggal_penanaman`, `jenis_mangrove`, `jenis_tanah`, `masa_tumbuh`, `umur_tanaman`, `deskripsi`, `status_penanaman`, `foto`, `lat`, `lng`, `created_at`, `updated_at`) VALUES
-(38, 36, 11, 'Pantai air mata permai', 'rt4543', '2022-12-05', 'api api', 'tanah suci', '2 bulan', '12 hari', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'hidup', 'images/Tanaman/38-1685017794-DeCJa.jpg', '-1.8645999873202934', '110.0555233330781', '2023-05-24 23:35:07', '2024-06-06 01:01:12'),
-(40, 36, 11, 'dimana ya', 'rt4543', '2023-05-25', 'jenis jenisan', 'rererer', '2 bulan', '40 hari', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'hidup', 'images/Tanaman/40-1685121934-QWwoI.jpg', '-1.5763391859789206', '110.22302474454989', '2023-05-25 08:05:49', '2023-06-10 06:25:56');
-
 -- --------------------------------------------------------
 
 --
@@ -325,11 +295,8 @@ CREATE TABLE `tanaman_event` (
 --
 
 INSERT INTO `tanaman_event` (`id`, `event_id`, `jenis_pohon`, `umur_bibit`, `jumlah_pohon`, `created_at`, `updated_at`) VALUES
-(1, 39, 'Api-Api', 100, 200, '2024-06-08 01:55:18', '2024-06-08 09:07:57'),
-(2, 40, 'Mangrove Pepada', 2, 500, '2024-06-08 03:50:15', '2024-07-04 20:05:05'),
-(3, 11, 'Bakau', 3, 1000, '2024-06-09 16:05:49', '2024-06-12 18:41:38'),
-(4, 41, 'Api-Api', 2, 200, '2024-06-12 11:34:42', '2024-06-12 18:41:43'),
-(5, 42, 'Bakau', 2, 1000, '2024-06-14 00:08:54', '2024-06-14 00:08:54');
+(16, 55, 'Bakau', 2, 200, '2024-07-29 05:48:09', '2024-07-29 05:48:09'),
+(17, 56, 'Bakau', 2, 2500, '2024-07-29 06:07:25', '2024-07-29 06:07:25');
 
 -- --------------------------------------------------------
 
@@ -347,7 +314,6 @@ CREATE TABLE `user` (
   `password` varchar(255) DEFAULT NULL,
   `jenis_kelamin` enum('Laki-laki','Perempuan') DEFAULT NULL,
   `foto_profil` varchar(255) DEFAULT NULL,
-  `bio` text,
   `tgl_lahir` date DEFAULT NULL,
   `no_telpon` bigint DEFAULT NULL,
   `remember_token` varchar(255) DEFAULT NULL,
@@ -359,13 +325,10 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `role`, `nama_lengkap`, `username`, `email`, `email_verified_at`, `password`, `jenis_kelamin`, `foto_profil`, `bio`, `tgl_lahir`, `no_telpon`, `remember_token`, `created_at`, `updated_at`) VALUES
-(27, 'admin', 'Admin', 'admin', 'admin@gmail.com', '2024-06-05 16:20:27', '$2y$10$/GsgC.VGUJ2Llo3dNOlsp.XWmoGgq7m7KERX4sF/ngWOE32MVocDi', 'Laki-laki', 'images/User/27-1685021268-o67CV.jpg', NULL, NULL, NULL, NULL, '2023-05-04 20:32:12', '2024-05-11 12:56:34'),
-(36, 'admin', 'Bayu Pratama', 'bayu', 'bayu@gmail.com', '2024-06-05 16:20:27', '$2y$10$uX1tniAjAgyehjYzOUOB4ustAarEHtTIFZ6/tzzPrOQWC6VyqBoBi', 'Laki-laki', 'images/User/36-1707053268-EvWsT.jpg', ' Saya selalu melihat sisi positif dalam setiap situasi dan percaya bahwa setiap tantangan adalah peluang untuk tumbuh dan berkembang.', NULL, NULL, 'j9ODa6ipScJnetjoaNMU95rZJpk47dGnKwxq9Mx7t1iNPs7s5luZAm0ojOUa', '2023-05-25 06:20:30', '2024-07-04 19:40:50'),
-(41, 'penyelenggara', 'Anwar Zaim', 'zaim', 'zaim@gmail.com', '2024-06-05 16:20:27', '$2y$10$YsmFDWHIoaPCtdLK/VoYjuG3L4WgBonaPGn8cOoEW5i1kCblnXubm', 'Laki-laki', 'images/User/41-1717001062-q7UcM.png', NULL, '2014-02-06', 81234567890, '8SFVmglDFgRBJjgngxTb1qW5Hkr1QOLsYY8UeRdZcD3yDjAkHS2AcMUztMfr', '2024-02-02 12:11:21', '2024-06-12 07:44:02'),
-(43, 'pengguna', 'Guntur Pamungkas', 'guntur', 'guntur123@gmail.com', '2024-06-05 16:20:27', '$2y$10$jE8xi1w7keGY.u.r3ycPue3YP3YtDUZ58pIP3YM3Xm0U646ruPCVW', 'Laki-laki', 'images/User/43-1714207436-gNiNC.jpg', NULL, NULL, 81234567891, '00Rkxt48SH2n5fpQzfLWIqGrToEKMsfVpF5SEK5OMbx5YDs2QwKoVmwEkI55', '2024-02-11 09:20:59', '2024-07-04 12:07:45'),
-(46, 'pengguna', 'user', 'usertyz', 'user@gmail.com', '2024-06-05 16:20:27', '$2y$10$BdFtK6hItADRMDBfmWB4dea8Jk3tT0GH5MvgvIveDgLN4AfPXnEjK', 'Perempuan', NULL, NULL, NULL, NULL, NULL, '2024-05-05 04:52:44', '2024-05-12 07:24:02'),
-(47, 'pengguna', 'orang asing', 'yeahhh', 'orangasing@gmail.com', '2024-06-05 17:49:52', '$2y$10$DfoloG8wX2Fg70Hj9kUPdOcOXHE1yc9ogwWrRsmVeTY6mdzy1ChiG', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-05 10:49:52', '2024-06-05 10:49:52');
+INSERT INTO `user` (`id`, `role`, `nama_lengkap`, `username`, `email`, `email_verified_at`, `password`, `jenis_kelamin`, `foto_profil`, `tgl_lahir`, `no_telpon`, `remember_token`, `created_at`, `updated_at`) VALUES
+(36, 'admin', 'Bayu Pratama', 'bayu', 'bayu@gmail.com', '2024-06-05 16:20:27', '$2y$10$gsZvmTpLTil6QjhMCkHs9.068HV7CAEnt79Jw05sH6mLL1yzU99im', 'Laki-laki', 'images/User/36-1707053268-EvWsT.jpg', NULL, 81234567891, '1UDJNSonWRj7uLc0hCOxrOaAOjZJ0zk8iZj95n0ZAiI2QDJf38K3yIlMfB6V', '2023-05-25 06:20:30', '2024-07-29 04:56:55'),
+(41, 'penyelenggara', 'User', 'user_', 'user@gmail.com', '2024-06-05 16:20:27', '$2y$10$cMCYlgHHx.fgpIiqzbh64uMRQpJ6yFjMeJiyvIc9f3uQdSRCCnssi', 'Laki-laki', 'images/User/41-1717001062-q7UcM.png', '2014-02-06', 81234567890, 'CbwOls38A0zFqXJVICZrh4p05E3pGHF29lpv7Zj4fW4mBaHM8ojnEoUorTmi', '2024-02-02 12:11:21', '2024-07-29 05:50:53'),
+(43, 'pengguna', 'Guntur Pamungkas', 'guntur', 'guntur123@gmail.com', '2024-06-05 16:20:27', '$2y$10$jE8xi1w7keGY.u.r3ycPue3YP3YtDUZ58pIP3YM3Xm0U646ruPCVW', 'Laki-laki', 'images/User/43-1720793316-HC7Ok.jpg', '2024-07-12', 81234567891, 'a3YCwWN1ohf9Eqe8GvO7XqmpT26qU7074DTPMuqefqW8G4TLZAQMrJFz6x6w', '2024-02-11 09:20:59', '2024-07-24 12:25:29');
 
 --
 -- Indexes for dumped tables
@@ -461,31 +424,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `data_tambahan_event`
 --
 ALTER TABLE `data_tambahan_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `dokumentasi_event`
 --
 ALTER TABLE `dokumentasi_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `katalog_pohon`
 --
 ALTER TABLE `katalog_pohon`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- AUTO_INCREMENT for table `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -497,19 +460,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `monitoring_event`
 --
 ALTER TABLE `monitoring_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pendaftaran_event`
 --
 ALTER TABLE `pendaftaran_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `role_request`
 --
 ALTER TABLE `role_request`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tanaman`
@@ -521,13 +484,13 @@ ALTER TABLE `tanaman`
 -- AUTO_INCREMENT for table `tanaman_event`
 --
 ALTER TABLE `tanaman_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Constraints for dumped tables
