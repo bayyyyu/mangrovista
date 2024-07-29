@@ -40,11 +40,24 @@
                         <li class="{{ request()->is('Event*') ? 'active2' : '' }}">
                             <a href="{{ url('Event') }}">Event</a>
                         </li>
-                        <li class="{{ request()->is('Peta*') ? 'active2' : '' }}">
+                        <li class="{{ request()->is('Lokasi-Penanaman*') ? 'active2' : '' }}">
                             <a href="{{ url('Lokasi-Penanaman') }}">Lokasi </a>
                         </li>
+                        <li class="{{ request()->is('Peta*') ? 'active2' : '' }}">
+                            <a href="{{ url('Peta') }}">Peta </a>
+                        </li>
                         <li class="{{ request()->is('Profil*') ? 'active2' : '' }}">
-                            <a href="{{ url('Profil') }}">Profil</a>
+                            @if (Auth::check())
+                                @if (Auth::user()->role == 'admin')
+                                    <a href="{{ url('Admin/Dashboard') }}">Profil
+                                    </a>
+                                @else
+                                    <a href="{{ url('Profil') }}">Profil
+                                    </a>
+                                @endif
+                            @else
+                                <a href="{{ url('Login') }}" class="btn btn-sm login-btn">Masuk</a>
+                            @endif
                         </li>
                     </ul>
                 </div>

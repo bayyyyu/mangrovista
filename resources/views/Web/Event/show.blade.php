@@ -41,10 +41,15 @@
                                     <div class="jenis-mangrove">
                                         <span>Jenis Mangrove yang ditanam:</span>
                                         <h6>
-                                            
-                                            <a href="{{ url('Katalog-Pohon?jenis_pohon=' . urlencode($event->tanaman_event->jenis_pohon)) }}"
-                                                style="text-decoration: underline">
-                                                {{ $event->tanaman_event->jenis_pohon }}</a>
+                                            @foreach (explode(',', $event->tanaman_event->jenis_pohon) as $jenisPohon)
+                                                <a href="{{ url('Katalog-Pohon?jenis_pohon=' . urlencode($jenisPohon)) }}"
+                                                    style="text-decoration: underline">
+                                                    {{ $jenisPohon }}
+                                                </a>
+                                                @if (!$loop->last)
+                                                    ,
+                                                @endif
+                                            @endforeach
                                         </h6>
                                     </div>
                                 </div>

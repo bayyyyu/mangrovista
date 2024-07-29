@@ -5,7 +5,8 @@
             <div class="modal-header">
                 <p class="modal-title" style="text-align: center" id="exampleModalLongTitle">Data Penanaman Pada Event
                     <span class="text-bold"
-                        style="color: black; text-decoration:underline">{{ $event->nama_event }}</span></p>
+                        style="color: black; text-decoration:underline">{{ $event->nama_event }}</span>
+                </p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -22,13 +23,19 @@
                         <img class="img img-responsive lazy" style="width: 100px; margin: 0px auto; display: block;"
                             src="{{ url('/') }}/assets-web2/assets/images/icon/leaf.png">
                         <p class="text-dark">Jenis Pohon Ditanam</p>
-                        <p class="text-bold text-dark">{{$event->tanaman_event->jenis_pohon}}</p>
+                        <p class="text-bold text-dark">
+                            @foreach (explode(',', $event->tanaman_event->jenis_pohon) as $jenisPohon)
+                                {{ $jenisPohon }}@if (!$loop->last)
+                                    ,
+                                @endif
+                            @endforeach
+                        </p>
                     </div>
                     <div class="col-sm-4 col-xs-6 text-center" style="padding-top:20px">
                         <img class="img img-responsive lazy" style="width: 100px; margin: 0px auto; display: block;"
                             src="{{ url('/') }}/assets-web2/assets/images/icon/age.png">
                         <p class="text-dark">Umur Bibit Tanaman</p>
-                        <p class="text-bold text-dark">{{$event->tanaman_event->umur_bibit}} Bulan</p>
+                        <p class="text-bold text-dark">{{ $event->tanaman_event->umur_bibit }} Bulan</p>
                     </div>
                 </div>
             </div>

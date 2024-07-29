@@ -73,15 +73,14 @@ class PengajuanEventController extends Controller
 
         // Simpan data tanaman terkait event
         if ($request->has('jenis_pohon')) {
-            foreach ($request->input('jenis_pohon') as $jenisPohon) {
-                $tanamanEvent = new TanamanEvent;
-                $tanamanEvent->event_id = $event->id;
-                $tanamanEvent->jenis_pohon = $jenisPohon;
-                $tanamanEvent->umur_bibit = $request->input('umur_bibit');
-                $tanamanEvent->jumlah_pohon = $request->input('jumlah_pohon');
-                $tanamanEvent->save();
-            }
+            $tanamanEvent = new TanamanEvent;
+            $tanamanEvent->event_id = $event->id;
+            $tanamanEvent->jenis_pohon = implode(',', $request->input('jenis_pohon')); // Simpan sebagai string yang dipisahkan koma
+            $tanamanEvent->umur_bibit = $request->input('umur_bibit');
+            $tanamanEvent->jumlah_pohon = $request->input('jumlah_pohon');
+            $tanamanEvent->save();
         }
+
 
         // Simpan data tambahan jika ada yang diunggah
         if ($request->has('car')) {

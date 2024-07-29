@@ -112,7 +112,7 @@ return [
 
     'password_timeout' => 10800,
     'remember_me' => [
-        'expire' => 20160, // atur sesuai kebutuhan Anda
+        'expire' => 20160,  //dalam menit (14 hari)
     ],
     // 'providers' => [
     //     'users' => [

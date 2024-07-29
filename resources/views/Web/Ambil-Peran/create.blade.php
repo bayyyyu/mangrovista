@@ -1,5 +1,4 @@
 <x-web.app-webNoSlider>
-    
     <div class="container">
         <div class="faq-section mt-5" style="margin-bottom: 40px; ">
             <h6 style="text-align: center; justify-content:center; color: #064635">Form Pengajuan Pengambilan
