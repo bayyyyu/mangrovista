@@ -111,7 +111,7 @@
                                         {{ auth()->user()->nama_lengkap }}
                                     @endif
                                 </small>
-                                <img src="{{ url('/') }}/assets-admin/assets/images/signature.png" alt="png"
+                                <img src="{{ url('/') }}/assets-admin/timetable.png" alt="png"
                                     class="mt-2 mb-1" height="20">
                                 <p class="border-top">Signature</p>
                             </div>
@@ -131,7 +131,7 @@
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" name="_method" value="PUT">
-                                    <a href="javascript:window.print()" class="btn btn-soft-info btn-sm">Print</a>
+                                    {{-- <a href="javascript:window.print()" class="btn btn-soft-info btn-sm">Print</a> --}}
 
                                     <button type="button" class="btn btn-soft-success btn-sm"
                                         id="btn-konfirmasi">Konfirmasi</button>

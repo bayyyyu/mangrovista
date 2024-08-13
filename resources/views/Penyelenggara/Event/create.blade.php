@@ -78,7 +78,7 @@
                                     </div>
                                 @endforeach
                                 @include('Penyelenggara.Event.Modal.index')
-                                <div class="col-md-3">
+                                {{-- <div class="col-md-3">
                                     <a href="{{ url('Pengajuan-Event/Lokasi') }}"
                                         style="width: 100%;position: relative;">
                                         <div class="cons">
@@ -91,7 +91,7 @@
                                         </div>
                                         <span class="checkmark" style="right: 30px; "></span>
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="f1-buttons">
                                 <button type="button" class="btn btn-next">Selanjutnya <i
@@ -119,15 +119,13 @@
                                     <div class="form-group">
 
                                         <input type="text" name="lng" placeholder="Longitude Lokasi"
-                                            class="form-control" value="{{ $lokasi->lng }}" id="longitude"
-                                            readonly>
+                                            class="form-control" value="{{ $lokasi->lng }}" id="longitude" readonly>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Nama Event <span style="color: red">*</span></label>
-                                <input type="text" name="nama_event" placeholder="Nama Event"
-                                    class="form-control">
+                                <input type="text" name="nama_event" placeholder="Nama Event" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi <span style="color: red">*</span></label>
@@ -140,7 +138,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label>Maks. Peserta</label>
-                                                    <input type="number" class="form-control" name="target_peserta">
+                                                    <input type="number" min="1" class="form-control" name="target_peserta">
                                                 </div>
 
                                                 <div class="col-md-6">
@@ -198,7 +196,7 @@
                                         class="fa fa-arrow-right"></i></button>
                             </div>
                         </fieldset>
-                        
+
                         <fieldset class="mb-5 mt-5">
                             <hr>
                             <div class="row">
@@ -220,13 +218,13 @@
                                                 </div>
 
                                                 <div class="col-md-3">
-                                                    <label for="">Umur Bibit</label>
-                                                    <input type="number" placeholder="Contoh: 2 Bulan/Tahun"
+                                                    <label for="">Umur Bibit (bulan)</label>
+                                                    <input type="number" min="1" placeholder="Dalam bulan"
                                                         class="form-control" name="umur_bibit">
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label for="">Jumlah Pohon Ditanam</label>
-                                                    <input type="number" placeholder="contoh: 100"
+                                                    <input type="number" min="1" placeholder="contoh: 100"
                                                         class="form-control" name="jumlah_pohon">
                                                 </div>
                                             </div>
@@ -457,7 +455,7 @@
 
             // Variabel untuk menyimpan marker baru (draggable)
             var marker2 = null;
-
+            
             // Fungsi untuk menambahkan atau memindahkan marker baru pada klik peta
             map.on("click", function(e) {
                 if (marker2) {
@@ -611,6 +609,40 @@
                 } else {
                     radioGroup.closest('.form-group').removeClass('input-error');
                 }
+
+                 // Validasi tanggal
+                var batasPendaftaran = parent_fieldset.find('input[name="batas_pendaftaran"]').val();
+                var tanggalMulai = parent_fieldset.find('input[name="tanggal_event"]').val();
+                var tanggalSelesai = parent_fieldset.find('input[name="tanggal_selesai"]').val();
+
+                if (batasPendaftaran && tanggalMulai && tanggalSelesai) {
+                    if (new Date(batasPendaftaran) > new Date(tanggalMulai)) {
+                        Swal.fire({
+                            title: "Peringatan!",
+                            text: "Batas pendaftaran tidak boleh melebihi tanggal mulai.",
+                            icon: "warning",
+                            confirmButtonText: "OK",
+                            customClass: {
+                                confirmButton: 'my-custom-button'
+                            }
+                        });
+                        next_step = false;
+                    }
+
+                    if (new Date(tanggalSelesai) < new Date(tanggalMulai)) {
+                        Swal.fire({
+                            title: "Peringatan!",
+                            text: "Tanggal selesai tidak boleh sebelum tanggal mulai.",
+                            icon: "warning",
+                            confirmButtonText: "OK",
+                            customClass: {
+                                confirmButton: 'my-custom-button'
+                            }
+                        });
+                        next_step = false;
+                    }
+                }
+
                 if (next_step) {
                     parent_fieldset.fadeOut(400, function() {
                         // change icons
@@ -624,6 +656,8 @@
                         scroll_to_class($('.f1'), 20);
                     });
                 }
+               
+                
             });
 
             // step sebelumnya (ketika klik tombol sebelumnya)

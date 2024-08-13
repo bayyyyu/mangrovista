@@ -72,5 +72,7 @@ class Kernel extends HttpKernel
         'isError'=> \App\Http\Middleware\isError::class,
         'role' => \App\Http\Middleware\RoleMiddleware::class,
         'check.event.owner' => \App\Http\Middleware\CheckEventOwner::class,
+        // 'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
 }

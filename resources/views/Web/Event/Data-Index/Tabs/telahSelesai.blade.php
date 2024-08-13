@@ -21,7 +21,7 @@
                                  <div class="p-4 " style="height: 65px">
                                      <h3 style="font-size: 16px; color:#090909;" class="fw-semibold mb-0 fs-4">
                                          @php
-                                             $maxLength = 48;
+                                             $maxLength = 50;
                                              $nama_event = nl2br($event->nama_event);
                                              if (strlen($nama_event) > $maxLength) {
                                                  $nama_event = substr($nama_event, 0, $maxLength) . '...';

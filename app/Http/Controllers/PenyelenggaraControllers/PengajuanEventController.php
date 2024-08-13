@@ -111,14 +111,11 @@ class PengajuanEventController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi.',
-            'nama_event.required' => 'Nama event wajib diisi.',
             'tanggal_event.required' => 'Tanggal event wajib diisi.',
             'tanggal_event.date' => 'Format tanggal event tidak valid.',
             'tanggal_selesai.required' => 'Tanggal selesai wajib diisi.',
             'tanggal_selesai.date' => 'Format tanggal selesai tidak valid.',
             'tanggal_selesai.after_or_equal' => 'Tanggal selesai harus setelah atau sama dengan tanggal event.',
-            'deskripsi.required' => 'Deskripsi wajib diisi.',
-            'deskripsi.string' => 'Deskripsi harus berupa teks.',
             'jam.required' => 'Jam wajib diisi.',
             'jam.date_format' => 'Format jam tidak valid.',
             'target_peserta.required' => 'Target peserta wajib diisi.',
@@ -126,6 +123,7 @@ class PengajuanEventController extends Controller
             'target_peserta.min' => 'Target peserta minimal 1 orang.',
             'batas_pendaftaran.required' => 'Batas pendaftaran wajib diisi.',
             'batas_pendaftaran.date' => 'Format batas pendaftaran tidak valid.',
+            'batas_pendaftaran.before_or_equal' => 'Batas pendaftaran tidak boleh melebihi tanggal event.',
             'foto.image' => 'File yang diunggah harus berupa gambar (jpeg, png, jpg, gif).',
             'foto.mimes' => 'File gambar harus berformat jpeg, png, jpg, atau gif.',
             'foto.max' => 'Ukuran file gambar maksimal 2048 KB.',
@@ -139,10 +137,13 @@ class PengajuanEventController extends Controller
             'deskripsi' => 'required|string',
             'jam' => 'required|date_format:H:i:s',
             'target_peserta' => 'required|integer|min:1',
-            'batas_pendaftaran' => 'required|date',
+            'batas_pendaftaran' => 'required|date|before_or_equal:tanggal_event',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi untuk foto event
         ], $messages);
-
+        if ($validator->fails()) {
+            // Debug: Cek apa yang dikirimkan
+            dd($request->all());
+        }
         // Jika validasi gagal, kembali ke halaman sebelumnya dengan pesan error
         if ($validator->fails()) {
             return redirect()->back()

@@ -32,6 +32,7 @@ use App\Http\Controllers\WebControllers\TanamController;
 use App\Http\Controllers\WebControllers\UploadDataPenanamanController;
 use App\Models\Dokumentasi;
 use App\Models\MonitoringEvent;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,12 +53,27 @@ Route::get('/', function () {
 
 
 // Auth
-Route::get('Login', [AuthController::class, 'showLogin'])->middleware('isTamu');
+Route::get('Login', [AuthController::class, 'showLogin'])->name('login')->middleware('isTamu');
 Route::post('Login', [AuthController::class, 'loginProcess'])->middleware('isTamu');
 Route::get('Logout', [AuthController::class, 'logout']);
+
 Route::get('Register', [AuthController::class, 'register'])->middleware('isTamu');
 Route::post('Register', [AuthController::class, 'createAcount'])->middleware('isTamu');
-// Auth::routes(['verify' => true]);
+
+Route::get('/email/verify', function () {
+    $user = Auth::user();
+    $isVerified = $user && $user->email_verified_at !== null;
+
+    return view('Auth.verify-email', ['isVerified' => $isVerified]);
+})->middleware('auth')->name('verification.notice');
+
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('Profil')->with('success', 'Email Anda telah berhasil diverifikasi!');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
 
 
 // Dashboard
@@ -75,15 +91,15 @@ Route::delete('Admin/Katalog-Pohon/{katalog_pohon}', [AdminKatalogPohonControlle
 // Route::post('Admin/Katalog-Pohon', [AdminKatalogPohonController::class, 'import_process'])->middleware('isError');
 
 // Tanaman
-Route::get('Admin/Tanaman', [TanamanController::class, 'index'])->middleware('isError');
-Route::get('Admin/Tanaman/create', [TanamanController::class, 'create'])->middleware('isError');
-Route::post('Admin/Tanaman', [TanamanController::class, 'store'])->middleware('isError');
-Route::get('Admin/Tanaman/{tanaman}', [TanamanController::class, 'show'])->middleware('isError');
-Route::get('Admin/Tanaman/{tanaman}/edit', [TanamanController::class, 'edit'])->middleware('isError');
-Route::put('Admin/Tanaman/{tanaman}', [TanamanController::class, 'update'])->middleware('isError');
-Route::delete('Admin/Tanaman/{tanaman}', [TanamanController::class, 'destroy'])->middleware('isError');
-Route::get('Admin/Tanaman/import', [TanamanController::class, 'import'])->middleware('isError');
-Route::post('Admin/Tanaman', [TanamanController::class, 'import_process'])->middleware('isError');
+// Route::get('Admin/Tanaman', [TanamanController::class, 'index'])->middleware('isError');
+// Route::get('Admin/Tanaman/create', [TanamanController::class, 'create'])->middleware('isError');
+// Route::post('Admin/Tanaman', [TanamanController::class, 'store'])->middleware('isError');
+// Route::get('Admin/Tanaman/{tanaman}', [TanamanController::class, 'show'])->middleware('isError');
+// Route::get('Admin/Tanaman/{tanaman}/edit', [TanamanController::class, 'edit'])->middleware('isError');
+// Route::put('Admin/Tanaman/{tanaman}', [TanamanController::class, 'update'])->middleware('isError');
+// Route::delete('Admin/Tanaman/{tanaman}', [TanamanController::class, 'destroy'])->middleware('isError');
+// Route::get('Admin/Tanaman/import', [TanamanController::class, 'import'])->middleware('isError');
+// Route::post('Admin/Tanaman', [TanamanController::class, 'import_process'])->middleware('isError');
 
 // event
 Route::get('Admin/Event', [AdminEventController::class, 'index'])->middleware('isError');
@@ -101,7 +117,11 @@ Route::put('Admin/Event/{event}/confirm', [AdminEventController::class, 'konfirm
 
 //Lokasi
 Route::get('Admin/Lokasi', [AdminLokasiController::class, 'index'])->middleware('isError');
+Route::get('Admin/Lokasi/create', [AdminLokasiController::class, 'create'])->middleware('isError');
+Route::post('Admin/Lokasi', [AdminLokasiController::class, 'store'])->middleware('isError');
 Route::get('Admin/Lokasi/{lokasi}', [AdminLokasiController::class, 'show'])->middleware('isError');
+Route::get('Admin/Lokasi/{lokasi}/edit', [AdminLokasiController::class, 'edit'])->middleware('isError');
+Route::put('Admin/Lokasi/{lokasi}', [AdminLokasiController::class, 'update'])->middleware('isError');
 Route::delete('Admin/Lokasi/{lokasi}', [AdminLokasiController::class, 'destroy'])->middleware('isError');
 
 // User
@@ -161,13 +181,13 @@ Route::get('Lokasi-Penanaman/{lokasi}/{nama_lokasi}', [LokasiController::class, 
 Route::get('/geojson-files', [GeoJsonController::class, 'index']);
 
 //Web/Profil
-Route::get('Profil', [ProfilController::class, 'index']);
-Route::put('Profil/{user}', [ProfilController::class, 'updatePengaturanAkun']);
-Route::get('Event/{event}/Upload', [UploadDataPenanamanController::class, 'index']);
-Route::get('generate-qr/{id}', [ProfilController::class, 'generateQr'])->name('generate.qr');
+Route::get('Profil', [ProfilController::class, 'index'])->middleware(['auth', 'verified']);
+Route::put('Profil/{user}', [ProfilController::class, 'updatePengaturanAkun'])->middleware(['auth', 'verified']);
+Route::get('Event/{event}/Upload', [UploadDataPenanamanController::class, 'index'])->middleware(['auth', 'verified']);
+Route::get('generate-qr/{id}', [ProfilController::class, 'generateQr'])->name('generate.qr')->middleware(['auth', 'verified']);
 
 //Web/Ambil Peran
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('Ambil-Peran/create', [RoleRequestController::class, 'create']);
     Route::post('Ambil-Peran', [RoleRequestController::class, 'store']);
     Route::get('Ambil-Peran/{role_request}/edit', [RoleRequestController::class, 'edit']);
@@ -186,11 +206,10 @@ Route::middleware(['role:penyelenggara'])->group(function () {
     Route::post('Event/{event}/monitoring_store', [MonitoringController::class, 'store'])->name('monitoring.store');
 
     // Penyelenggara Lokasi
-    Route::get('Pengajuan-Event/Lokasi', [LokasiEventController::class, 'create']);
-    Route::post('Pengajuan-Event/create', [LokasiEventController::class, 'store']);
+    // Route::get('Pengajuan-Event/Lokasi', [LokasiEventController::class, 'create']);
+    // Route::post('Pengajuan-Event/create', [LokasiEventController::class, 'store']);
 
     // Penyelenggara Dokumentasi event
     Route::get('Event/{event}/dokumentasi', [DokumentasiController::class, 'create']);
     Route::post('Event/{event}', [DokumentasiController::class, 'store']);
 });
-

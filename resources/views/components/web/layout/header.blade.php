@@ -56,7 +56,7 @@
                                     </a>
                                 @endif
                             @else
-                                <a href="{{ url('Login') }}" class="btn btn-sm login-btn">Masuk</a>
+                                <a href="{{ url('Login') }}" >Masuk</a>
                             @endif
                         </li>
                     </ul>

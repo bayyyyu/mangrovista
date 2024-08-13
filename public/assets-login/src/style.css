@@ -41,7 +41,10 @@ h1 {
     align-items: center;
     height: 100vh;
 }
-
+.message-container {
+    position: relative;
+    width: 32.2rem;
+}
 .login-container {
     position: relative;
     width: 22.2rem;
@@ -51,7 +54,7 @@ h1 {
     box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     backdrop-filter: blur(20px);
-    z-index: 99;
+    z-index: 1;
     padding: 2rem;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;

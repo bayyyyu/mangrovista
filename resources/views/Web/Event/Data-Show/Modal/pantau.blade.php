@@ -13,16 +13,16 @@
             </div>
             <div class="modal-body">
                 <div class="row" style="padding:10px 10px 40px 10px">
-                    <div class="col-sm-4 col-xs-6 text-center" style="padding-top:20px">
+                    <div class="col-sm-3 col-xs-6 text-center" style="padding-top:20px">
                         <img class="img img-responsive lazy" style="width: 100px; margin: 0px auto; display: block;"
                             src="{{ url('/') }}/assets-web2/assets/images/icon/pohon-ditanam.png">
-                        <p class="text-dark">Jumlah Pohon Ditanam</p>
+                        <p class="text-dark" style="font-size: 13px">Jumlah Pohon Ditanam</p>
                         <p class="text-bold text-dark">{{ $event->tanaman_event->jumlah_pohon }} pohon</p>
                     </div>
-                    <div class="col-sm-4 col-xs-6 text-center" style="padding-top:20px">
+                    <div class="col-sm-3 col-xs-6 text-center" style="padding-top:20px">
                         <img class="img img-responsive lazy" style="width: 100px; margin: 0px auto; display: block;"
                             src="{{ url('/') }}/assets-web2/assets/images/icon/leaf.png">
-                        <p class="text-dark">Jenis Pohon Ditanam</p>
+                        <p class="text-dark" style="font-size: 13px">Jenis Pohon Ditanam</p>
                         <p class="text-bold text-dark">
                             @foreach (explode(',', $event->tanaman_event->jenis_pohon) as $jenisPohon)
                                 {{ $jenisPohon }}@if (!$loop->last)
@@ -31,11 +31,17 @@
                             @endforeach
                         </p>
                     </div>
-                    <div class="col-sm-4 col-xs-6 text-center" style="padding-top:20px">
+                    <div class="col-sm-3 col-xs-6 text-center" style="padding-top:20px">
                         <img class="img img-responsive lazy" style="width: 100px; margin: 0px auto; display: block;"
-                            src="{{ url('/') }}/assets-web2/assets/images/icon/age.png">
-                        <p class="text-dark">Umur Bibit Tanaman</p>
+                            src="{{ url('/') }}/assets-web2/assets/images/icon/seed.png">
+                        <p class="text-dark" style="font-size: 13px">Umur Bibit Tanaman</p>
                         <p class="text-bold text-dark">{{ $event->tanaman_event->umur_bibit }} Bulan</p>
+                    </div>
+                    <div class="col-sm-3 col-xs-6 text-center" style="padding-top:20px">
+                        <img class="img img-responsive lazy" style="width: 100px; margin: 0px auto; display: block;"
+                            src="{{ url('/') }}/assets-web2/assets/images/icon/pohon.png">
+                        <p class="text-dark" style="font-size: 13px">Umur Tanaman Saat Ini</p>
+                        <p class="text-bold text-dark">{{ $event->umur_tanaman_saat_ini }}</p>
                     </div>
                 </div>
             </div>

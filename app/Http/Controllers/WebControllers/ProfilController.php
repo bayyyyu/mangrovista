@@ -20,6 +20,7 @@ class ProfilController extends Controller
 {
     function index()
     {
+        
         $user = request()->user();
         if (!$user) {
             // Redirect ke halaman login kalau sudah melebihi masa aktif login

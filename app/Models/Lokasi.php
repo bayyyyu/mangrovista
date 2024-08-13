@@ -57,4 +57,5 @@ class Lokasi extends Model
             $lokasi->events()->update(['lokasi_id' => null]);
         });
     }
+    
 }

@@ -95,6 +95,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Informasi Jumlah Sisa Pohon -->
+                                @php
+                                    $total_pohon = $event->tanaman_event->jumlah_pohon;
+                                    $pohon_hidup = $monitoring->pohon_hidup;
+                                    $pohon_mati = $monitoring->pohon_mati;
+                                    $total_pohon_dalam_pertumbuhan = $total_pohon - ($pohon_hidup + $pohon_mati);
+                                @endphp
+                                @if ($total_pohon_dalam_pertumbuhan > 0)
+                                    <div class="text-center mt-3 text-danger">
+                                        {{ $total_pohon_dalam_pertumbuhan }} pohon dalam masa pertumbuhan saat
+                                        monitoring dilakukan.
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -74,22 +74,22 @@
                             <div class="form-group">
                                 <input type="text" value="{{ old('nama_lengkap') }}" name="nama_lengkap"
                                     required="" placeholder="{{ $errors->first('nama_lengkap') ?: 'Nama Lengkap' }}"
-                                    class="{{ $errors->has('nama_lengkap') ? 'error' : '' }}" onfocus="clearError(this)" />
+                                    class="{{ $errors->has('nama_lengkap') ? 'error' : '' }} text-white" onfocus="clearError(this)" />
                             </div>
                             <div class="form-group">
                                 <input type="text" value="{{ old('username') }}" name="username" required=""
                                     placeholder="{{ $errors->first('username') ?: 'Username' }}"
-                                    class="{{ $errors->has('username') ? 'error' : '' }}" onfocus="clearError(this)" />
+                                    class="{{ $errors->has('username') ? 'error' : '' }} text-white" onfocus="clearError(this)" />
                             </div>
                             <div class="form-group">
                                 <input type="email" value="{{ old('email') }}" name="email" required=""
                                     placeholder="{{ $errors->first('email') ?: 'Email' }}"
-                                    class="{{ $errors->has('email') ? 'error' : '' }}" onfocus="clearError(this)" />
+                                    class="{{ $errors->has('email') ? 'error' : '' }} text-white" onfocus="clearError(this)" />
                             </div>
                             <div class="password-container">
                                 <input type="password" value="{{ old('password') }}" name="password" required=""
                                     id="passwordInput" placeholder="{{ $errors->first('password') ?: 'Password' }}"
-                                    class="{{ $errors->has('password') ? 'error' : '' }}" onfocus="clearError(this)" />
+                                    class="{{ $errors->has('password') ? 'error' : '' }} text-white" onfocus="clearError(this)" />
                                 <div class="password-toggle" onclick="togglePasswordVisibility()">
                                     <i id="eyeOpen" class="fas fa-eye"></i>
                                     <i id="eyeClosed" class="fas fa-eye-slash"></i>

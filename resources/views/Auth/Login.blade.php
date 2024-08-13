@@ -13,10 +13,10 @@
                             <x-utils.notif />
                             <hr class="garis">
                             <div class="form-group">
-                                <input type="email" name="email" placeholder="Email" required/>
+                                <input class="text-white" type="email" name="email" placeholder="Email" required/>
                             </div>
                             <div class="password-container">
-                                <input type="password" name="password" id="passwordInput" placeholder="Password" required/>
+                                <input class="text-white" type="password" name="password" id="passwordInput" placeholder="Password" required/>
                                 <div class="password-toggle" onclick="togglePasswordVisibility()">
                                     <i id="eyeOpen" class="fas fa-eye"></i>
                                     <i id="eyeClosed" class="fas fa-eye-slash"></i>

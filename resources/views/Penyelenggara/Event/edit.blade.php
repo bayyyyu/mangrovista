@@ -31,20 +31,35 @@
                 <form action="{{ url('Event', $event->id) }}" enctype="multipart/form-data" method="POST">
                     @method('PUT')
                     @csrf
+
+                    @php
+                        $event_status =
+                            $event->tanggal_selesai < now()
+                                ? 'selesai'
+                                : ($event->tanggal_event <= now() && $event->tanggal_selesai >= now()
+                                    ? 'berlangsung'
+                                    : 'belum_selesai');
+                        $is_readonly_date = $event_status === 'selesai' ? 'readonly' : '';
+                        $is_readonly_time = $event_status === 'selesai' ? 'readonly' : '';
+                       
+                    @endphp
+
                     <div class="col-md-6" style="margin: auto">
                         <div class="modal-header">
                             <img src="{{ asset($event->foto) }}" id="current-photo"
                                 style="width:100%; height:225px; object-fit:cover; border-radius: 10px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px solid #00947C;"
                                 class="image">
                         </div>
-                        <input type="file" id="input-file-now" name="foto" style="display: none;" accept="image/jpeg, image/png, image/jpg, image/gif" />
+                        <input type="file" id="input-file-now" name="foto" style="display: none;"
+                            accept="image/jpeg, image/png, image/jpg, image/gif" />
 
-                        <!-- Tambahkan label untuk mengganti gambar -->
+
                         <div class="mt-2">
                             <div class="btn btn-sm btn-green" for="input-file-now" id="change-photo-label"
                                 style="cursor: pointer; color: white;" name="foto">Ganti Gambar</div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -62,26 +77,27 @@
                                 <div class="input-group">
                                     <input type="date" name="tanggal_event"
                                         class="form-control @error('tanggal_event') is-invalid @enderror"
-                                        value="{{ old('tanggal_event', $event->tanggal_event) }}">
+                                        value="{{ old('tanggal_event', $event->tanggal_event) }}"
+                                        {{ $is_readonly_date }}>
                                     @error('tanggal_event')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                     <span class="input-group-text">Hingga</span>
                                     <input type="date" name="tanggal_selesai"
                                         class="form-control @error('tanggal_selesai') is-invalid @enderror"
-                                        value="{{ old('tanggal_selesai', $event->tanggal_selesai) }}">
+                                        value="{{ old('tanggal_selesai', $event->tanggal_selesai) }}"
+                                        {{ $is_readonly_date }}>
                                     @error('tanggal_selesai')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="" class="text-dark">Jam</label>
                                 <input type="time" name="jam" value="{{ old('jam', $event->jam) }}"
-                                    class="form-control @error('jam') is-invalid @enderror">
+                                    class="form-control @error('jam') is-invalid @enderror" {{ $is_readonly_time }}>
                                 @error('jam')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -103,7 +119,9 @@
                                 <label for="" class="text-dark">Batas Pendaftaran</label>
                                 <input type="date" name="batas_pendaftaran"
                                     class="form-control @error('batas_pendaftaran') is-invalid @enderror"
-                                    value="{{ old('batas_pendaftaran', $event->batas_pendaftaran) }}">
+                                    value="{{ old('batas_pendaftaran', $event->batas_pendaftaran) }}"
+                                    {{ $is_readonly_date }}>
+
                                 @error('batas_pendaftaran')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -120,13 +138,13 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="modal-footer">
                         <a href="{{ url('Profil?page=1#pengajuan') }}"
                             class="btn btn-sm btn-outline-green">Kembali</a>
                         <button class="btn btn-sm btn-green">Simpan</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

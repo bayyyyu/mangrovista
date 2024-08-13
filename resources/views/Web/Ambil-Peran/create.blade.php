@@ -31,9 +31,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="" class="control-label"
-                                            style="color:black; font-size:13px">No.Telpon
-                                            Aktif/WhatsApp<span style="color: red">*</span></label>
+                                        <label for="" style="font-size: 12px">No HP/Wa aktif
+                                            @if (empty(Auth::user()->no_telpon))
+                                                <a href="{{ url('Profil#pengaturan') }}"><span style="color:red;">(Isi
+                                                        nomor
+                                                        telepon terlebih dahulu)</span></a>
+                                            @endif
+                                        </label>
                                         <input type="tel" required class="form-control" style="height:30px"
                                             placeholder="{{ Auth::user()->no_telpon ?? '' }}" readonly>
                                     </div>
@@ -87,7 +91,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-sm btn-outline-green float-right">
+                            <button type="submit" class="btn btn-sm btn-outline-green float-right"
+                             @if (empty(Auth::user()->no_telpon)) disabled @endif>
                                 Ajukan Pengambilan Peran
                             </button>
                         </form>

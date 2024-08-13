@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -22,8 +23,7 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-
-         
+ 
         $rememberMe = $request->has('remember_token');
         Session::flash('email', $request->email);
 
@@ -82,8 +82,6 @@ class AuthController extends Controller
             'password.min' => 'Minimum Password 8 Karakter',
         ]);
 
-
-
         $role = 'pengguna';
 
         $data = [
@@ -93,11 +91,16 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ];
-        User::create($data);
+
+        $user= User::create($data);
+
+        event(new Registered($user));
+        
+        // Auth::login($user);
 
         if (Auth::attempt(['nama_lengkap' => request('nama_lengkap'), 'username' => request('username'), 'email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
-             return redirect('Home')->with('success', 'Berhasil Mendaftar', compact('user'));
+             return redirect('email/verify')->with('success', 'Berhasil Mendaftar', compact('user'));
         } else {
             return back()->withErrors('danger', 'Silahlan cek lagi! data yang dimasukan tidak valid');
         }

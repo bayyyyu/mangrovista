@@ -1,22 +1,27 @@
-<x-web.app-webNoSlider>
+<x-web.app-login>
     <x-auth.app-login>
         <div class="content-halaman">
             <section class="container-1">
-                <div class="login-container">
-                    <div class="circle circle-one"></div>
-                    <div class="form-container">
-                        <form action="{{ route('verification.send') }}" method="post">
-                            @csrf
-                            <img src="{{ url('/') }}/assets-web2/assets/images/logo/6.png" alt="logo"
-                                style="height: 30px; width: 100%; object-fit: contain"><span
-                                style="display: block; text-align: center; color:#064635; font-weight:bold">Login</span>
-                            <button type="button" class="btn btn-sm btn-outline-green">Kirim ulang verifikasi</button>
-                        </form>
-                        <hr class="garis-bawah">
+                @if ($isVerified)
+                    <div class="message-container">
+                        <div class="form-container text-center">
+                            <p class="text-white">Email Anda telah berhasil diverifikasi. Anda sekarang dapat mengakses
+                                semua fitur.</p>
+                            <img src="{{ url('/') }}/assets-web2/assets/images/login/gmail-check2.png" alt="logo"
+                                style="height: 80px; width: 100%; object-fit: contain">
+                        </div>
                     </div>
-                    <div class="circle circle-two"></div>
-                </div>
+                @else
+                    <div class="message-container">
+                        <div class="form-container text-center">
+                            <p class="text-white">Verifikasi sudah dikirim ke email Anda. Silakan periksa email Anda dan
+                                verifikasi akun Anda.</p>
+                            <img src="{{ url('/') }}/assets-web2/assets/images/login/gmail.png" alt="logo"
+                                style="height: 50px; width: 100%; object-fit: contain">
+                        </div>
+                    </div>
+                @endif
             </section>
         </div>
     </x-auth.app-login>
-</x-web.app-webNoSlider>
+</x-web.app-login>

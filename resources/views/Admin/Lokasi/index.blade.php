@@ -10,6 +10,12 @@
                             <li class="breadcrumb-item active">Lokasi</li>
                         </ol>
                     </div><!--end col-->
+                    <div class="col-auto align-self-center tab">
+                        <a href="{{ url('Admin/Lokasi/create') }}" class="btn btn-sm btn-outline-primary">
+                            <i data-feather="plus" class="align-self-center icon-xs"></i>
+                            Tambah Lokasi
+                        </a>
+                    </div>
                     <!--end col-->
                 </div><!--end row-->
             </div><!--end page-title-box-->
@@ -36,6 +42,8 @@
                                         <div class="btn-group">
                                             <a href="{{ url('Admin/Lokasi', $lokasi->id) }}"
                                                 class="btn btn-outline-primary btn-sm"><i class="fa fa-info"></i></a>
+                                            <a href="{{ url('Admin/Lokasi', $lokasi->id) }}/edit"
+                                                class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
                                             <x-button.delete id="{{ $lokasi->id }}" />
                                         </div>
                                     </td>

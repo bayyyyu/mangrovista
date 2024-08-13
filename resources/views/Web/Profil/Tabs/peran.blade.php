@@ -311,6 +311,10 @@
                                                     Acara</span>
                                                 <p>{!! $role_request->rencana_acara !!}</p>
                                             </div>
+                                            <div class="col-md-12" style="text-align: center">
+                                                <span class="label-peran">Alasan Penolakan</span>
+                                                <p>{!! $role_request->alasan_penolakan !!}</p>
+                                            </div>
                                             <hr style="margin-top: -15px">
                                             <div class="col-md-12 mb-3">
                                                 <div class="btn btn-sm btn-outline-green float-right"

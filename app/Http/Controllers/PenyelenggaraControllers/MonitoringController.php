@@ -44,10 +44,10 @@ class MonitoringController extends Controller
             'event_id' => 'required|exists:event,id',
             'tanggal_monitoring' => 'required|date',
             'monitoring_deskripsi' => 'required|string',
-            'pohon_hidup' => 'required|integer',
-            'pohon_mati' => 'required|integer',
-            'diameter_pohon' => 'required|numeric',
-            'tinggi_pohon' => 'required|numeric',
+            'pohon_hidup' => 'required|integer|min:1',
+            'pohon_mati' => 'required|integer|min:1',
+            'diameter_pohon' => 'required|numeric|min:1',
+            'tinggi_pohon' => 'required|numeric|min:1',
             'foto_monitoring' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
