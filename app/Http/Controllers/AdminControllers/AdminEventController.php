@@ -49,14 +49,16 @@ class AdminEventController extends Controller
             'nama_event.required' => 'Nama event tidak boleh kosong.',
             'tanggal_event.required' => 'Field Tidak Boleh Kosong.',
             'tanggal_selesai.required' => 'Field Tidak Boleh Kosong.',
+            'tanggal_selesai.after_or_equal' => 'Tanggal selesai harus setelah atau sama dengan tanggal event.',
             'deskripsi.required' => 'Deskripsi wajib diisi.',
            
         ];
 
         $validator = Validator::make(request()->all(), [
             'nama_event' => 'sometimes|required|string|max:255',
-            'tanggal_event' => 'sometimes|required|date',
-            'tanggal_selesai' => 'sometimes|required|date',
+            'tanggal_event' => 'required|date',
+            'tanggal_selesai' => 'required|date|after_or_equal:tanggal_event',
+            'target_peserta' => 'required|integer|min:1',
             'deskripsi' => 'sometimes|required|string',
             'jam' => 'sometimes|required|string',
             'foto' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
