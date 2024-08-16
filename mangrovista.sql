@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 29, 2024 at 01:33 PM
+-- Generation Time: Aug 16, 2024 at 04:15 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -70,7 +70,8 @@ CREATE TABLE `dokumentasi_event` (
 
 INSERT INTO `dokumentasi_event` (`id`, `event_id`, `file`, `deskripsi`, `created_at`, `updated_at`) VALUES
 (28, 55, 'file/Dokumentasi Event/-1722257638-kNs5J.jpg', 'Jajaran Satuan Polairud Polres Ketapang melaksanakan kegiatan penanaman bibit pohon mangrove di pesisir pantai Desa Tanjung Bawang Kecamatan Delta Pawan Kabupaten Ketapang Kalimantan Barat,  Jumat 24 November 2023 pagi.', '2024-07-29 05:53:58', '2024-07-29 05:53:58'),
-(29, 56, 'file/Dokumentasi Event/-1722258526-wuOEV.jpg', 'Kepala Dinas Perumahan Rakyat, Kawasan Pemukiman dan Lingkungan Hidup Kabupaten Ketapang, Husnan MTP menyerahkan secara langsung piagam penghargaan kepada PT Well Harvest Winning Alumina Refinery atas penyelenggaraan kegiatan penanaman 1000 pohon mangrove dan 1500 pohon buah di Kecamatan Kendawangan, Kabupaten Ketapang, Kalimantan Barat. (Foto: Adi LC)', '2024-07-29 06:08:46', '2024-07-29 06:08:46');
+(29, 56, 'file/Dokumentasi Event/-1722258526-wuOEV.jpg', 'Kepala Dinas Perumahan Rakyat, Kawasan Pemukiman dan Lingkungan Hidup Kabupaten Ketapang, Husnan MTP menyerahkan secara langsung piagam penghargaan kepada PT Well Harvest Winning Alumina Refinery atas penyelenggaraan kegiatan penanaman 1000 pohon mangrove dan 1500 pohon buah di Kecamatan Kendawangan, Kabupaten Ketapang, Kalimantan Barat. (Foto: Adi LC)', '2024-07-29 06:08:46', '2024-07-29 06:08:46'),
+(30, 56, 'file/Dokumentasi Event/-1723099177-5pzYZ.webp', 'dokumentasi penanaman', '2024-08-07 23:39:37', '2024-08-07 23:39:37');
 
 -- --------------------------------------------------------
 
@@ -101,8 +102,10 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id`, `user_id`, `lokasi_id`, `nama_event`, `tanggal_event`, `tanggal_selesai`, `jam`, `foto`, `deskripsi`, `lat`, `lng`, `target_peserta`, `batas_pendaftaran`, `created_at`, `updated_at`) VALUES
-(55, 41, 16, 'Penanaman Mangrove dalam Rangka HUT Polairud ke-73 Bersama Satpolairud Polres Ketapang', '2023-11-24', '2023-11-24', '06:00:00', 'images/Event/-1722257289-Gs5mx.png', 'Ini merupakan salah satu rangkaian kegiatan hari jadi Polairud yang ke 73 dimana beberapa waktu lalu kikta menggelar anjangsana, donor darah dan pagi hari ini kita menggelar penanaman bibit pohon mangrove sebagai bagian dari komitmen kita untuk senantiasa mendukung upaya pelestarian alam dan aktif berkontribusi dalam mempertahankan keanakeragaman flora dan fauna di indonesia', '-1.775920631804583', '109.93713584603545', 2000, '2023-11-20', '2024-07-29 05:48:09', '2024-07-29 05:48:09'),
-(56, 41, 18, 'memperingati Hari Habitat Sedunia dan 10 Tahun keberadaan WHW di Indonesia', '2022-10-06', '2022-10-06', '08:00:00', 'images/Event/-1722258445-iBVAP.jpg', 'PT Well Harvest Winning Alumina Refinery (WHW) sebagai perusahaan pertama pemurnian bauksit menjadi alumina di Indonesia selalu menjaga dan melindungi area di sekitar operasional perusahaan, dengan perlindungan dan pelestarian lingkungan yang berkelanjutan.                                                                       Momentum kegiatan hari ini adalah dalam rangka memperingati Hari Habitat Sedunia dan 10 Tahun keberadaan WHW di Indonesia. Sebagai bakti dan kontribusi nyata kami kepada Indonesia, kami hijaukan lingkungan dengan tanam 2.500 bibit pohon.\r\n\r\nSumber: https://kalbaronline.com/2022/10/11/tanam-ribuan-mangrove-dan-pohon-buah-pemkab-ketapang-berikan-piagam-penghargaan-kepada-whw-atas-kontribusi-penghijauan/', '-2.5363293165279703', '110.19439190626146', 0, '2022-10-06', '2024-07-29 06:07:25', '2024-07-29 06:07:25');
+(55, 41, 16, 'Penanaman Mangrove dalam Rangka HUT Polairud ke-73 Bersama Satpolairud Polres Ketapangg', '2023-11-24', '2023-11-24', '06:00:00', 'images/Event/-1722257289-Gs5mx.png', 'Ini merupakan salah satu rangkaian kegiatan hari jadi Polairud yang ke 73 dimana beberapa waktu lalu kikta menggelar anjangsana, donor darah dan pagi hari ini kita menggelar penanaman bibit pohon mangrove sebagai bagian dari komitmen kita untuk senantiasa mendukung upaya pelestarian alam dan aktif berkontribusi dalam mempertahankan keanakeragaman flora dan fauna di indonesia', '-1.775920631804583', '109.93713584603545', 2000, '2023-11-20', '2024-08-13 18:59:39', '2024-08-13 11:59:39'),
+(56, 41, 18, 'memperingati Hari Habitat Sedunia dan 10 Tahun keberadaan WHW di Indonesia', '2022-10-06', '2022-10-06', '08:00:00', 'images/Event/-1722258445-iBVAP.jpg', 'PT Well Harvest Winning Alumina Refinery (WHW) sebagai perusahaan pertama pemurnian bauksit menjadi alumina di Indonesia selalu menjaga dan melindungi area di sekitar operasional perusahaan, dengan perlindungan dan pelestarian lingkungan yang berkelanjutan.                                                                       Momentum kegiatan hari ini adalah dalam rangka memperingati Hari Habitat Sedunia dan 10 Tahun keberadaan WHW di Indonesia. Sebagai bakti dan kontribusi nyata kami kepada Indonesia, kami hijaukan lingkungan dengan tanam 2.500 bibit pohon.\r\n\r\nSumber: https://kalbaronline.com/2022/10/11/tanam-ribuan-mangrove-dan-pohon-buah-pemkab-ketapang-berikan-piagam-penghargaan-kepada-whw-atas-kontribusi-penghijauan/', '-2.5363293165279703', '110.19439190626146', 0, '2022-10-06', '2024-07-29 06:07:25', '2024-07-29 06:07:25'),
+(59, 41, 19, 'Apresiasi Pemkab Ketapang atas Penanaman 10.000 Bibit Mangrove: Penanaman Terbesar di Ketapang', '2024-08-15', '2024-08-15', '07:00:00', 'images/Event/-1723098928-HNGys.png', 'Pemerintah Kabupaten Ketapang mengapresiasi penanaman 10.000 bibit pohon mangrove yang merupakan penanaman terbesar di Ketapang', '-2.535951244281156', '110.19448041915895', 1000, '2024-08-10', '2024-08-07 23:35:28', '2024-08-07 23:35:28'),
+(60, 55, 19, 'Hut Pak Darmanto', '2024-07-09', '2024-05-09', '07:00:00', 'images/Event/-1723104779-qzy3U.png', 'Merayakan HUT Pak Darmanto', '-2.536684504612213', '110.19602018232735', 1000, '2024-08-10', '2024-08-08 01:12:59', '2024-08-08 01:12:59');
 
 -- --------------------------------------------------------
 
@@ -156,10 +159,11 @@ CREATE TABLE `lokasi` (
 --
 
 INSERT INTO `lokasi` (`id`, `nama_lokasi`, `alamat_lokasi`, `jenis_ekosistem`, `foto_lokasi`, `lat`, `lng`, `created_at`, `updated_at`) VALUES
-(5, 'Pantai Air Mata Permai', 'Sungai Awan Kanan, Kec. Muara Pawan, Kabupaten Ketapang, Kalimantan Barat 78813', 'Pantai', 'images/Lokasi/-1717760160-5XHsh.jpg', '-1.744247662598983', '109.9809521175826', '2024-06-07 04:36:00', '2024-06-10 15:26:42'),
+(5, 'Pantai Air Mata Permai', 'Sungai Awan Kanan, Kec. Muara Pawan, Kabupaten Ketapang, Kalimantan Barat 78813', 'Pantaii', 'images/Lokasi/-1717760160-5XHsh.jpg', '-1.744247662598983', '109.9809521175826', '2024-06-07 04:36:00', '2024-08-11 05:25:16'),
 (6, 'Sungai Kinjil', '4XR2+PG, Suka Baru, Kec. Benua Kayong, Kabupaten Ketapang, Kalimantan Barat 78822', 'Pantai', 'images/Lokasi/-1717843745-hiaEo.jpg', '-1.8630481201395526', '109.94743652177527', '2024-06-08 03:49:05', '2024-06-10 15:26:46'),
 (16, 'Pantai Desa Tanjung Bawang', '6WFP+9R6, Suka Bangun Dalam', 'Pantai', 'images/Lokasi/-1722256932-KTxiq.jpg', '-1.775920631804583', '109.93713584603545', '2024-07-29 05:42:13', '2024-07-29 05:42:13'),
-(18, 'Kendawangan', 'Kecamatan Kendawangan, Kabupaten Ketapang, Kalimantan Barat,', '-', 'images/Lokasi/-1722258166-YiGAU.jpg', '-2.536684504612213', '110.19602018232735', '2024-07-29 06:02:46', '2024-07-29 06:02:46');
+(18, 'Kendawangan', 'Kecamatan Kendawangan, Kabupaten Ketapang, Kalimantan Barat,', '-', 'images/Lokasi/-1722258166-YiGAU.jpg', '-2.536684504612213', '110.19602018232735', '2024-07-29 06:02:46', '2024-07-29 06:02:46'),
+(19, 'Pantai Celincing', 'Jl. Tanjung Matan, Suka Baru, Benua Kayong, Ketapang Regency, West Kalimantan 78822 ,', 'pantai', 'images/Lokasi/-1723098785-MZ4Qe.jpg', '-2.536684504612213', '110.19602018232735', '2024-08-07 23:33:05', '2024-08-12 07:22:11');
 
 -- --------------------------------------------------------
 
@@ -203,6 +207,14 @@ CREATE TABLE `monitoring_event` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `monitoring_event`
+--
+
+INSERT INTO `monitoring_event` (`id`, `event_id`, `tanggal_monitoring`, `monitoring_deskripsi`, `pohon_hidup`, `pohon_mati`, `diameter_pohon`, `tinggi_pohon`, `foto_monitoring`, `created_at`, `updated_at`) VALUES
+(11, 56, '2024-07-04', 'pengamatan awal', 2400, 100, 10, 25, 'images/Monitoring/-1723099283-bbqJv.jpg', '2024-08-07 23:41:23', '2024-08-07 23:41:23'),
+(12, 60, '2024-07-02', 'monitoring lanjutan', 1000, 900, 5, 15, 'images/Monitoring/-1723105067-GAS0p.jpg', '2024-08-08 01:17:47', '2024-08-08 01:17:47');
+
 -- --------------------------------------------------------
 
 --
@@ -216,6 +228,13 @@ CREATE TABLE `pendaftaran_event` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `pendaftaran_event`
+--
+
+INSERT INTO `pendaftaran_event` (`id`, `event_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(9, 59, 43, '2024-08-07 23:38:23', '2024-08-07 23:38:23');
 
 -- --------------------------------------------------------
 
@@ -246,7 +265,9 @@ INSERT INTO `role_request` (`id`, `id_user`, `request_role`, `alamat`, `pengalam
 (9, 43, 'penyelenggara', 'Jl. Letjend S. Parman Kelurahan No.67, Sukaharja, Kec. Delta Pawan, Kabupaten Ketapang, Kalimantan Barat 78811', '-', '-', '-', 'Ditolak', 'blablablabla', 0, '2024-04-27 08:02:48', '2024-05-11 13:39:47'),
 (11, 41, 'penyelenggara', '-', '-', '-', '-', 'Diterima', 'blablabnlabalala', 1, '2024-05-01 21:43:04', '2024-05-12 07:46:57'),
 (19, 43, 'penyelenggara', 'test234567', 'test', 'test', 'test', 'Ditolak', NULL, 0, '2024-07-14 06:32:06', '2024-07-19 20:06:41'),
-(20, 43, 'penyelenggara', NULL, 'test lagi', 'test lagi', 'test lagi', 'Menunggu Konfirmasi', 'test penolakan pengajuan peran', 0, '2024-07-19 13:16:38', '2024-07-24 12:23:38');
+(20, 43, 'penyelenggara', NULL, 'test lagi', 'test lagi', 'test lagi', 'Ditolak', 'test penolakan pengajuan peran', 0, '2024-07-19 13:16:38', '2024-08-07 16:03:47'),
+(22, 43, 'penyelenggara', 'Jl ketapang siduk-desa sungai awan kanan', 'KEtua program penanaman mangroe', 'Ingin menyelenggarakan kegiatan penanaman', 'penanaman 10000 pohon', 'Diterima', NULL, 0, '2024-08-07 23:47:40', '2024-08-07 23:49:21'),
+(23, 55, 'penyelenggara', 'Jl. Gajah Mada', 'Belum Ada', 'Ingin Menyelenggarakan event', 'HUT Pak Darmanto', 'Diterima', NULL, 0, '2024-08-08 00:59:59', '2024-08-08 01:03:42');
 
 -- --------------------------------------------------------
 
@@ -296,7 +317,9 @@ CREATE TABLE `tanaman_event` (
 
 INSERT INTO `tanaman_event` (`id`, `event_id`, `jenis_pohon`, `umur_bibit`, `jumlah_pohon`, `created_at`, `updated_at`) VALUES
 (16, 55, 'Bakau', 2, 200, '2024-07-29 05:48:09', '2024-07-29 05:48:09'),
-(17, 56, 'Bakau', 2, 2500, '2024-07-29 06:07:25', '2024-07-29 06:07:25');
+(17, 56, 'Bakau', 2, 2500, '2024-07-29 06:07:25', '2024-07-29 06:07:25'),
+(20, 59, 'Api-Api,Mangrove Pepada', 2, 10000, '2024-08-07 23:35:28', '2024-08-07 23:35:28'),
+(21, 60, 'Api-Api,Nipah', 2, 10000, '2024-08-08 01:12:59', '2024-08-08 01:12:59');
 
 -- --------------------------------------------------------
 
@@ -310,7 +333,7 @@ CREATE TABLE `user` (
   `nama_lengkap` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `email_verified_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `jenis_kelamin` enum('Laki-laki','Perempuan') DEFAULT NULL,
   `foto_profil` varchar(255) DEFAULT NULL,
@@ -326,9 +349,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `role`, `nama_lengkap`, `username`, `email`, `email_verified_at`, `password`, `jenis_kelamin`, `foto_profil`, `tgl_lahir`, `no_telpon`, `remember_token`, `created_at`, `updated_at`) VALUES
-(36, 'admin', 'Bayu Pratama', 'bayu', 'bayu@gmail.com', '2024-06-05 16:20:27', '$2y$10$gsZvmTpLTil6QjhMCkHs9.068HV7CAEnt79Jw05sH6mLL1yzU99im', 'Laki-laki', 'images/User/36-1707053268-EvWsT.jpg', NULL, 81234567891, '1UDJNSonWRj7uLc0hCOxrOaAOjZJ0zk8iZj95n0ZAiI2QDJf38K3yIlMfB6V', '2023-05-25 06:20:30', '2024-07-29 04:56:55'),
-(41, 'penyelenggara', 'User', 'user_', 'user@gmail.com', '2024-06-05 16:20:27', '$2y$10$cMCYlgHHx.fgpIiqzbh64uMRQpJ6yFjMeJiyvIc9f3uQdSRCCnssi', 'Laki-laki', 'images/User/41-1717001062-q7UcM.png', '2014-02-06', 81234567890, 'CbwOls38A0zFqXJVICZrh4p05E3pGHF29lpv7Zj4fW4mBaHM8ojnEoUorTmi', '2024-02-02 12:11:21', '2024-07-29 05:50:53'),
-(43, 'pengguna', 'Guntur Pamungkas', 'guntur', 'guntur123@gmail.com', '2024-06-05 16:20:27', '$2y$10$jE8xi1w7keGY.u.r3ycPue3YP3YtDUZ58pIP3YM3Xm0U646ruPCVW', 'Laki-laki', 'images/User/43-1720793316-HC7Ok.jpg', '2024-07-12', 81234567891, 'a3YCwWN1ohf9Eqe8GvO7XqmpT26qU7074DTPMuqefqW8G4TLZAQMrJFz6x6w', '2024-02-11 09:20:59', '2024-07-24 12:25:29');
+(36, 'admin', 'Bayu Pratama', 'bayu', 'bayu@gmail.com', '2024-06-05 16:20:27', '$2y$10$gsZvmTpLTil6QjhMCkHs9.068HV7CAEnt79Jw05sH6mLL1yzU99im', 'Laki-laki', 'images/User/36-1707053268-EvWsT.jpg', NULL, 81234567891, 'ENdvx50p7KQkNySc0MIb0Yv1fFU99iHLfNx4q7sSs7nyixLvhgiDerldKmrd', '2023-05-25 06:20:30', '2024-08-13 04:47:10'),
+(41, 'penyelenggara', 'User', 'user_', 'user@gmail.com', '2024-06-05 16:20:27', '$2y$10$cMCYlgHHx.fgpIiqzbh64uMRQpJ6yFjMeJiyvIc9f3uQdSRCCnssi', 'Laki-laki', 'images/User/41-1717001062-q7UcM.png', '2014-02-06', 81234567890, 'NUNKX8HogKWWHeEXMGyhxp5uWULHTHlDqTe1gkNJSrEz0Pu9oHMIwBc9A15a', '2024-02-02 12:11:21', '2024-08-13 08:38:51'),
+(43, 'pengguna', 'Guntur Pamungkas', 'guntur', 'guntur123@gmail.com', NULL, '$2y$10$jE8xi1w7keGY.u.r3ycPue3YP3YtDUZ58pIP3YM3Xm0U646ruPCVW', 'Laki-laki', 'images/User/43-1720793316-HC7Ok.jpg', '2024-07-12', NULL, 'wG0BG0OUlaZD3wwc7EDdAxOdFJ4BzQzclCQGmJB5CU0Vdcej8Zr32lCtGzOA', '2024-02-11 09:20:59', '2024-08-13 10:30:17'),
+(55, 'penyelenggara', 'Novi Indah Pradasari', 'indah', 'indah@gmail.com', NULL, '$2y$10$01FzgsVx.J9BtuOshSdKo.FxoYeLHC9xAbxSvRxweCrdj6/2pd5Q.', NULL, NULL, NULL, NULL, NULL, '2024-08-08 00:56:09', '2024-08-13 09:40:36');
 
 --
 -- Indexes for dumped tables
@@ -430,13 +454,13 @@ ALTER TABLE `data_tambahan_event`
 -- AUTO_INCREMENT for table `dokumentasi_event`
 --
 ALTER TABLE `dokumentasi_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `katalog_pohon`
@@ -448,7 +472,7 @@ ALTER TABLE `katalog_pohon`
 -- AUTO_INCREMENT for table `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -460,19 +484,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `monitoring_event`
 --
 ALTER TABLE `monitoring_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `pendaftaran_event`
 --
 ALTER TABLE `pendaftaran_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `role_request`
 --
 ALTER TABLE `role_request`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tanaman`
@@ -484,13 +508,13 @@ ALTER TABLE `tanaman`
 -- AUTO_INCREMENT for table `tanaman_event`
 --
 ALTER TABLE `tanaman_event`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- Constraints for dumped tables
